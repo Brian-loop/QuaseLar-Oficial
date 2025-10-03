@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'open-sans';
+    src: url(../font/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: 'open-sans';
+}
+.body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+}
+/*=========================================================================================================*/
+/*header*/
+/* A tela UltraWide QHD (resolução 3440x1440, proporção de 21:9) */
+/* tomarei essa medida com tamanho maximo para tudo */
+.header_html{
+    max-width: 3440px;
+    width: 100%;
+    height: 4.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.header_html .group_itens{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.group_itens .itens1, .group_itens .itens2{
+    width: 12.5rem;
+    height: 2.7rem;
+}
+.group_itens .itens2{
+    width: 19.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 1s;
+}
+/*botões entrar/cadastrar-se*/
+.cadastrar{
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: rgba(14, 106, 190, 1);
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
+.cadastrar:hover{
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+
+.cadastrar:active{
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+.entrar{
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    border: 1.6px rgb(192, 188, 188) dashed;
+    color: black;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    text-decoration: none;
+}
+.entrar:hover {
+    color: white;
+    background-color: rgb(192, 188, 188);
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+.entrar:active {
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+/*============================================================================================================================================*/
+/* menu hamburger */
+
+.hamburger{
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.438rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 2.85rem;
+    width: 2.85rem;
+    background: none;
+    border: none;
+    transition: 0.5s;
+}
+.barra1, .barra2, .barra3{
+    height: 0.25rem;
+    width: 2.5rem;
+    background-color: #333;
+    margin: 0.25rem;
+    transition: 0.5s;
+    border-radius: 0.25rem;
+}
+.hamburger.is-active{
+    box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.1); 
+    transform: scale(0.84);
+}
+/* Animação do Hamburger para X */
+.hamburger.is-active .barra2{
+    transform: translateY(0) rotate(314deg); /* Primeira barra gira e se move */
+}
+.hamburger.is-active .barra1{
+    transform: translateY(11px) rotate(45deg); /* Primeira barra gira e se move */
+}
+.hamburger.is-active .barra3{
+    transform: translateY(-12.5px) rotate(-226deg); /* Terceira barra gira e se move */
+}
+/*============================================================================================================================================*/
+/* tela do menu  */
+.tela_burguer{
+    position: fixed;
+    top:  4.875rem;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    height: 100%;
+    width: 15rem;
+    background-color: white;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.1rem;
+    padding-left: 0.1rem;
+}
+.itens_menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.itens_menu li{
+    margin: 0;
+}
+.itens_menu li a{
+    display: block; /* Ocupa toda a largura do <li> */
+    text-decoration: none;
+    color: #333; 
+    font-family: 'open-sans';
+    font-weight: 600;
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden; 
+    position: relative;
+    transition: background-color 0.4s ease, padding-left 0.4s ease; 
+}
+.itens_menu li a:hover{
+    padding-right: 30px;
+    color: #070707;
+    transform: scale(1.01);
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.itens_menu li a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: rgba(14, 106, 190, 1);
+    transform: scaleY(0); 
+    transition: transform 0.4s ease; 
+    transform-origin: top; 
+}
+.itens_menu li a:hover::before{
+    transform: scaleY(1); 
+}
+.itens_menu li a i{
+    margin-right: 0.5rem;
+    margin-left: 0.6rem;
+}
+
+/* botões ocultos */
+/*so para a versão mobile*/
+.entrar-menu, .cadastrar-menu{
+    display: none;
+}
+.tela_burguer.active{
+    transform: translate(0);
+} 
+
+/*============================================================================================================================================*/
+/*Quem somos? - Modal*/
+.modal{
+    display: none; /* Esconde o modal por padrão */
+    z-index: 7; /* Fica por cima de outros elementos */
+    height: 100vh;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /*Habilita scroll se o conteúdo for muito grande */
+    background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente preto */
+}
+/* Estilo do Conteúdo do Modal */
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 5% auto;
+    border: 1px solid #888;
+    width: 48rem;
+    height: 30rem;
+    overflow: hidden;
+    display: flex;
+    position: relative; /* Importante para posicionar o botão de fechar */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+/* Estilo do Botão de Fechar ('x') */
+.fechar {
+    color: #aaa;
+    float: right; /* Flutua para o canto direito */
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 20px; /* Ajusta o alinhamento vertical */
+    position: absolute; /* Posição absoluta dentro do modal-conteudo */
+    top: 10px; /* Distância do topo */
+    right: 15px; /* Distância da direita */
+}
+.fechar:hover,
+.fechar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.conteudo-modal-1{
+    width: 24rem;
+    height: 100%;
+    overflow: hidden;
+}
+.conteudo-modal-1 img{
+    width: 100%;
+    /* height: 32rem; */
+}
+.conteudo-modal-2{
+    width: 24rem;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.conteudo-modal-2 h2{
+    width: 100%;
+    text-align: center;
+}
+.conteudo-modal-2 p{
+    line-height: 150%;
+    width: 80%;
+    margin-top: 1.5rem;
+}
+
+/*============================================================================================================================================*/
+/*mobile*/
+@media screen and (max-width:768px) {
+    .entrar, .cadastrar{
+        display: none;
+    }
+    .entrar-menu, .cadastrar-menu{
+        display: block;
+        font-family: 'open-sans';
+    }
+}
