@@ -1,0 +1,212 @@
+.page_cad_pets{
+    height: 90vh;
+    width: 100%;
+    background-color: rgb(188, 188, 207);
+    max-width: 3440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.cad_pets{
+    width: 58rem;
+    height: 34rem;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cad_pets_itens1{
+    width: 24rem;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cad_pets_itens2{
+    width: 34rem;
+    height: 100%;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.group_inputs_pet{
+    height: 32rem;
+    width: 32rem;
+    border-radius: 1rem;
+    background-color: white;
+    padding: 1.4rem;
+    border: 1px gray solid;
+    display: flex;
+    flex-direction: column;
+}
+.group_inputs_pet .titulo_cadPets{
+    height: 4rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.group_inputs_pet .titulo_cadPets h3{
+    background-color: #0056b3;
+    height: 4rem;
+    width: 23rem;
+    border-radius: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.group_inputs_pet .pet_cad_inputs1, .group_inputs_pet .pet_cad_inputs2,
+.group_inputs_pet .pet_cad_inputs3, .group_inputs_pet .pet_cad_inputs4{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.group_inputs_pet label, .group_inputs_pet input, .group_inputs_pet textarea, 
+.group_inputs_pet select, .group_inputs_pet select option{
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'open-sans';
+}
+.group_inputs_pet label{
+    margin-right: 0.275rem;
+}
+.group_inputs_pet select{
+     /* Fundo e Borda */
+    background-color: transparent;
+    /* background-color: #f8f8f8;  */
+    border-radius: 0.2rem; 
+    color: #333;
+    width: 6rem;
+    padding-left: 0.3rem;
+    /* Remoção da aparência padrão (importante para ter mais controle) */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.group_inputs_pet select:focus{
+    border-color: #0056b3; /* Azul mais escuro */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave */
+    outline: none; /* Remove o outline padrão */
+}
+.group_inputs_pet input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+.group_inputs_pet input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+.group_inputs_pet input{
+    width: 10rem; 
+    border-radius: 4px;
+    padding: 0.3rem 0;
+    padding-left: 0.4rem;
+    border: 0.1rem solid #ccc; 
+    border-bottom: 0.1rem solid #ccc; 
+    background-color: transparent; 
+    outline: none; 
+    color: #333; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    }
+.group_inputs_pet input:focus {
+    border: 1px solid #007bff8d; 
+    /* box-shadow: 0 1px 0 0 #007bff; */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave */
+}
+/* Placeholder styling */
+.group_inputs_pet input::placeholder {
+    color: #aaa; 
+}
+.group_inputs_pet textarea{
+    border-radius: 4px;
+    padding: 0.3rem 0;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    border: 0.1rem solid #ccc; 
+    border-bottom: 0.1rem solid #ccc; 
+    background-color: transparent; 
+    outline: none; 
+    color: #333; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    width: 100%;
+}
+.group_inputs_pet textarea:focus{
+    border: 1px solid #007bff8d; 
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave */
+}
+.pet_cad_inputs3{
+    padding-right: 3.2rem;
+}
+.pet_cad_inputs1 div:nth-child(1) input{
+    width: 13.4rem;
+} 
+.pet_cad_inputs2 div:nth-child(1) input{
+    width: 12rem;
+}
+.pet_cad_inputs3 div:nth-child(1) input{
+    width: 13rem;
+}
+
+.motivo_doacao{
+    height: 9rem;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.motivo_doacao div label{
+    margin-top: 0.35rem;
+    width: 11.4rem;
+}
+.motivo_doacao div{
+    width: 100%;
+    display: flex;
+    align-items: start;
+}
+.motivo_doacao span{
+    width: 100%;
+    text-align: right;
+    font-size: 0.625rem;
+    font-family: 'open-sans';
+    color: #333;
+}
+.alinha_cad_button{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+/* From Uiverse.io by JasonMep */ 
+.button {
+    color: #ecf0f1;
+    background-color: #1c791a;
+    border: 1px solid #47cf52;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 2.3rem;
+    width: 5rem;
+    box-shadow: 0px 6px 0px #2e8d1f;
+    transition: all 0.1s;
+}
+
+.button:active {
+    box-shadow: 0px 2px 0px #00d354;
+    position: relative;
+    top: 2px;
+}
+
+/* Estilo para quando estiver perto do limite */
+.limite-atingido {
+    color: #dc3545 !important; /* Vermelho para indicar o limite */
+}
