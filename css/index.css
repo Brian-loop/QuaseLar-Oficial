@@ -1,0 +1,8 @@
+.apresentacao{
+    /* background: url(../img/fundo-animado.gif); */
+    height: 87vh;
+    width: 100%;
+    max-width: 3440px;
+    object-fit: cover;
+    background-color: blue;
+}
