@@ -1,0 +1,145 @@
+.tela_cad_entrar{
+    height: 90vh;
+    width: 100%;
+    max-width: 3440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: white;
+}
+.group_usuarios_inputs{
+    height: 30rem;
+    width: 46rem;
+    border: 1px rebeccapurple solid;
+    display: flex;
+    flex-direction: row;
+}
+/*=========================================================================================================*/
+/*Login*/
+.entrar_usuario{
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.cad_usuario{
+    height: 100%;
+    width: 26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px coral solid;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.input-group {
+    position: relative;
+    width: 300px;
+    margin-bottom: 0.6rem;
+}
+
+/* Estilização do Campo de Input - MUDANÇAS AQUI */
+.input-group input {
+    width: 100%;
+    /* Padding ajustado para compensar a borda */
+    padding: 14px 10px 4px 10px; 
+    
+    /* NOVA BORDA COMPLETA */
+    border: 1px solid #ccc; 
+    
+    /* Remove a borda-inferior que estava antes */
+    border-bottom: 2px solid #ccc; 
+    
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease; /* Transição em 'all' para animar cor da borda */
+
+    /* Opcional: Borda arredondada */
+    border-radius: 4px; 
+}
+
+/* Efeito de Foco Vibrante - MUDANÇAS AQUI */
+.input-group input:focus {
+    /* Mude a cor da borda completa no foco */
+    border-color: #007bff; 
+    /* Garante que a borda inferior também mude */
+    border-bottom-color: #007bff;
+    /* Efeito de "sombra" no foco para um visual 3D suave */
+    box-shadow: 0 0 0 1px #007bff; 
+}
+
+/* Estilização do Label (Placeholder Flutuante) - Sem alteração de posição */
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: white;
+    padding: 0 5px; /* Espaçamento para o background */
+}
+
+/* Animação: Label Flutua (para cima) - MUDANÇAS AQUI */
+
+/* 1. Quando o input está em foco (selecionado) */
+.input-group input:focus + label,
+/* 2. Quando o input já tem conteúdo (para não voltar) */
+.input-group input:valid + label { 
+    top: 0; 
+    font-size: 12px;
+    color: #007bff;
+    /* Ajuste para que o label flutuante fique no meio da borda superior */
+    transform: translate(-5px, -50%); 
+}
