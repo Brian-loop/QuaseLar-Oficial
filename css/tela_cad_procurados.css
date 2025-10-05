@@ -1,1 +1,9 @@
 /* tela_cad_procurados.php */
+
+.tela_cad_procurados{
+    height: 90vh;
+    width: 100%;
+    max-width: 3440px;
+    background-color: blueviolet;
+}
+    
