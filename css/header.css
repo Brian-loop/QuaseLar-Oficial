@@ -35,6 +35,22 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+.logo{ /*logo*/
+    font-size: 28px;
+    display: flex;
+    align-items: end;
+    text-decoration: none;
+    color: #000;
+}
+.logo img{
+    height: 50px;
+    margin-bottom: 3px;
+}
+
+
+
 .group_itens .itens1, .group_itens .itens2{
     width: 12.5rem;
     height: 2.7rem;
@@ -51,7 +67,7 @@
     padding: 12.5px 30px;
     border: 0;
     border-radius: 100px;
-    background-color: rgba(14, 106, 190, 1);
+    background-color: #0E6ABE;
     color: #ffffff;
     font-weight: Bold;
     transition: all 0.5s;

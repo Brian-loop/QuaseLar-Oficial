@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/tela_cad_pets.css">
     <link rel="stylesheet" href="./css/tela_cad_entrar_usuarios.css">
     <link rel="stylesheet" href="./css/tela_cad_procurados.css">
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- bootstrap icons-->
@@ -26,7 +27,7 @@
     <header class="header_html">
         <nav class="group_itens">
             <div class="itens1">
-                logo
+            <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
             </div>
             <div class="itens2">
                 <a href="" class="entrar">Entrar</a>
