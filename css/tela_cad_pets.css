@@ -11,7 +11,6 @@
 .cad_pets{
     width: 58rem;
     height: 34rem;
-    /* background-color: black; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,15 +18,14 @@
 .cad_pets_itens1{
     width: 24rem;
     height: 100%;
-    background-color: blue;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .cad_pets_itens2{
     width: 34rem;
     height: 100%;
-    /* background-color: brown; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,6 +75,7 @@
 }
 .group_inputs_pet label{
     margin-right: 0.275rem;
+    color: #0056b3;
 }
 .group_inputs_pet select{
      /* Fundo e Borda */
@@ -119,7 +118,6 @@
     }
 .group_inputs_pet input:focus {
     border: 1px solid #007bff8d; 
-    /* box-shadow: 0 1px 0 0 #007bff; */
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave */
 }
 /* Placeholder styling */
@@ -186,28 +184,24 @@
     display: flex;
     justify-content: right;
 }
-
-/* From Uiverse.io by JasonMep */ 
-.button {
+.button_cad_pets{
     color: #ecf0f1;
-    background-color: #1c791a;
-    border: 1px solid #47cf52;
+    background-color: #0E6ABE;
+    border: 1px solid #0a559b;
     border-radius: 5px;
     cursor: pointer;
     height: 2.3rem;
     width: 5rem;
-    box-shadow: 0px 6px 0px #2e8d1f;
+    box-shadow: 0px 6px 0px #0c5294;
     transition: all 0.1s;
 }
-
-.button:active {
-    box-shadow: 0px 2px 0px #00d354;
+.button_cad_pets:active{
+    box-shadow: 0px 2px 0px #0c5294;
     position: relative;
     top: 2px;
 }
-
 /* Estilo para quando estiver perto do limite */
-.limite-atingido {
+.limite-atingido{
     color: #dc3545 !important; /* Vermelho para indicar o limite */
 }
 
@@ -216,11 +210,11 @@
 /*=====================================================================================*/
 /*carousel do cadastro*/
 /* Esconde os inputs de rádio */
-.carousel-container input[type="radio"] {
+.carousel-container input[type="radio"]{
     display: none;
 }
 
-/* 1. Container Principal com o limite de tamanho (24rem x 24rem) */
+/*Container Principal com o limite de tamanho (24rem x 24rem) */
 .carousel-container{
     position: relative;
     width: 24rem; /* 384px */
@@ -231,7 +225,7 @@
     border-radius: 8px;
 }
 
-/* 2. Pista/Trilha do Carrossel */
+/* Pista/Trilha do Carrossel */
 .carousel-track{
     display: flex;
     width: 500%; /* 5 slides * 100% */
@@ -239,7 +233,7 @@
     transition: transform 0.5s ease-in-out; /* Adiciona a transição de deslize */
 }
 
-/* 3. Estilo de cada Slide/Imagem */
+/*Estilo de cada Slide/Imagem */
 .carousel-slide {
     width: 20%; /* 100% / 5 slides = 20% */
     height: 100%;
@@ -252,7 +246,7 @@
     object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
 }
 
-/* 4. Lógica de Navegação: Quando um rádio é checado, move a pista (track) */
+/*Lógica de Navegação: Quando um rádio é checado, move a pista (track) */
 #slide-1:checked ~ .carousel-track {
     transform: translateX(0);
 }
@@ -269,7 +263,7 @@
     transform: translateX(-80%);
 }
 
-/* 5. Estilo e Posicionamento das Setas */
+/*Estilo e Posicionamento das Setas */
 .carousel-nav-arrows {
     position: absolute;
     top: 0;
@@ -299,16 +293,14 @@
     opacity: 1; /* Mostra a seta ao passar o mouse */
 }
 
-.prev-arrow {
+.prev-arrow{
     left: 0.5rem;
 }
 
-.next-arrow {
+.next-arrow{
     right: 0.5rem;
 }
-
 /* Lógica: Mostra APENAS a seta de navegação da imagem anterior e da próxima */
-
 /* PRÓXIMO: Mostra a seta "Next" quando o slide atual está checado */
 #slide-1:checked ~ .carousel-nav-arrows .next-slide-1,
 #slide-2:checked ~ .carousel-nav-arrows .next-slide-2,
@@ -317,7 +309,6 @@
 #slide-5:checked ~ .carousel-nav-arrows .next-slide-5 {
     display: block;
 }
-
 /* ANTERIOR: Mostra a seta "Prev" quando o slide atual está checado */
 #slide-1:checked ~ .carousel-nav-arrows .prev-slide-1,
 #slide-2:checked ~ .carousel-nav-arrows .prev-slide-2,
@@ -326,26 +317,22 @@
 #slide-5:checked ~ .carousel-nav-arrows .prev-slide-5 {
     display: block;
 }
-
 /* Esconde todas as setas (exceto as que devem aparecer) */
 .prev-arrow, .next-arrow {
     display: none;
 }
-
-
-/* 6. Estilo e Posicionamento dos Indicadores (Inputs Radius/Pontos) */
+/* Estilo e Posicionamento dos Indicadores (Inputs Radius/Pontos) */
 .carousel-indicators{
     position: absolute;
     bottom: 0.5rem;
-    left: 0;
-    /* left: 8.50rem; */
-    transform: translateX(-50%);
+    /* left: 0; */
+    left: 8.50rem;
+    /* transform: translateX(-50%); */
     display: flex;
     gap: 0.5rem;
-    z-index: 10;
+    /* z-index: 10; */
 }
-
-.ponto {
+.ponto{
     width: 0.75rem;
     height: 0.75rem;
     background-color: rgba(255, 255, 255, 0.6);
@@ -354,7 +341,7 @@
     transition: background-color 0.3s;
 }
 
-.ponto:hover {
+.ponto:hover{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -366,4 +353,35 @@
 #slide-5:checked ~ .carousel-indicators .ponto-5 {
     background-color: #007bff; /* Cor de destaque para o ponto ativo */
     border: 2px solid white;
+}
+/*=======================================================================================================*/
+/**/
+.bnt_file{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.adicionar_fts{
+    height: 3.1rem;
+    width: 12rem;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cacaca;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
+}
+.adicionar_fts input{
+    display: none;
+}
+.adicionar_fts .text_file span{
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #333;
+}
+.adicionar_fts .text_file span i{
+    margin-right: 0.4rem;
 }
