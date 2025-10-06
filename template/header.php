@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/tela_cad_pets.css">
     <link rel="stylesheet" href="./css/tela_cad_entrar_usuarios.css">
     <link rel="stylesheet" href="./css/tela_cad_procurados.css">
+    <link rel="stylesheet" href="./css/tela_config_perfil.css">
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -46,7 +47,7 @@
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
                 <li><a href="tela_cad_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="tela_cad_pets.php"><i class="bi bi-box2-heart"></i>Colocar para adoção</a></li>
-                <li><a href=""><i class="bi bi-gear-fill"></i>Configurações</a></li>
+                <li><a href="tela_config_perfil.php"><i class="bi bi-gear-fill"></i>Configurações</a></li>
             </ul>
         </nav>
     </header> 
