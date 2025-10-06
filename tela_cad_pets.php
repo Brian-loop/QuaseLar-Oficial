@@ -5,7 +5,53 @@ include './template/header.php';
 <section class="page_cad_pets">
     <main class="cad_pets">
         <nav class="cad_pets_itens1">
+            <div class="carousel-container">
+                <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
+                <input type="radio" name="slider" id="slide-2" class="slide_input_radio">
+                <input type="radio" name="slider" id="slide-3" class="slide_input_radio">
+                <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
+                <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
 
+                <div class="carousel-track">
+                    <div class="carousel-slide slide-1">
+                        <img src="" alt="Slide 1">
+                    </div>
+                    <div class="carousel-slide slide-2">
+                        <img src="" alt="Slide 2">
+                    </div>
+                    <div class="carousel-slide slide-3">
+                        <img src="" alt="Slide 3">
+                    </div>
+                    <div class="carousel-slide slide-4">
+                        <img src="" alt="Slide 4">
+                    </div>
+                    <div class="carousel-slide slide-5">
+                        <img src="" alt="Slide 5">
+                    </div>
+                </div>
+
+                <div class="carousel-nav-arrows">
+                    <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
+                    <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
+                    <label for="slide-2" class="prev-arrow prev-slide-3"><span>&#10094;</span></label>
+                    <label for="slide-3" class="prev-arrow prev-slide-4"><span>&#10094;</span></label>
+                    <label for="slide-4" class="prev-arrow prev-slide-5"><span>&#10094;</span></label>
+                    
+                    <label for="slide-2" class="next-arrow next-slide-1"><span>&#10095;</span></label>
+                    <label for="slide-3" class="next-arrow next-slide-2"><span>&#10095;</span></label>
+                    <label for="slide-4" class="next-arrow next-slide-3"><span>&#10095;</span></label>
+                    <label for="slide-5" class="next-arrow next-slide-4"><span>&#10095;</span></label>
+                    <label for="slide-1" class="next-arrow next-slide-5"><span>&#10095;</span></label>
+                </div>
+
+                <div class="carousel-indicators">
+                    <label for="slide-1" class="ponto ponto-1"></label>
+                    <label for="slide-2" class="ponto ponto-2"></label>
+                    <label for="slide-3" class="ponto ponto-3"></label>
+                    <label for="slide-4" class="ponto ponto-4"></label>
+                    <label for="slide-5" class="ponto ponto-5"></label>
+                </div>
+            </div>
         </nav>
         <nav class="cad_pets_itens2">
             <div class="group_inputs_pet">
