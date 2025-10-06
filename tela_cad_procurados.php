@@ -69,12 +69,13 @@ include './template/header.php';
                     <div class="titulo_cadProcurados"><h3>Cadastro do animal Procurado</h3></div>
                     <div class="procurados_cad_inputs1">
                         <div>
+                             <input type="hidden" name="cadastro" value="1">
                             <label for="nome_procurados">Nome do Animal:</label>
-                            <input type="text" id="nome_pet" placeholder="Digite o nome" maxlength="28">
+                            <input type="text" id="nome_pet" name="nome_procurado" placeholder="Digite o nome" maxlength="28">
                         </div>
                         <div>
                             <label for="sexo">Sexo:</label>
-                            <select name="" id="sexo">
+                            <select id="sexo" name="sexo_procurado" >
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="">Macho</option>
                                 <option value="">Fêmea</option>
@@ -84,13 +85,13 @@ include './template/header.php';
                     <div class="procurados_cad_inputs2">
                         <div>
                             <label for="especie">Espécie:</label>
-                            <input type="text" id="especie" placeholder="Ex: Cão, gato, coelho">                 
+                            <input type="text" id="especie" name="especie_procurado" placeholder="Ex: Cão, gato, coelho">                 
                         </div>
                         <div>
                             <label for="idade_animal">Idade:</label>
                             <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal">
-                            <select name="" id="idade_animal">
-                                <option value="">--Selecione--</option>
+                            <select  id="idade_animal" name="idade_procurado">
+                                <option value=""disabled selected>--Selecione--</option>
                                 <option value="">Semanas</option>
                                 <option value="">Meses</option>
                                 <option value="">Anos</option>
@@ -100,11 +101,11 @@ include './template/header.php';
                     <div class="procurados_cad_inputs3">
                         <div>
                             <label for="raca">Raça:</label>
-                            <input type="text" id="raca" placeholder="Ex: Shih tzu, vira-lata">
+                            <input type="text" id="raca" name="raca_procurado" placeholder="Ex: Shih tzu, vira-lata">
                         </div>
                         <div>
                             <label for="porte">Porte:</label>
-                            <select name="" id="porte">
+                            <select  id="porte" name="porte_procurado">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="">Grande</option>
                                 <option value="">Medio</option>
@@ -116,7 +117,7 @@ include './template/header.php';
                     <div class="ultima_informacao">
                         <div>
                             <label for="ultima_informacao">Ultima Informação do animal:</label>
-                            <textarea name="" id="ultima_informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255"></textarea>
+                            <textarea name="ultima" id="ultima_informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255"></textarea>
                         </div>
                         <span id="contador-caracteres">0 / 150 </span>
                     </div>

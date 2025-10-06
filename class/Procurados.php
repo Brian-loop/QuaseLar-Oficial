@@ -8,26 +8,27 @@ class Procurados {
 
     public function __construct()
     {
-        $dsn = "mysql:dbname={$_ENV['BANCO']};host={$_ENV['HOST']}";
-        $usuario = $_ENV['USUARIO'];
-        $senha = $_ENV['SENHA'];
+        $dsn = "mysql:dbname=db_quaselar;host=127.0.0.1";
+        $usuario ='root';
+        $senha = '';
         $this->conn = new PDO($dsn, $usuario, $senha);
     }
 
-    public function cadastro($id, $nome, $especie, $raca, $sexo, $porte, $ultima_vez)
+    public function cadastro( $nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade)
     {
-        $script = "INSERT INTO tb_procurados (id_usuario, nome_p, especie_p, raca_p, sexo_p, porte_p, ultima_vez_visto) VALUES (:id_usuario, :nome_p, :especie_p, :raca_p, :sexo_p, :porte_p, :ultima_vez_visto)";
+        $script = "INSERT INTO tb_procurados ( nome_p, especie_p, raca_p, sexo_p, porte_p, ultima_vez_visto, idade) VALUES ( :nome_p, :especie_p, :raca_p, :sexo_p, :porte_p, :ultima_vez_visto, :idade)";
 
         $insert = $this->conn ->prepare($script);
 
         $insert->execute ([
-            ":id_usuario" => $id,
+            
             ":nome_p" => $nome,
             ":especie_p" => $especie,
             ":raca_p" => $raca,
             ":sexo_p" => $sexo,
             ":porte_p" => $porte,
-            ":ultima_vez_visto" => $ultima_vez
+            ":ultima_vez_visto" => $ultima_vez,
+            ":idade" => $idade
         ]);
         
         return $this->conn->lastInsertId();
