@@ -14,10 +14,10 @@ include './template/header.php';
 
                 <div class="carousel-track">
                     <div class="carousel-slide slide-1">
-                        <img src="" alt="Slide 1">
+                        <img src="./img/fundo-animado.gif" alt="Slide 1">
                     </div>
                     <div class="carousel-slide slide-2">
-                        <img src="" alt="Slide 2">
+                        <img src="./img/sobre_nos.png" alt="Slide 2">
                     </div>
                     <div class="carousel-slide slide-3">
                         <img src="" alt="Slide 3">
@@ -52,10 +52,19 @@ include './template/header.php';
                     <label for="slide-5" class="ponto ponto-5"></label>
                 </div>
             </div>
+
+            <div class="bnt_file">
+                <label class="adicionar_fts" for="file">
+                    <div class="text_file">
+                        <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
+                    </div>
+                    <input type="file" id="file">
+                </label>
+            </div>
         </nav>
         <nav class="cad_pets_itens2">
             <div class="group_inputs_pet">
-                <div class="titulo_cadPets"><h3>Cadastre de animais</h3></div>
+                <div class="titulo_cadPets"><h3>Cadastro de animais</h3></div>
                 <div class="pet_cad_inputs1">
                     <div>
                         <label for="nome_pet">Nome do pet:</label>
@@ -89,7 +98,7 @@ include './template/header.php';
                 <div class="pet_cad_inputs3">
                     <div>
                         <label for="raca">Raça:</label>
-                        <input type="text" id="raca" placeholder="Ex: Shih tzu, viar-lata">
+                        <input type="text" id="raca" placeholder="Ex: Shih tzu, vira-lata">
                     </div>
                     <div>
                         <label for="porte">Porte:</label>
@@ -127,7 +136,7 @@ include './template/header.php';
                     <span id="contador-caracteres">0 / 150 </span>
                 </div>
                 <div class="alinha_cad_button">
-                    <button class="button" type="submit">Enviar</button>
+                    <button class="button_cad_pets" type="submit">Enviar</button>
                 </div>
             </div>
         </nav>
