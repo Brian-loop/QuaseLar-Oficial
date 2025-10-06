@@ -2,7 +2,7 @@
 .config_tela{
     height: 90vh;
     width: 100%;
-    background-color: rgb(188, 188, 207);
+    background-color: rgb(230, 202, 237);
     max-width: 3440px;
     display: flex;
     justify-content: center;
