@@ -9,11 +9,14 @@
     background-color: white;
 }
 .group_usuarios_inputs{
-    height: 30rem;
+    height: 32rem;
     width: 46rem;
     border: 1px rebeccapurple solid;
     display: flex;
     flex-direction: row;
+}
+.titulo_cad_usuario{
+    margin-bottom: 0.475rem;
 }
 /*=========================================================================================================*/
 /*Login*/
@@ -37,44 +40,14 @@
     padding: 2rem;
     overflow: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.juntos{
+    width: 350px;
+    position: relative;
+    display: flex;
+}
+.juntos div:nth-child(1){
+    margin-right: 0.475rem;
+}
 
 
 
@@ -87,7 +60,7 @@
 }
 
 /* Estilização do Campo de Input - MUDANÇAS AQUI */
-.input-group input {
+.input-group input{
     width: 100%;
     /* Padding ajustado para compensar a borda */
     padding: 14px 10px 4px 10px; 
@@ -108,7 +81,7 @@
 }
 
 /* Efeito de Foco Vibrante - MUDANÇAS AQUI */
-.input-group input:focus {
+.input-group input:focus{
     /* Mude a cor da borda completa no foco */
     border-color: #007bff; 
     /* Garante que a borda inferior também mude */
@@ -118,7 +91,7 @@
 }
 
 /* Estilização do Label (Placeholder Flutuante) - Sem alteração de posição */
-.input-group label {
+.input-group label{
     position: absolute;
     top: 50%;
     left: 10px;
@@ -136,7 +109,7 @@
 /* 1. Quando o input está em foco (selecionado) */
 .input-group input:focus + label,
 /* 2. Quando o input já tem conteúdo (para não voltar) */
-.input-group input:valid + label { 
+.input-group input:valid + label{ 
     top: 0; 
     font-size: 12px;
     color: #007bff;
