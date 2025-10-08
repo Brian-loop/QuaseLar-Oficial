@@ -1,6 +1,32 @@
 <?php
-//aqui temos que criar as class que usaremos no projeto tipo: banco de dados, script(INSERT INTO..., SELECT * FROM..)
-//exemplos de codigos "aula4.php" Paulo.
 
-//teste liveshare
+class Quaselar {
+
+    private $conn;
+
+    public function __construct()
+    {
+        $dsn = "mysql:dbname=db_quaselar;host=127.0.0.1";
+        $usuario ='root';
+        $senha = '';
+        $this->conn = new PDO($dsn, $usuario, $senha);
+    }
+
+    public function conexao(){
+
+      return $this->conn;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
 

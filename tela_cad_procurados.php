@@ -5,8 +5,10 @@ include './template/header.php';
 
 <section class="page_cad_procurados">
     <main class="cad_procurados">
-        <nav class="cad_procurados_itens1">
-            <div class="carousel-container">
+
+        <form action="./cad_img.php" method="POST">
+            <nav class="cad_procurados_itens1">
+                <div class="carousel-container">
                 <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
                 <input type="radio" name="slider" id="slide-2" class="slide_input_radio">
                 <input type="radio" name="slider" id="slide-3" class="slide_input_radio">
@@ -30,7 +32,7 @@ include './template/header.php';
                         <img src="" alt="Slide 5">
                     </div>
                 </div>
-
+                
                 <div class="carousel-nav-arrows">
                     <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
                     <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
@@ -59,10 +61,13 @@ include './template/header.php';
                     <div class="text_file">
                         <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
                     </div>
-                    <input type="file" id="file">
+                    <input type="file" id="file" name="file" accept="image/*" required>
+                    <input type="submit" value="enviar">
                 </label>
             </div>
         </nav>
+    </form>
+
         <form action="cad_procurados.php" method="POST">
             <nav class="cad_procurados_itens2">
                 <div class="group_inputs_procurados">
@@ -77,8 +82,8 @@ include './template/header.php';
                             <label for="sexo">Sexo:</label>
                             <select id="sexo" name="sexo_procurado" >
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="">Macho</option>
-                                <option value="">Fêmea</option>
+                                <option value="macho">Macho</option>
+                                <option value="femea">Fêmea</option>
                             </select> 
                         </div>
                     </div>
@@ -89,12 +94,12 @@ include './template/header.php';
                         </div>
                         <div>
                             <label for="idade_animal">Idade:</label>
-                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal">
-                            <select  id="idade_animal" name="idade_procurado">
+                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor">
+                            <select  id="idade_animal" name="idade_tipo">
                                 <option value=""disabled selected>--Selecione--</option>
-                                <option value="">Semanas</option>
-                                <option value="">Meses</option>
-                                <option value="">Anos</option>
+                                <option value="semanas">Semanas</option>
+                                <option value="meses">Meses</option>
+                                <option value="anos">Anos</option>
                             </select>
                         </div>
                     </div>
@@ -107,9 +112,9 @@ include './template/header.php';
                             <label for="porte">Porte:</label>
                             <select  id="porte" name="porte_procurado">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="">Grande</option>
-                                <option value="">Medio</option>
-                                <option value="">Pequeno</option>
+                                <option value="grande">Grande</option>
+                                <option value="medio">Medio</option>
+                                <option value="pequeno">Pequeno</option>
                             </select>
                         </div>
                     </div>
