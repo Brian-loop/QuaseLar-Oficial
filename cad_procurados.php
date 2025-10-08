@@ -8,11 +8,12 @@ $raca = $_POST["raca_procurado"];
 $sexo = $_POST ["sexo_procurado"];
 $porte = $_POST ["porte_procurado"];
 $ultima_vez = $_POST ["ultima"];
-$idade = $_POST ["idade_procurado"];
+$idade_valor = $_POST ["idade_valor"];
+$idade_tipo =$_POST["idade_tipo"];
 
 
 $procurados = new Procurados();
-$resultado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade);
+$resultado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo);
 
 
 if($_SERVER['REQUEST_METHOD'] = 'POST' && isset($_POST['cadastro']) ){
