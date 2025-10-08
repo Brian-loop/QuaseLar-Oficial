@@ -5,7 +5,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     background-color: white;
 }
 .group_usuarios_inputs{
@@ -38,7 +37,6 @@
     justify-content: center;
     border: 1px coral solid;
     padding: 2rem;
-    overflow: hidden;
 }
 .juntos{
     width: 350px;
@@ -116,3 +114,34 @@
     /* Ajuste para que o label flutuante fique no meio da borda superior */
     transform: translate(-5px, -50%); 
 }
+.input-group.input-error{
+    background-color: red;
+}
+/*estilos para as mensagens de erro dos inputs*/
+/* #msgErroNome{
+    height: 2.8rem;
+    min-width: 9rem;
+    background-color: #ffffff;
+    position: absolute;
+    left: 22.7rem;
+    border-radius: 0.5rem;
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.938rem;
+    display: inline-block;
+    color: red;
+    display: none;
+
+}
+#msgErroNome::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #e0e0e0;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+} */
