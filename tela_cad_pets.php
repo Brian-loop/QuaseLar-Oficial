@@ -62,76 +62,79 @@ include './template/header.php';
                 </label>
             </div>
         </nav>
-        <nav class="cad_pets_itens2">
-            <div class="group_inputs_pet">
+
+        <form action="./cad_pets.php" method="POST">
+            <nav class="cad_pets_itens2">
+                <div class="group_inputs_pet">
                 <div class="titulo_cadPets"><h3>Cadastro de animais</h3></div>
                 <div class="pet_cad_inputs1">
                     <div>
                         <label for="nome_pet">Nome do pet:</label>
-                        <input type="text" id="nome_pet" placeholder="Digite o nome do pet" maxlength="28">
+                            <input type="hidden" name="cadastro" value="1">
+                        <input type="text" id="nome_pet" name="nome" placeholder="Digite o nome do pet" maxlength="28">
                     </div>
                     <div>
                         <label for="sexo">Sexo:</label>
-                        <select name="" id="sexo">
+                        <select name="sexo" id="sexo">
                             <option value="" disabled selected>--Selecione--</option>
-                            <option value="">Macho</option>
-                            <option value="">Fêmea</option>
+                            <option value="macho">Macho</option>
+                            <option value="femea">Fêmea</option>
                         </select> 
                     </div>
                 </div>
                 <div class="pet_cad_inputs2">
                     <div>
                         <label for="especie">Espécie:</label>
-                        <input type="text" id="especie" placeholder="Ex: Cão, gato, coelho">                 
+                        <input type="text" id="especie" name="especie" placeholder="Ex: Cão, gato, coelho">                 
                     </div>
                     <div>
                         <label for="idade_pet">Idade:</label>
-                        <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_pet">
-                        <select name="" id="idade_pet">
-                            <option value="">--Selecione--</option>
-                            <option value="">Semanas</option>
-                            <option value="">Messes</option>
-                            <option value="">Anos</option>
+                        <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_pet" name="idade_pet">
+                        <select name="idade" id="idade">
+                            <option value="" disabled selected>--Selecione--</option>
+                            <option value="semanas">Semanas</option>
+                            <option value="meses">Meses</option>
+                            <option value="anos">Anos</option>
                         </select>
                     </div>
                 </div>
                 <div class="pet_cad_inputs3">
                     <div>
                         <label for="raca">Raça:</label>
-                        <input type="text" id="raca" placeholder="Ex: Shih tzu, vira-lata">
+                        <input type="text" id="raca" name="raca" placeholder="Ex: Shih tzu, vira-lata">
                     </div>
                     <div>
                         <label for="porte">Porte:</label>
-                        <select name="" id="porte">
+                        <select name="porte" id="porte">
                             <option value="" disabled selected>--Selecione--</option>
-                            <option value="">Grande</option>
-                            <option value="">Medio</option>
-                            <option value="">Pequeno</option>
+                            <option value="grande">Grande</option>
+                            <option value="medio">Medio</option>
+                            <option value="pequeno">Pequeno</option>
                         </select>
                     </div>
                 </div>
                 <div class="pet_cad_inputs4">    
                     <div>
                         <label for="castrado">Castrado:</label>
-                        <select name="" id="castrado">
+                        <select name="castrado" id="castrado">
                             <option value="" disabled selected>--Selecione--</option>
-                            <option value="">Sim</option>
-                            <option value="">Não</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
                         </select>
                     </div>
                     <div>
                         <label for="vacinado">Vacinado</label>
-                        <select name="" id="vacinado">
+                        <select name="vacinado" id="vacinado">
                             <option value="" disabled selected>--Selecione--</option>
-                            <option value="">Sim</option>
-                            <option value="">Não</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
                         </select>
                     </div>
                 </div>
                 <div class="motivo_doacao">
                     <div>
                         <label for="motivo_doacao">Motivo da doação:</label>
-                        <textarea name="" id="motivo_doacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Minha cadela teve filhotes e não tenho condição de manter eles ..." maxlength="255"></textarea>
+                        <textarea name="motivo" id="motivo_doacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Minha cadela teve filhotes e não tenho condição de manter eles ..." maxlength="255"></textarea>
                     </div>
                     <span id="contador-caracteres">0 / 150 </span>
                 </div>
@@ -140,6 +143,7 @@ include './template/header.php';
                 </div>
             </div>
         </nav>
+    </form>
     </main>    
 </section>
 <script>
