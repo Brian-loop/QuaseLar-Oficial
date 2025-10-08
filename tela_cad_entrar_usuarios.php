@@ -17,10 +17,13 @@ include './template/header.php';
         <form action="cad_entrar_usuario.php" method="POST">
             <nav class="cad_usuario">
                 <div class="titulo_cad_usuario"><h3>Cadastre-se</h3></div>
+
                 <input type="hidden" name="cadastro" value="1">
+
                 <div class="input-group">
-                    <input type="text" id="meuInput" name="nome" required>
-                    <label for="meuInput">Digite seu nome...</label>
+                    <input type="text" id="nome" name="nome"  required onblur="validaNome()">
+                    <label for="nome" id="labelNome">Digite seu nome...</label>
+                    <span id="msgErroNome"></span>
                 </div>
                 <div class="input-group">
                     <input type="text" id="meuInput" name="email" required>
@@ -58,3 +61,5 @@ include './template/header.php';
         </form>
     </main>
 </section>
+
+
