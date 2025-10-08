@@ -118,7 +118,7 @@
     background-color: red;
 }
 /*estilos para as mensagens de erro dos inputs*/
-/* #msgErroNome{
+#msgErroNome{
     height: 2.8rem;
     min-width: 9rem;
     background-color: #ffffff;
@@ -144,4 +144,4 @@
     top: 50%;
     left: -10px;
     transform: translateY(-50%);
-} */
+}
