@@ -39,7 +39,7 @@
     padding: 2rem;
 }
 .juntos{
-    width: 350px;
+    width: 100%;
     position: relative;
     display: flex;
 }
@@ -47,78 +47,174 @@
     margin-right: 0.475rem;
 }
 
-
-
-
-
+/* ============================================================================================================= */
+/* inputs estilos */
 .input-group {
     position: relative;
-    width: 300px;
-    margin-bottom: 0.6rem;
+    width: 18.75rem;
+    margin-bottom: 0.8rem;
 }
-
-/* Estilização do Campo de Input - MUDANÇAS AQUI */
 .input-group input{
     width: 100%;
-    /* Padding ajustado para compensar a borda */
     padding: 14px 10px 4px 10px; 
-    
-    /* NOVA BORDA COMPLETA */
     border: 1px solid #ccc; 
-    
-    /* Remove a borda-inferior que estava antes */
     border-bottom: 2px solid #ccc; 
-    
     background: transparent;
-    font-size: 16px;
+    font-size: 1rem;
+    font-family: 'open-sans';
     outline: none;
     transition: all 0.3s ease; /* Transição em 'all' para animar cor da borda */
-
-    /* Opcional: Borda arredondada */
     border-radius: 4px; 
 }
-
-/* Efeito de Foco Vibrante - MUDANÇAS AQUI */
 .input-group input:focus{
-    /* Mude a cor da borda completa no foco */
     border-color: #007bff; 
-    /* Garante que a borda inferior também mude */
     border-bottom-color: #007bff;
-    /* Efeito de "sombra" no foco para um visual 3D suave */
     box-shadow: 0 0 0 1px #007bff; 
 }
-
-/* Estilização do Label (Placeholder Flutuante) - Sem alteração de posição */
 .input-group label{
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 0.625rem;
     transform: translateY(-50%);
     color: #999;
-    font-size: 16px;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
     pointer-events: none;
     transition: all 0.3s ease;
     background-color: white;
-    padding: 0 5px; /* Espaçamento para o background */
+    padding: 0 5px;
 }
-
-/* Animação: Label Flutua (para cima) - MUDANÇAS AQUI */
-
-/* 1. Quando o input está em foco (selecionado) */
 .input-group input:focus + label,
-/* 2. Quando o input já tem conteúdo (para não voltar) */
 .input-group input:valid + label{ 
     top: 0; 
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #007bff;
-    /* Ajuste para que o label flutuante fique no meio da borda superior */
-    transform: translate(-5px, -50%); 
+    transform: translate(-1px, -50%); 
 }
-.input-group.input-error{
-    background-color: red;
-}
+
 /*estilos para as mensagens de erro dos inputs*/
-#msgErroNome{
+.input-erro{
+    border-color: red !important;
+    box-shadow: 0 0 5px red !important;
+}
+
+/*estilos para as mensagens de sucesso dos inputs*/
+.input-sucesso{
+    border-color: green !important;
+    box-shadow: 0 0 5px green !important;
+}
+/*estilos para o globo de texto dos inputs*/
+.mensagem-erro{
+    position: absolute;
+    top: 50%;
+    left: 23rem;
+    transform: translateY(-50%);
+    width: 12rem;
+    min-width: 4rem;
+    background-color: #e6e3e3;
+    /* border-radius: 0.5rem; */
+    border-top-left-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    color: red;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
+    font-weight: 600;
+}
+.mensagem-erro-cpf{
+    position: absolute;
+    top: 50%;
+    left: 11.8rem;
+    transform: translateY(-50%);
+    width: 12rem;
+    min-width: 4rem;
+    background-color: #e6e3e3;
+    /* border-radius: 0.5rem; */
+    border-top-left-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    color: red;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
+    font-weight: 600;
+}
+.mensagem-erro::after, .mensagem-erro-cpf::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #e6e3e3;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top-left-radius: 0.5rem;
+
+}
+.mensagem-erro i, .mensagem-erro-cpf i{
+    display: none;
+    font-size: 1.2rem;
+}
+.mensagem-erro.sucesso, .mensagem-erro-cpf.sucesso{
+    width: 4rem;
+    color: green;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
+    font-weight: 600;
+}
+
+.mensagem-erro.sucesso .icone-ok, .mensagem-erro-cpf.sucesso .icone-ok{
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+.mensagem-erro.erro .icone-erro, .mensagem-erro-cpf.erro .icone-erro{
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #msgErroNome{
     height: 2.8rem;
     min-width: 9rem;
     background-color: #ffffff;
@@ -144,4 +240,4 @@
     top: 50%;
     left: -10px;
     transform: translateY(-50%);
-}
+} */
