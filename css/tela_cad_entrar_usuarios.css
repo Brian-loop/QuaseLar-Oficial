@@ -38,13 +38,19 @@
     border: 1px coral solid;
     padding: 2rem;
 }
-.juntos{
+.juntos, .juntos2{
     width: 100%;
     position: relative;
     display: flex;
 }
-.juntos div:nth-child(1){
+.juntos div:nth-child(1), .juntos2 div:nth-child(1){
     margin-right: 0.475rem;
+}
+.juntos2 .input-group .num_input{
+    width: 6.75rem;
+}
+.juntos2 .input-group .cep_input{
+    width: 14.7rem;
 }
 
 /* ============================================================================================================= */
@@ -144,7 +150,27 @@
     font-family: 'open-sans';
     font-weight: 600;
 }
-.mensagem-erro::after, .mensagem-erro-cpf::after{
+.mensagem-erro-numero{
+    position: absolute;
+    top: 50%;
+    left: 7.8rem;
+    transform: translateY(-50%);
+    width: 12rem;
+    min-width: 4rem;
+    background-color: #e6e3e3;
+    /* border-radius: 0.5rem; */
+    border-top-left-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    color: red;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
+    font-weight: 600;
+}
+.mensagem-erro::after, .mensagem-erro-cpf::after, .mensagem-erro-numero::after{
     content: '';
     position: absolute;
     width: 0;
@@ -158,24 +184,23 @@
     border-top-left-radius: 0.5rem;
 
 }
-.mensagem-erro i, .mensagem-erro-cpf i{
+.mensagem-erro i, .mensagem-erro-cpf i, .mensagem-erro-numero i{
     display: none;
     font-size: 1.2rem;
 }
-.mensagem-erro.sucesso, .mensagem-erro-cpf.sucesso{
+.mensagem-erro.sucesso, .mensagem-erro-cpf.sucesso, .mensagem-erro-numero.sucesso{
     width: 4rem;
     color: green;
     font-size: 0.875rem;
     font-family: 'open-sans';
     font-weight: 600;
 }
-
-.mensagem-erro.sucesso .icone-ok, .mensagem-erro-cpf.sucesso .icone-ok{
+.mensagem-erro.sucesso .icone-ok, .mensagem-erro-cpf.sucesso .icone-ok, .mensagem-erro-numero.sucesso .icone-ok{
     display: inline-block;
     position: relative;
     top: 2px;
 }
-.mensagem-erro.erro .icone-erro, .mensagem-erro-cpf.erro .icone-erro{
+.mensagem-erro.erro .icone-erro, .mensagem-erro-cpf.erro .icone-erro, .mensagem-erro-numero.erro .icone-erro{
     display: inline-block;
     position: relative;
     top: 2px;
@@ -206,38 +231,3 @@
 
 
 
-
-
-
-
-
-
-
-
-/* #msgErroNome{
-    height: 2.8rem;
-    min-width: 9rem;
-    background-color: #ffffff;
-    position: absolute;
-    left: 22.7rem;
-    border-radius: 0.5rem;
-    background-color: #e0e0e0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0.938rem;
-    display: inline-block;
-    color: red;
-    display: none;
-
-}
-#msgErroNome::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid #e0e0e0;
-    top: 50%;
-    left: -10px;
-    transform: translateY(-50%);
-} */
