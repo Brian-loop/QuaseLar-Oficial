@@ -319,11 +319,13 @@ async function buscarEnderecoPorCep(){
     const dados = await resposta.json();
 
     if (dados.erro) {
-      document.getElementById("textoErroCep").textContent = "CEP não encontrado";
-      document.getElementById("msgErroCep").classList.add("erro");
-      enderecoInput.value = "";
-      enderecoInput.dataset.base = "";
-      return;
+        document.getElementById("textoErroCep").textContent = "CEP não encontrado";
+        document.getElementById("msgErroCep").classList.remove('sucesso');
+        document.getElementById("msgErroCep").classList.add("erro");
+
+        enderecoInput.value = "";
+        enderecoInput.dataset.base = "";
+        return;
     }
 
     // Salva o endereço base (sem número)
@@ -491,4 +493,3 @@ function validarFormulario() {
     // Se tudo estiver correto, o formulário será enviado
     return true;
 }
-
