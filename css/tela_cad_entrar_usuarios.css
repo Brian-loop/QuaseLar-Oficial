@@ -208,7 +208,22 @@
 
 
 
+/**/
+.form-procurados{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
 
+.form-adocao{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
 
 
 
