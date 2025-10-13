@@ -15,6 +15,9 @@ include './template/header.php';
                 <label for="meuInput">Senha</label>
             </div>
         </nav>
+        <!-- tela divisoria -->
+        <div class="tela-que-se-mexe" id="telaMovel"></div>
+
         <!-- formulario de cadastro -->
         <form action="cad_entrar_usuario.php" method="POST">
             <nav class="cad_usuario">
@@ -119,7 +122,7 @@ include './template/header.php';
                     <span id="textoErroConfir_senha"></span>
                     </span>
                 </div>
-                <button type="submit" class="btn btn-primary"  onclick="return validarFormulario()">Cadastrar</button>
+                <button type="submit" class="btn btn-primary" onclick="return validarFormulario()">Cadastrar</button>
             </nav>
         </form>
     </main>
