@@ -85,7 +85,16 @@ include './template/header.php';
                 <div class="pet_cad_inputs2">
                     <div>
                         <label for="especie">Espécie:</label>
-                        <input type="text" id="especie" name="especie" placeholder="Ex: Cão, gato, coelho">                 
+                        <select id="especie" name="especie" >
+                                <option value="" disabled selected>--Selecione--</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Cachorro">Cachorro</option>
+                                <option value="Roedor">Roedor</option>
+                                <option value="Coelho">Coelho</option>
+                                <option value="Aves">Aves</option>
+                                <option value="Repteis">Repteis</option>
+                                <option value="Outros">Outros</option>
+                            </select>                           
                     </div>
                     <div>
                         <label for="idade_pet">Idade:</label>
