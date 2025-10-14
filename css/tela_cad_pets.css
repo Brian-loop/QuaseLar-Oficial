@@ -1,7 +1,7 @@
 .page_cad_pets{
     height: 90vh;
     width: 100%;
-    background-color: rgb(188, 188, 207);
+    background-color: rgb(252, 252, 252);
     max-width: 3440px;
     display: flex;
     justify-content: center;
@@ -115,6 +115,7 @@
     outline: none; 
     color: #333; 
     transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    background-color: #EEF0F1;
     }
 .group_inputs_pet input:focus {
     border: 1px solid #007bff8d; 
