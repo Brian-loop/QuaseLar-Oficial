@@ -59,7 +59,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: large;
+    font-size: 1.5rem;
 }
 
 .group_inputs_procurados .procurados_cad_inputs1, .group_inputs_procurados .procurados_cad_inputs2,
@@ -107,8 +107,8 @@
     border-radius: 4px;
     padding: 0.3rem 0;
     padding-left: 0.4rem;
-    border: 0.1rem solid #ccc; 
-    border-bottom: 0.1rem solid #ccc; 
+    border: 0.1rem solid #EEF0F1; 
+    border-bottom: 0.1rem solid #EEF0F1; 
     background-color: transparent; 
     outline: none; 
     color: #333; 
@@ -129,8 +129,8 @@
     padding: 0.3rem 0;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
-    border: 0.1rem solid #ccc; 
-    border-bottom: 0.1rem solid #ccc; 
+    border: 0.1rem solid #EEF0F1; 
+    border-bottom: 0.1rem solid #EEF0F1; 
     background-color: transparent; 
     outline: none; 
     color: #333; 
@@ -189,12 +189,12 @@
 .button{
     color: #ecf0f1;
     background-color: #0E6ABE;
-    border: 1px solid #0E6ABE;
+    border: 1px solid #0a559b;
     border-radius: 5px;
     cursor: pointer;
     height: 2.3rem;
     width: 5rem;
-    box-shadow: 0px 6px 0px #0E6ABE;
+    box-shadow: 0px 6px 0px #0c5294;
     transition: all 0.1s;
 }
 .button:active{

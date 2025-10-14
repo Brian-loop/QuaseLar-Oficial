@@ -71,7 +71,7 @@ include './template/header.php';
         <form action="cad_procurados.php" method="POST">
             <nav class="cad_procurados_itens2">
                 <div class="group_inputs_procurados">
-                    <div class="titulo_cadProcurados"><h3>Cadastro do animal Procurado</h3></div>
+                    <div class="titulo_cadProcurados"><h3>Cadastro do Animal Procurado</h3></div>
                     <div class="procurados_cad_inputs1">
                         <div>
                              <input type="hidden" name="cadastro" value="1">
@@ -90,7 +90,17 @@ include './template/header.php';
                     <div class="procurados_cad_inputs2">
                         <div>
                             <label for="especie">Espécie:</label>
-                            <input type="text" id="especie" name="especie_procurado" placeholder="Ex: Cão, gato, coelho">                 
+                            <select id="especie" name="especie_procurado" >
+                                <option value="" disabled selected>--Selecione--</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Cachorro">Cachorro</option>
+                                <option value="Roedor">Roedor</option>
+                                <option value="Coelho">Coelho</option>
+                                <option value="Aves">Aves</option>
+                                <option value="Repteis">Repteis</option>
+                                <option value="Outros">Outros</option>
+
+                            </select>                 
                         </div>
                         <div>
                             <label for="idade_animal">Idade:</label>

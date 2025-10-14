@@ -33,7 +33,7 @@
 .group_inputs_pet{
     height: 32rem;
     width: 32rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     background-color: white;
     padding: 1.4rem;
     border: 1px gray solid;
@@ -50,7 +50,7 @@
     margin-bottom: 2rem;
 }
 .group_inputs_pet .titulo_cadPets h3{
-    background-color: #0056b3;
+    background-color: #0E6ABE;;
     height: 4rem;
     width: 23rem;
     border-radius: 1.3rem;
@@ -75,14 +75,14 @@
 }
 .group_inputs_pet label{
     margin-right: 0.275rem;
-    color: #0056b3;
+    color: #0E6ABE;
 }
 .group_inputs_pet select{
      /* Fundo e Borda */
     background-color: transparent;
     /* background-color: #f8f8f8;  */
     border-radius: 0.2rem; 
-    color: #333;
+    color: #0E6ABE;
     width: 6rem;
     padding-left: 0.3rem;
     /* Remoção da aparência padrão (importante para ter mais controle) */
@@ -109,8 +109,8 @@
     border-radius: 4px;
     padding: 0.3rem 0;
     padding-left: 0.4rem;
-    border: 0.1rem solid #ccc; 
-    border-bottom: 0.1rem solid #ccc; 
+    border: 0.1rem solid #EEF0F1; 
+    border-bottom: 0.1rem solid #EEF0F1; 
     background-color: transparent; 
     outline: none; 
     color: #333; 
@@ -126,13 +126,13 @@
     color: #aaa; 
 }
 .group_inputs_pet textarea{
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 0.3rem 0;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
-    border: 0.1rem solid #ccc; 
-    border-bottom: 0.1rem solid #ccc; 
-    background-color: transparent; 
+    border: 0.1rem solid #EEF0F1; 
+    border-bottom: 0.1rem solid #EEF0F1; 
+    background-color: #EEF0F1; 
     outline: none; 
     color: #333; 
     transition: border-color 0.3s ease, box-shadow 0.3s ease; 
