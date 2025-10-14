@@ -9,3 +9,40 @@
     align-items: center;
     overflow: hidden;
 }
+.container_confg{
+    width: 54rem;
+    height: 32rem;
+    border: 1px rebeccapurple solid;
+    display: grid;
+    grid-template-columns: 20rem 34rem;
+    grid-template-rows: 5rem 27rem;
+}
+.imagem-configuracoes{
+    border: 1px rgb(143, 153, 51) solid;
+    height: 32rem;
+    background-color: rgb(143, 153, 51);
+
+}
+.confg_menu{
+    border: 1px rgb(51, 153, 51) solid;
+    height: 5rem;
+    grid-row: 1;
+    background-color: rgb(51, 153, 51);
+    grid-column: 2;
+    
+}
+.itens_confg1{
+    background-color: brown;
+    height: 27rem;
+    grid-row: 2;
+    grid-column: 2;
+
+
+    
+}
+.itens_confg2{
+    border: 1px rgb(153, 51, 139) solid;
+    display: none;
+    grid-row: 2;
+    grid-column: 2;
+}
