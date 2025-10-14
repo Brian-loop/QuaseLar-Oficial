@@ -46,7 +46,6 @@ function inicializarContador() {
     const textarea = document.getElementById('motivo_doacao');
     const contador = document.getElementById('contador-caracteres');
     
-    // 2. Garante que os elementos existem e que há um maxlength
     if (!textarea || !contador) {
         console.error("Elementos Textarea ou Contador não encontrados!");
         return; 
@@ -56,7 +55,6 @@ function inicializarContador() {
     if (!maxLength) {
         console.warn("O Textarea não tem o atributo 'maxlength'. O contador funcionará, mas sem limite.");
     }
-// 3. Define a função de atualização do contador
     function atualizarContador() {
         const currentLength = textarea.value.length;
         
@@ -64,7 +62,6 @@ function inicializarContador() {
         if (maxLength) {
             contador.textContent = `${currentLength} / ${maxLength}`;
             
-            // Aplica o estilo de limite
             if (currentLength >= parseInt(maxLength)) {
                 contador.classList.add('limite-atingido');
             } else {
@@ -74,14 +71,10 @@ function inicializarContador() {
             contador.textContent = `${currentLength} caracteres`;
         }
     }
-    // 4. Inicializa o contador com o valor atual (caso haja texto preenchido)
     atualizarContador();
-    // 5. Adiciona o listener para atualizar a cada entrada de texto
     textarea.addEventListener('input', atualizarContador);
 }
-// Chama a função principal quando o conteúdo da página estiver carregado
 document.addEventListener('DOMContentLoaded', inicializarContador);
-
 
 
 

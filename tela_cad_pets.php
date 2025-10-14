@@ -4,7 +4,6 @@ include './template/header.php';
 
 <section class="page_cad_pets">
     <main class="cad_pets">
-        <form action="./cad_pets.php" method="POST" enctype="multipart/form-data" class="form-adocao">
         <nav class="cad_pets_itens1">
             <div class="carousel-container">
                 <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
@@ -59,11 +58,12 @@ include './template/header.php';
                     <div class="text_file">
                         <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
                     </div>
-                    <input type="file" id="file" name="file" accept="image/*" required>
+                    <input type="file" id="file">
                 </label>
             </div>
         </nav>
 
+        <form action="./cad_pets.php" method="POST">
             <nav class="cad_pets_itens2">
                 <div class="group_inputs_pet">
                 <div class="titulo_cadPets"><h3>Cadastro de animais</h3></div>
