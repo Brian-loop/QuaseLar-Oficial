@@ -1,8 +1,118 @@
 .apresentacao{
-    /* background: url(../img/fundo-animado.gif); */
-    height: 87vh;
     width: 100%;
     max-width: 3440px;
-    object-fit: cover;
-    background-color: blue;
+    height: 93dvh;
+    max-height: 1440px;
+    background: url(./img/fundo-animado.gif) rgb(225, 74, 74);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    background-color: aliceblue;
+}
+.group_text_apresentacao{
+    width: 80%;
+    height: 80%;
+    /* border: 1px wheat solid; */
+    display: grid;
+    grid-template-columns: 50% 50%;
+    transition: 1s;
+    overflow: hidden;
+
+}
+.txt_apresentacao1{
+    grid-column: 1;
+    transition: 1s;
+    color: white;
+    padding-right: 5rem;
+    grid-row: 1;
+}
+.txt_apresentacao2{
+    grid-row: 2;
+    transition: 1s;
+    grid-column: 2;
+    color: white;
+    display: flex;
+    align-items: end;
+    padding-left: 5rem;
+    padding-bottom: 1rem;
+}
+.mobile-img{
+    width: 100%;
+    background: url(./img/monochrome-black-abstract-yc-1360x768.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 31;
+    transition: 1s;
+    display: none;
+}
+.title{
+    width: 100%;
+    padding-left: 4rem;
+    border: 1px red solid;
+}
+.group_cards{
+    min-height: 100vh;
+    width: 100%;
+    max-width: 3440px;
+
+}
+/* laptop*/
+@media screen and (max-width:1200px) and (min-width:769px){
+    /* .grid{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 200px);
+    }
+    .box{
+        background-color: blue;
+        transition: 1s;
+    } */
+
+}
+/* mobile */
+@media screen and (max-width:768px) {
+    /* .grid{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 200px);
+    }
+    .box{
+        background-color: brown;
+        transition: 1s;
+    } */
+    .apresentacao{
+        background: none;
+    }
+    .mobile-img{
+        display: block;
+        border: 1px red solid;
+    }
+    .group_text_apresentacao{
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 35% 35% 30% ;
+
+    }
+    .txt_apresentacao1{
+        padding: 3rem;
+        grid-column: 1;
+        grid-row: 2;
+        padding-bottom: 0;
+        padding-top: 0.875rem;
+    }
+    .txt_apresentacao2{
+        padding: 3rem;
+        padding-bottom: 0.875rem;
+        padding-top: 0;
+        grid-column: 1;
+        grid-row: 3;
+        /* display: flex; */
+        /* justify-content: end;
+        align-items: end; */
+        /* text-align: center; */
+    }
 }
