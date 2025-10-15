@@ -15,9 +15,319 @@ include './template/header.php';
     </div>
 </section>
 <section class="title">
-        <h1>doaçao</h1>
+        <h1>Doaçao</h1>
+    
 </section>
 <section class="group_cards">
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+                
+            </div>
+            <a class="btn-adotar" id="openModalIndex" onclick="initModal()">Saiba mais!</a>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalOverlayIndex">
+    <div class="modal-index">
+        <span class="close-btn" id="closeModalIndex">&times;</span>
+        <h2 class="titulo-modalIndex">Doação</h2>
+
+        
+    </div>
+</div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
+    <div class="card-adocao">
+        <div class="card-header">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
+            <span class="status-chip">Americana/SP</span>
+        </div>
+        
+        <div class="card-body">
+            <h2 class="pet-nome">Mel</h2>
+            <p class="pet-descricao">
+                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
+                Procura um lar cheio de amor!
+            </p>
+            
+            <div class="pet-caracteristicas">
+                <!-- <div class="caracteristica-item">
+                    <strong>Porte:</strong> Médio
+                </div> -->
+                <div class="caracteristica-item">
+                    <strong>Idade:</strong> 2 anos
+                </div>
+                <div class="caracteristica-item">
+                    <strong>Gênero:</strong> Fêmea
+                </div>
+                <!-- <div class="caracteristica-item">
+                    <strong>Vacinação:</strong> Em dia
+                </div> -->
+            </div>
+            
+            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
+        </div>
+    </div>
 
 </section>
-    
+<script>
+    function initModal() {
+      const openBtnIndex = document.getElementById('openModalIndex');
+      const closeBtnIndex = document.getElementById('closeModalIndex');
+      const modalOverlayIndex = document.getElementById('modalOverlayIndex');
+
+      openBtnIndex.addEventListener('click', () => {
+        modalOverlayIndex.style.display = 'flex';
+      });
+
+      closeBtnIndex.addEventListener('click', () => {
+        modalOverlayIndex.style.display = 'none';
+      });
+
+
+      modalOverlayIndex.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlayIndex.style.display = 'none';
+        }
+      });
+    }
+    // window.addEventListener('DOMContentLoaded', initModal);
+</script>    
