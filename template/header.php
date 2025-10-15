@@ -21,7 +21,7 @@
     <!-- arquivos JS -->
     <script defer src="./js/script.js"></script>
     <script defer src="./js/validacoes.js"></script>
-    <script defer src=""></script>
+    <script defer src="./js/validacoes-animal.js"></script>
     
 </head>
 <body class="body">
