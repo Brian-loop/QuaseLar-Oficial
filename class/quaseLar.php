@@ -2,31 +2,30 @@
 
 class Quaselar {
 
-    private $conn;
+  private $conn;
 
-    public function __construct()
-    {
-        $dsn = "mysql:dbname=db_quaselar;host=127.0.0.1";
-        $usuario ='root';
-        $senha = '';
-        $this->conn = new PDO($dsn, $usuario, $senha);
-    }
+  public function __construct()
+  {
+      $dsn = "mysql:dbname=db_quaselar;host=127.0.0.1";
+      $usuario = 'root';
+      $senha = '';
+      $this->conn = new PDO($dsn, $usuario, $senha);
+  }
 
-    public function conexao(){
-
+  public function conexao()
+  {
       return $this->conn;
-
-    }
-
-
-
-
-
-
-
-
-
-
-
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
 
