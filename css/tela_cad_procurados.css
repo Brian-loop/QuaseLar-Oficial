@@ -396,21 +396,33 @@
     
 }
 
-.msg-erro {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: red;
-    text-align: left;
-}
-
-/* Bordas vermelhas e verdes */
-.input-erro-procurados {
+.input-erro{
     border-color: red !important;
     box-shadow: 0 0 5px red !important;
 }
-.input-sucesso-procurados {
+
+/*estilos para as mensagens de sucesso dos inputs*/
+.input-sucesso{
     border-color: green !important;
     box-shadow: 0 0 5px green !important;
+}
+.mensagem-erro-procurado{
+    position: absolute;
+    bottom: 8rem;
+    right: 30rem;
+   
+    width: 12rem;
+    min-width: 4rem;
+   
+    /* border-radius: 0.5rem; */
+    border-top-left-radius: 0.5rem;
+   
+    padding: 10px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    color: red;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
+    font-weight: 600;
 }

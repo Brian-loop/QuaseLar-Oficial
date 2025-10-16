@@ -14,7 +14,6 @@ function validaNome(){
     // Resetar classes e estilos
     input.classList.remove('input-erro', 'input-sucesso');
     msgErro.classList.remove('sucesso', 'erro');
-    msgErro.style.display = "block";
     msgErro.style.display = "inline-block";
 
     function mostrarErro(msg){

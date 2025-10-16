@@ -77,12 +77,12 @@ include './template/header.php';
                         <div>
                             <input type="hidden" name="cadastro" value="1" >
                             <label for="nome_procurados" id="labelNome">Nome do Animal:</label>
-                            <input type="text" id="nome_pet" name="nome_procurado" placeholder="Digite o nome" maxlength="28" required onblur="validaNomeanimal()" oninput="validaNomeanimal()">
+                            <input type="text" id="nome_pet" name="nome_procurado" placeholder="Digite o nome" maxlength="28" onblur="validaNomeAnimal()" oninput="validaNomeanimal()">
                     
                         </div>
                         <div>
-                            <label for="sexo">Sexo:</label>
-                            <select id="sexo" name="sexo_procurado">
+                            <label for="sexo" id="labelSexo" >Sexo:</label>
+                            <select id="sexo" name="sexo_procurado" onblur=" validaSexo()" onselect="validaSexo()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="macho">Macho</option>
                                 <option value="femea">Fêmea</option>
@@ -91,8 +91,8 @@ include './template/header.php';
                     </div>
                     <div class="procurados_cad_inputs2">
                         <div>
-                            <label for="especie">Espécie:</label>
-                            <select id="especie" name="especie_procurado">
+                            <label for="especie" id="labelEspecie">Espécie:</label>
+                            <select id="especie" name="especie_procurado" onblur="validaEspecie()" onselect="validaEspecie()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="Gato">Gato</option>
                                 <option value="Cachorro">Cachorro</option>
@@ -106,8 +106,8 @@ include './template/header.php';
                         </div>
                         <div>
                             <label for="idade_animal" id="labelnumero">Idade:</label>
-                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor" oninput="validaIdade()" onblur="validaIdade()">
-                            <select id="idade_animal" name="idade_tipo">
+                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor" required oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
+                            <select id="idade_tipo" name="idade_tipo" onblur="validaIdadeTipo()" onselect="validaIdadeTipo()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="semanas">Semanas</option>
                                 <option value="meses">Meses</option>
@@ -118,11 +118,11 @@ include './template/header.php';
                     <div class="procurados_cad_inputs3">
                         <div>
                             <label for="raca" id="labelRaca">Raça:</label>
-                            <input type="text" id="raca" name="raca_procurado" placeholder="Ex: Shih tzu, vira-lata" oninput="validaRaca()" onblur="validaRaca()">
+                            <input type="text" id="raca" name="raca_procurado" placeholder="Ex: Shih tzu, vira-lata" required oninput="validaRaca()" onblur="validaRaca()">
                         </div>
                         <div>
-                            <label for="porte">Porte:</label>
-                            <select id="porte" name="porte_procurado">
+                            <label for="porte" id="labelPorte">Porte:</label>
+                            <select id="porte" name="porte_procurado" onblur="validaPorte()" onselect="validaPorte()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="grande">Grande</option>
                                 <option value="medio">Medio</option>
@@ -134,12 +134,15 @@ include './template/header.php';
                     <div class="ultima_informacao">
                         <div>
                             <label for="ultima_informacao" id="label_informacao">Ultima Informação do animal:</label>
-                            <textarea name="ultima" id="ultima_informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validaUltimaInformacao()" onblur="validaUltimaInformacao()"></textarea>
+                            <textarea name="ultima" id="ultima_informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validaUltimaInformacao() " onblur="validaUltimaInformacao()"></textarea>
                         </div>
+                        <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite" >
+                        <span id="textoErro"></span>
+                    </span>
                         <span id="contador-caracteres">0 / 150 </span>
                     </div>
                     <div class="alinha_cad_button">
-                        <button class="button" type="submit" returnvalidarFormularioProcurados()>Enviar</button>
+                        <button class="button" type="submit" onclick=" validarFormulario()" >Enviar</button>
                     </div>
                 </div>
             </nav>

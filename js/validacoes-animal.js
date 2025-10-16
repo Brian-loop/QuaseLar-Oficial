@@ -1,201 +1,276 @@
-// ========================= Funções auxiliares =========================
 
-// Exibe uma mensagem de erro abaixo do campo
-function mostrarMensagemErro(campo, mensagem) {
-    const container = campo.closest('div').nextElementSibling; // Pega o <span> .msg-erro logo após o <div> do input
-    if (container && container.classList.contains('msg-erro')) { // Confere se realmente é um elemento de erro
-        container.textContent = mensagem; // Mostra o texto da mensagem
-        container.style.color = 'red'; // Deixa o texto vermelho
+
+function validaNomeAnimal() {
+
+    const input = document.getElementById('nome_pet');
+    const nome = input.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelNome');
+
+    const regex = /^[A-Za-zÀ-ÿ\scons]+$/;
+
+    input.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        input.classList.add('input-erro');
     }
-}
-
-// Limpa (remove) a mensagem de erro
-function limparMensagemErro(campo) {
-    const container = campo.closest('div').nextElementSibling; // Mesmo processo: pega o <span> logo depois
-    if (container && container.classList.contains('msg-erro')) { // Se existir
-        container.textContent = ''; // Apaga o texto
-    }
-}
-
-// ========================= Validação de cada campo =========================
-
-// ----- Valida o nome do animal -----
-function validaNomeanimal() {
-    const input = document.getElementById('nome_pet'); // Pega o input
-    const nome = input.value.trim(); // Remove espaços extras
-    const label = document.getElementById('labelNome'); // Pega o label
-    const regex = /^[A-Za-zÀ-ÿ\s]+$/; // Permite apenas letras e espaços
-
-    limparMensagemErro(input); // Limpa erros antigos
-    input.classList.remove('input-erro-procurados', 'input-sucesso-procurados'); // Remove estilos antigos
-
-    if (nome === "") { // Se estiver vazio
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Campo obrigatório.");
-        return false;
-    } else if (nome.length < 2) { // Se tiver menos de 2 letras
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Mínimo de 2 caracteres.");
-        return false;
-    } else if (nome.length > 30) { // Se for muito longo
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Máximo de 30 caracteres.");
-        return false;
-    } else if (!regex.test(nome)) { // Se contiver números ou símbolos
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Use apenas letras e espaços.");
-        return false;
-    } else { // Se estiver tudo certo
+    function mostrarSucesso() {
         label.style.color = "green";
-        input.classList.add('input-sucesso-procurados');
-        limparMensagemErro(input);
-        return true;
+        input.classList.add('input-sucesso');
     }
-}
 
-// ----- Valida a raça -----
-function validaRaca() {
-    const input = document.getElementById('raca');
-    const valor = input.value.trim();
-    const label = document.getElementById('labelRaca');
-
-    limparMensagemErro(input);
-    input.classList.remove('input-erro-procurados', 'input-sucesso-procurados');
-
-    if (valor === "") {
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Campo obrigatório.");
-        return false;
-    } else if (valor.length < 3) {
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Mínimo de 3 caracteres.");
-        return false;
-    } else if (valor.length > 30) {
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Máximo de 30 caracteres.");
-        return false;
+    if (nome === "") {
+        mostrarErro("Campo obrigatório");
+    } else if (nome.length < 3) {
+        mostrarErro("Mínimo 3 caracteres");
+    } else if (nome.length > 20) {
+        mostrarErro("Máximo 20 caracteres");
+    } else if (!regex.test(nome)) {
+        mostrarErro("Apenas letras e espaços");
     } else {
-        label.style.color = "green";
-        input.classList.add('input-sucesso-procurados');
-        limparMensagemErro(input);
-        return true;
+        mostrarSucesso();
     }
+
 }
 
-// ----- Valida a idade -----
-function validaIdade() {
+
+function validaNumeroIdade() {
     const input = document.getElementById('idade_animal');
-    const idade = parseInt(input.value.trim());
+    const idade = input.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
     const label = document.getElementById('labelnumero');
 
-    limparMensagemErro(input);
-    input.classList.remove('input-erro-procurados', 'input-sucesso-procurados');
 
-    if (isNaN(idade) || idade <= 0) { // Verifica se é um número válido
+    input.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
         label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Digite uma idade válida.");
-        return false;
-    } else {
+        input.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
         label.style.color = "green";
-        input.classList.add('input-sucesso-procurados');
-        limparMensagemErro(input);
-        return true;
+        input.classList.add('input-sucesso');
+    }
+
+    if (idadeNum === "") {
+        mostrarErro("Campo obrigatório");
+    } else if (idade === 0) {
+        mostrarErro("Coloque uma idade valida");
+    }
+    else {
+        mostrarSucesso();
     }
 }
 
-// ----- Valida o select (tipo de animal) -----
-function validaTipo() {
-    const select = document.getElementById('tipo_animal');
-    const valor = select.value;
-    const label = document.getElementById('labelTipo');
 
-    limparMensagemErro(select);
-    select.classList.remove('input-erro-procurados', 'input-sucesso-procurados');
+function validaRaca() {
+    const input = document.getElementById('raca');
+    const raca = input.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelRaca');
 
-    if (valor === "") { // Se não selecionou nada
+    const regex = /^[A-Za-zÀ-ÿ\scons]+$/;
+
+    input.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
         label.style.color = "red";
-        select.classList.add('input-erro-procurados');
-        mostrarMensagemErro(select, "Selecione uma opção.");
-        return false;
-    } else {
-        label.style.color = "green";
-        select.classList.add('input-sucesso-procurados');
-        limparMensagemErro(select);
-        return true;
+        input.classList.add('input-erro');
     }
+    function mostrarSucesso() {
+        label.style.color = "green";
+        input.classList.add('input-sucesso');
+    }
+
+    if (raca === "") {
+        mostrarErro("Campo obrigatório");
+    } else if (raca.length < 3) {
+        mostrarErro("Mínimo 3 caracteres");
+    } else if (raca.length > 20) {
+        mostrarErro("Máximo 20 caracteres");
+    } else if (!regex.test(raca)) {
+        mostrarErro("Apenas letras e espaços");
+    } else {
+        mostrarSucesso();
+    }
+
 }
 
-// ----- Valida o campo de texto (última informação) -----
 function validaUltimaInformacao() {
     const input = document.getElementById('ultima_informacao');
-    const texto = input.value.trim();
+    const informacao = input.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
     const label = document.getElementById('label_informacao');
 
-    limparMensagemErro(input);
-    input.classList.remove('input-erro-procurados', 'input-sucesso-procurados');
+    const regex = /^[A-Za-zÀ-ÿ\scons]+$/;
 
-    if (texto === "") {
+    input.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
         label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Campo obrigatório.");
-        return false;
-    } else if (texto.length < 5) {
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Mínimo de 5 caracteres.");
-        return false;
-    } else if (texto.length > 255) {
-        label.style.color = "red";
-        input.classList.add('input-erro-procurados');
-        mostrarMensagemErro(input, "Máximo de 255 caracteres.");
-        return false;
-    } else {
+        input.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
         label.style.color = "green";
-        input.classList.add('input-sucesso-procurados');
-        limparMensagemErro(input);
-        return true;
+        input.classList.add('input-sucesso');
     }
-}
 
-// ========================= Controle do botão e envio =========================
-
-// Função chamada ao enviar o formulário
-function validarFormulario(e) {
-    e.preventDefault(); // Impede o envio automático
-
-    // Executa todas as validações
-    const validNome = validaNomeanimal();
-    const validRaca = validaRaca();
-    const validIdade = validaIdade();
-    const validTipo = validaTipo();
-    const validInfo = validaUltimaInformacao();
-
-    // Se todos estiverem corretos
-    if (validNome && validRaca && validIdade && validTipo && validInfo) {
-        alert("Cadastro enviado com sucesso!");
-        return true;
+    if (informacao === "") {
+        mostrarErro("Campo obrigatório");
+    } else if (informacao.length < 5) {
+        mostrarErro("Mínimo 5 caracteres");
+    } else if (informacao.length > 255) {
+        mostrarErro("Máximo 255 caracteres");
+    } else if (!regex.test(informacao)) {
+        mostrarErro("Apenas letras e espaços");
     } else {
-        alert("Verifique os campos destacados em vermelho.");
-        return false;
+        mostrarSucesso();
+    }
+
+}
+
+
+function validaSexo() {
+    const select = document.getElementById('sexo')
+    const sexo = select.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelSexo');
+
+
+    select.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        select.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
+        label.style.color = "green";
+        select.classList.add('input-sucesso');
+    }
+
+    if (sexo === "") {
+        mostrarErro("Campo obrigatório");
+    } else {
+        mostrarSucesso();
+    }
+
+}
+
+function validaEspecie() {
+    const select = document.getElementById('especie');
+    const especie = select.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelEspecie');
+
+
+    select.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        select.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
+        label.style.color = "green";
+        select.classList.add('input-sucesso');
+    }
+
+    if (especie === "") {
+        mostrarErro("Campo obrigatório");
+    } else {
+        mostrarSucesso();
     }
 }
 
-// Observa todos os campos para liberar o botão quando tudo estiver válido
-document.querySelectorAll('#formProcurados input, #formProcurados textarea, #formProcurados select')
-    .forEach(el => el.addEventListener('input', () => { // A cada digitação/mudança
-        const btn = document.getElementById('btnSalvar');
-        // Se todas as validações passarem, o botão é liberado
-        if (validaNomeanimal() && validaRaca() && validaIdade() && validaTipo() && validaUltimaInformacao()) {
-            btn.disabled = false;
-        } else {
-            btn.disabled = true;
-        }
-    }));
+function validaIdadeTipo()
+{
+    const select = Document.getElementById('idade_tipo');
+    const idade_tipo = select.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelnumero');
+
+
+    select.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        select.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
+        label.style.color = "green";
+        select.classList.add('input-sucesso');
+    }
+
+    if (idade_tipo === "") {
+        mostrarErro("Campo obrigatório");
+    } else {
+        mostrarSucesso();
+    }
+}
+
+function validaPorte(){
+    const select = document.getElementById('porte');
+    const porte = select.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelPorte');
+
+
+    select.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        select.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
+        label.style.color = "green";
+        select.classList.add('input-sucesso');
+    }
+
+    if (porte === "") {
+        mostrarErro("Campo obrigatório");
+    } else {
+        mostrarSucesso();
+    }
+}
+
+
