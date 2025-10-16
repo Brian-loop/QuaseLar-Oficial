@@ -396,14 +396,21 @@
     
 }
 
-/*estilos para as mensagens de erro dos inputs*/
-.input-erro-procurados{
+.msg-erro {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: red;
+    text-align: left;
+}
+
+/* Bordas vermelhas e verdes */
+.input-erro-procurados {
     border-color: red !important;
     box-shadow: 0 0 5px red !important;
 }
-
-/*estilos para as mensagens de sucesso dos inputs*/
-.input-sucesso-procurados{
+.input-sucesso-procurados {
     border-color: green !important;
     box-shadow: 0 0 5px green !important;
 }

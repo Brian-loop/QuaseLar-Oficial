@@ -61,7 +61,7 @@ include './template/header.php';
                         <div class="text_file">
                             <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
                         </div>
-                        <input type="file" id="file" name="file" accept="image/*" required>
+                        <input type="file" id="file" name="file" accept="image/*" multiple required onchange="previewImagens()">
                         <input type="submit" value="enviar">
                     </label>
                 </div>
@@ -188,4 +188,39 @@ include './template/header.php';
     }
     // Chama a função principal quando o conteúdo da página estiver carregado
     document.addEventListener('DOMContentLoaded', inicializarContador);
+
+    function previewImagens() {
+    const input = document.getElementById('file');
+    const arquivos = input.files;
+
+    // Seleciona todas as imagens dos slides
+    const slides = document.querySelectorAll('.carousel-slide img');
+
+
+    // Limita a 5 imagens (uma para cada slide)
+    const maxImagens = 5;
+    const total = Math.min(arquivos.length, maxImagens);
+
+    // Limpa as imagens anteriores
+    slides.forEach(slide => {
+        slide.src = "";
+    });
+
+    // Mostra as novas imagens nos quadrados
+    for (let i = 0; i < total; i++) {
+        const leitor = new FileReader();
+
+        leitor.onload = function (e) {
+            slides[i].src = e.target.result; // coloca a imagem no slide correspondente
+        };
+
+        leitor.readAsDataURL(arquivos[i]); // lê o arquivo como base64
+    }
+
+    // Se tiver menos de 5 imagens, as outras ficam vazias
+    for (let j = total; j < slides.length; j++) {
+        slides[j].src = "";
+    }
+}
+
 </script>
