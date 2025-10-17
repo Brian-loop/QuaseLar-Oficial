@@ -15,115 +15,141 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
 @font-face {
-    font-family: 'work';
-    src: url(../fonts/work-sans/WorkSans-Medium.ttf);
+    font-family: 'open';
+    src: url(../font/OpenSans-VariableFont_wdth\,wght.ttf);
 }
 @font-face {
-    font-family: 'ones';
-    src: url(../fonts/onest/Onest-Medium.ttf);
+    font-family: 'work';
+    src: url(../font/WorkSans-VariableFont_wght.ttf);
 }
 
 
-.fundo3 {
+
+
+.fundo_procurados_exibicao {
     margin: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: #ffffff;
 }
 
-.caixa-aviso2 {
-    width: 400px;
-    height: 110px;
+.caixa-aviso_procurados{
+    width: 20rem;
+    height: 6rem;
     background-color: rgba(14, 106, 190, 1);
-    border-radius: 25px;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
-    margin: 10px 0 0 100px ;
+    position: absolute;
+    left: 2rem;
+    margin: 1rem;
 }
-.texto3{
-   padding: 10px 
+.texto_titulo_procurados{
+   padding: 1rem; 
 }
-.texto3 h1{
-    margin: 10px 0 0 0;
+.texto_titulo_procurados h1{
+    margin: 1rem 0 0 0;
+    font-family: 'open';
+    font-size: 2rem;
+    color: #ffff;
+    font-weight: 600;
+}
+.texto_titulo_procurados p{
+    color: #ffff;
     font-family: 'work';
-    font-size: 30px;
-    color: #ffff;
-}
-.texto3 p{
-    color: #ffff;
-    font-family: 'ones';
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 /* grid dos cards */
-.grid-procurados3{
+.grid_procurados_exibicao{
     display: grid;
-    grid-template-columns: repeat(3, 450px);
-    grid-template-rows: repeat(2, 200px);
-    row-gap: 200px;
+    grid-template-columns: repeat(3, 27rem);
+    grid-template-rows: repeat(2, 11rem);
+    row-gap: 12rem;
     justify-items: center;
-    column-gap: 10px;
-    margin: 20px 0 0 80px;
+    margin: 2rem;
+    position: absolute;
+    right: 7rem;
+    top: 12rem;
 }
 
 /* cada card da pagina coloquei backgroud image para colocar as imagens */
-.card33{
+.card_procurados_exibicao{
     height: 345px;
-    width: 360px;
+    width: 19rem;
     border-radius: 25px;
     background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     
-    background-position: center;
-    background-image: url(../img/sem_foto.png);
-    background-size: 360px;  
 }
 
 
 
 
-.card33>h4{
-    margin: 0 0 305px 55px;
-    height: 50px;
-    width: 230px;
-    padding: 10px;
+.card_procurados_exibicao>h4{
+    height: 3rem;
+    width: 12rem;
+    padding: 1rem;
     background-color: rgba(145, 190, 231, 1);
-    border-radius: 20px;
-    font-family: 'ones';
-    font-size: 18px;
+    border-radius: 1rem;
+    font-family: 'work';
+    font-size: 1.2rem;
     color: black;
     text-align: center;  
+    z-index: 3;
+    position: absolute;
+
 }
 
-.text222{
-    height: 100px;  /*[1]*/
-    width: 100%;    
+.card_exibicao{
+    height: 7rem;  /*[1]*/
+    width: 19rem;    
     position: absolute;
-    bottom: 0px;
+    bottom: 12.4rem;
     color: white;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 0px 0px 24px 24px;
     align-items: center;
+    z-index: 2;
 }
-.text222 p{
+.card_exibicao p{
     position: relative;
     left: 130px;
     bottom: 40px;
 }
-.text222 strong{
+.card_exibicao strong{
     color: #91BEE7;
 }
-.text222 h1{
+.card_exibicao h1{
     position: relative;
     left: 40px;
     font-size: 30px;
     top: 10px;
 }
 
-.text222 h6{
+.card_exibicao h6{
     position: relative;
     bottom: 50px;
     left: 70px;
     color: #B9D0E5;
+}
+
+
+.card_exibicao button{
+    position: relative;
+    top: 1rem;;
+    left: 7rem;
+}
+
+.card_procurados_exibicao img{
+    position: relative;
+    z-index: 1;   
+    border-radius: 1rem;
+    height: 345px;
+    width: 19.9rem;
+    border-radius: 25px;
+    
+
+
 }

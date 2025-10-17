@@ -153,7 +153,7 @@ include './template/header.php';
                     </div>
                     <div class="alinha_cad_button">
                         <button class="button_cad_pets" type="submit" onclick="validarFormularioAnimal()">Enviar</button>
-                            <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite" >
+                            <span id="msgErro-procurado" class="mensagem-erro-adocao" role="alert" aria-live="polite" >
                         <span id="textoErro"></span>
                     </span>
                     </div>
