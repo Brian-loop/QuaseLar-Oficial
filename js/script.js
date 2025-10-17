@@ -76,28 +76,18 @@ function inicializarContador() {
 }
 document.addEventListener('DOMContentLoaded', inicializarContador);
 
-function initModal() {
-      const openBtn = document.getElementById('openModal');
-      const closeBtn = document.getElementById('closeModal');
-      const modalOverlay = document.getElementById('modalOverlay');
+function abrirModal() {
+    const modal = document.querySelector('.modal-overlay-index');
+    const fecharBtn = document.querySelector('.btn-fechar-index');
+    modal.style.display = 'flex';
+    fecharBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 
-      openBtn.addEventListener('click', () => {
-        modalOverlay.style.display = 'flex';
-        
-      });
-
-      closeBtn.addEventListener('click', () => {
-        modalOverlay.style.display = 'none';
-      });
-
-      modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          modalOverlay.style.display = 'none';
+    modal.addEventListener('click', (event) => {
+        const modalBody = document.querySelector('.modal-body-index');
+        if (!modalBody.contains(event.target)) {
+            modal.style.display = 'none';
         }
-      });
-    }
-
-    // Chama a função ao carregar a página
-    window.addEventListener('DOMContentLoaded', initModal);
-
-
+    });
+}

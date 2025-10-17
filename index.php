@@ -24,7 +24,6 @@ include './template/header.php';
             <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
             <span class="status-chip">Americana/SP</span>
         </div>
-        
         <div class="card-body">
             <h2 class="pet-nome">Mel</h2>
             <p class="pet-descricao">
@@ -47,40 +46,36 @@ include './template/header.php';
                 </div> -->
                 
             </div>
-            <a class="btn-adotar" id="openModalIndex" onclick="initModal()">Saiba mais!</a>
+            <button class="btn-adotar" onclick="abrirModal()">Saiba mais!</button>
         </div>
     </div>
-   
+</section>
+<section class="modal-overlay-index">
+        <section class="modal-body-index">
+            <div class="btn-fechar-index"><i class="bi bi-x"></i></div>
+            <nav class="itens-modal-index1">
+                <div class="titulo-modalIndex"><h3>Doação</h3></div>
 
-
-
-    <div class="modal-overlay" id="modalOverlayIndex">
-        <div class="modal-index">
-            <div class="close-btn" id="closeModalIndex">&times;</div>
-            <nav class="descricao-pet">
-
-                <h2 class="titulo-modalIndex">Doação</h2>
-                
-                <div class="carousel-container">
+                <div class="carousel-container-index">
                     <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-2" class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-3" class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
-                    <div class="carousel-imagens">
-                        <div class="carousel-slide slide-1">
+                    <div class="carousel-imagens-index">
+                        <div class="carousel-slide-index slide-1">
                             <img src="./img/fundo-animado.gif" alt="Slide 1">
                         </div>
-                        <div class="carousel-slide slide-2">
+                        <div class="carousel-slide-index slide-2">
                             <img src="./img/sobre_nos.png" alt="Slide 2">
                         </div>
-                        <div class="carousel-slide slide-3">
+                        <div class="carousel-slide-index slide-3">
                             <img src="" alt="Slide 3">
                         </div>
-                        <div class="carousel-slide slide-4">
+                        <div class="carousel-slide-index slide-4">
                             <img src="" alt="Slide 4">
                         </div>
-                        <div class="carousel-slide slide-5">
+                        <div class="carousel-slide-index slide-5">
                             <img src="" alt="Slide 5">
                         </div>
                     </div>
@@ -97,7 +92,7 @@ include './template/header.php';
                         <label for="slide-5" class="seta-proxima proximo-slide-4"><div>&#10095;</div></label>
                         <label for="slide-1" class="seta-proxima proximo-slide-5"><div>&#10095;</div></label>
                     </div>
-                    <div class="carousel-indicadores">
+                    <div class="carousel-indicadores-index">
                         <label for="slide-1" class="ponto ponto-1"></label>
                         <label for="slide-2" class="ponto ponto-2"></label>
                         <label for="slide-3" class="ponto ponto-3"></label>
@@ -106,343 +101,73 @@ include './template/header.php';
                     </div>
                 </div>
 
-                <div class="descricao-nomePet">
-                    <h1 style="color: white;">Rex</h1>
+                <div class="titulo2-modalIndex">
+                    <span>Rex</span>
                     <p>Informações</p>
                 </div>
             </nav>
-            <!-- aqui segundo container -->
-            <nav class="container-info">
-                <!-- info-pet 1 -->
-                <div class="info-pet">
-                    <div class="info-pet-header"><h3>Informações Do Animal</h3></div>
-                    <div class="info-pet-body">
-                        <div class="group_info_pets">
-                            <p>Nome Do Animal:<div>Rex</div></p>
-                        </div>
-                        <div class="group_info_pets">
-                            <p>Espécie:<div>Cachorro</div> </p>
-                            <p>Sexo:<div>Macho</div></p>
-                            <p>Idade:<div>2 anos</div></p>
-                        </div>
-                        <div class="group_info_pets">
-                            
-                            <p>Porte:<div>Medio</div></p>
-                            <p>Castrado:<div>Sim</div></p>
-                            <p>Vacinado:<div>Sim</div></p>
-                        </div>
-                        <div class="group_info_pets">
-                            <p>Raça:<div>Golden Sla oq</div></p>
-                        </div>
-                        <div class="group_info_pets">
-
+            <nav class="itens-modal-index2">
+                <div class="container-modal-index">
+                    <!-- info-pet 1 -->
+                    <div class="info-pet">
+                        <div class="info-pet-header"><h3>Informações Do Animal</h3></div>
+                        <div class="info-pet-body">
+                            <div class="group_info_pets">
+                                <p>Nome Do Animal:<div>Rex</div></p>
+                            </div>
+                            <div class="group_info_pets">
+                                <p>Espécie:<div>Cachorro</div> </p>
+                                <p>Sexo:<div>Macho</div></p>
+                                <p>Idade:<div>2 anos</div></p>
+                            </div>
+                            <div class="group_info_pets">
+                                
+                                <p>Porte:<div>Medio</div></p>
+                                <p>Castrado:<div>Sim</div></p>
+                                <p>Vacinado:<div>Sim</div></p>
+                            </div>
+                            <div class="group_info_pets">
+                                <p>Raça:<div>Golden Sla oq</div></p>
+                            </div>
                             <p>Motivo Da Doação:</p>
+                            <div class="motivo">
+                                A tecnologia transforma o modo como vivemos, trabalhamos e nos conectamos. Cada inovação amplia possibilidades, aproxima pessoas e cria novos desafios. Adaptar-se a essas mudanças é essencial para evoluir em um mundo cada vez mais digital e interligado.
+                            </div>
                         </div>
-                        <div class="motivo">Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Cevadis im ampola pa arma uma pindureta.
-                            Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor.
+                    </div>
+                        <!-- info-pet 2 -->
+                    <div class="info-pet">
+                        <div class="info-pet-header2"><h3>Conversar com Responsável</h3></div>
+                        <div class="info-pet-body">
+                            <p>Nome: luana vega</p>
+                            <p>N* telefone: 1987972154</p>
+                            <p>Email para contato: aline@123</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- info-pet 2 -->
-                <div class="info-pet">
-                    <div class="info-pet-header2"><h3>Conversar com Responsável</h3></div>
-                    <div class="info-pet-body">
-                        <p>Nome: luana vega</p>
-                        <p>N* telefone: 1987972154</p>
-                        <p>Email para contato: aline@123</p>
-                    </div>
-                </div>
             </nav>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
             
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
-    <div class="card-adocao">
-        <div class="card-header">
-            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
-        </div>
-        
-        <div class="card-body">
-            <h2 class="pet-nome">Mel</h2>
-            <p class="pet-descricao">
-                Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças. 
-                Procura um lar cheio de amor!
-            </p>
-            
-            <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
-                <div class="caracteristica-item">
-                    <strong>Idade:</strong> 2 anos
-                </div>
-                <div class="caracteristica-item">
-                    <strong>Gênero:</strong> Fêmea
-                </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-            </div>
-            
-            <a href="#" class="btn-adotar">Quero Adotar a Mel!</a>
-        </div>
-    </div>
+        </section>
 
-</section>
+
+    </section>
 <script>
-    function initModal() {
-      const openBtnIndex = document.getElementById('openModalIndex');
-      const closeBtnIndex = document.getElementById('closeModalIndex');
-      const modalOverlayIndex = document.getElementById('modalOverlayIndex');
 
-      openBtnIndex.addEventListener('click', () => {
-        modalOverlayIndex.style.display = 'flex';
-      });
+function abrirModal() {
+    const modal = document.querySelector('.modal-overlay-index');
+    const fecharBtn = document.querySelector('.btn-fechar-index');
+    modal.style.display = 'flex';
+    fecharBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 
-      closeBtnIndex.addEventListener('click', () => {
-        modalOverlayIndex.style.display = 'none';
-      });
-
-
-      modalOverlayIndex.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          modalOverlayIndex.style.display = 'none';
+    modal.addEventListener('click', (event) => {
+        const modalBody = document.querySelector('.modal-body-index');
+        if (!modalBody.contains(event.target)) {
+            modal.style.display = 'none';
         }
-      });
-    }
-    // window.addEventListener('DOMContentLoaded', initModal);
-</script>    
+    });
+}
+
+</script>
