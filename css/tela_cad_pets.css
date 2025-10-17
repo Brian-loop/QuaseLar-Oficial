@@ -393,3 +393,23 @@
     flex-direction: row;
     
 }
+.mensagem-erro-adocao{
+    position: absolute;
+    bottom: 7rem;
+    right: 30rem;
+   
+    width: 12rem;
+    min-width: 4rem;
+   
+    /* border-radius: 0.5rem; */
+    border-top-left-radius: 0.5rem;
+   
+    padding: 10px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    color: red;
+    font-size: 0.875rem;
+    font-family: 'open-sans';
+    font-weight: 600;
+}
