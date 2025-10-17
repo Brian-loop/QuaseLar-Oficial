@@ -60,7 +60,7 @@ include './template/header.php';
                         <div class="text_file">
                             <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
                         </div>
-                        <input type="file" id="file" name="file" accept="image/*" required>
+                        <input type="file" multiple id="file" name="file" accept="image/*" required>
                         <input type="submit" value="enviar">
                     </label>
                 </div>
@@ -73,13 +73,13 @@ include './template/header.php';
                     </div>
                     <div class="pet_cad_inputs1">
                         <div>
-                            <label for="nome_pet">Nome do pet:</label>
+                            <label for="nome_pet" id="labelNome">Nome do pet:</label>
                             <input type="hidden" name="cadastro" value="1">
-                            <input type="text" id="nome_pet" name="nome" placeholder="Digite o nome do pet" maxlength="28">
+                            <input type="text" id="nome_pet" name="nome" placeholder="Digite o nome do pet" maxlength="28" onblur=" validaNomeAnimal()" oninput=" validaNomeAnimal()">
                         </div>
                         <div>
-                            <label for="sexo">Sexo:</label>
-                            <select name="sexo" id="sexo">
+                            <label for="sexo" id="labelSexo">Sexo:</label>
+                            <select name="sexo" id="sexo" onblur=" validaSexo()" oninput=" validaSexo()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="macho">Macho</option>
                                 <option value="femea">Fêmea</option>
@@ -88,8 +88,8 @@ include './template/header.php';
                     </div>
                     <div class="pet_cad_inputs2">
                         <div>
-                            <label for="especie">Espécie:</label>
-                            <select id="especie" name="especie">
+                            <label for="especie" id="labelEspecie">Espécie:</label>
+                            <select id="especie" name="especie"  onblur="validaEspecie()" onselect="validaEspecie()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="Gato">Gato</option>
                                 <option value="Cachorro">Cachorro</option>
@@ -101,9 +101,9 @@ include './template/header.php';
                             </select>
                         </div>
                         <div>
-                            <label for="idade_pet">Idade:</label>
-                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_pet" name="idade_pet">
-                            <select name="idade" id="idade">
+                            <label for="idade_pet" id="labelnumero">Idade:</label>
+                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_pet" oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
+                            <select name="idade" id="idade_tipo" onblur="validaIdadeTipo()" onselect="validaIdadeTipo()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="semanas">Semanas</option>
                                 <option value="meses">Meses</option>
@@ -113,12 +113,12 @@ include './template/header.php';
                     </div>
                     <div class="pet_cad_inputs3">
                         <div>
-                            <label for="raca">Raça:</label>
-                            <input type="text" id="raca" name="raca" placeholder="Ex: Shih tzu, vira-lata">
+                            <label for="raca" id="labelRaca">Raça:</label>
+                            <input type="text" id="raca" name="raca" placeholder="Ex: Shih tzu, vira-lata"  oninput="validaRaca()" onblur="validaRaca()">
                         </div>
                         <div>
-                            <label for="porte">Porte:</label>
-                            <select name="porte" id="porte">
+                            <label for="porte" id="labelPorte">Porte:</label>
+                            <select name="porte" id="porte" onblur="validaPorte()" onselect="validaPorte()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="grande">Grande</option>
                                 <option value="medio">Medio</option>
@@ -128,16 +128,16 @@ include './template/header.php';
                     </div>
                     <div class="pet_cad_inputs4">
                         <div>
-                            <label for="castrado">Castrado:</label>
-                            <select name="castrado" id="castrado">
+                            <label for="castrado" id="labelCastrado">Castrado:</label>
+                            <select name="castrado" id="castrado" onblur="validaCastrado()" onselect="validaCastrado()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
                             </select>
                         </div>
                         <div>
-                            <label for="vacinado">Vacinado</label>
-                            <select name="vacinado" id="vacinado">
+                            <label for="vacinado" id="labelVacinado" >Vacinado</label>
+                            <select name="vacinado" id="vacinado" onblur="validaVacinado()" onselect="validaVacinado()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="sim">Sim</option>
                                 <option value="nao">Não</option>
@@ -146,13 +146,16 @@ include './template/header.php';
                     </div>
                     <div class="motivo_doacao">
                         <div>
-                            <label for="motivo_doacao">Motivo da doação:</label>
-                            <textarea name="motivo" id="motivo_doacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Minha cadela teve filhotes e não tenho condição de manter eles ..." maxlength="255"></textarea>
+                            <label for="motivo_doacao" id="label_informacao">Motivo da doação:</label>
+                            <textarea name="motivo" id="informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Minha cadela teve filhotes e não tenho condição de manter eles ..." maxlength="255"  oninput="validanformacao() " onblur="validaInformacao()"></textarea>
                         </div>
-                        <span id="contador-caracteres">0 / 150 </span>
+                        <span id="contador-caracteres">0 / 255 </span>
                     </div>
                     <div class="alinha_cad_button">
-                        <button class="button_cad_pets" type="submit">Enviar</button>
+                        <button class="button_cad_pets" type="submit" onclick="validarFormularioAnimal()">Enviar</button>
+                            <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite" >
+                        <span id="textoErro"></span>
+                    </span>
                     </div>
                 </div>
             </nav>

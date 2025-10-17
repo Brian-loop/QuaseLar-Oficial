@@ -134,15 +134,15 @@ include './template/header.php';
                     <div class="ultima_informacao">
                         <div>
                             <label for="ultima_informacao" id="label_informacao">Ultima Informação do animal:</label>
-                            <textarea name="ultima" id="ultima_informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validaUltimaInformacao() " onblur="validaUltimaInformacao()"></textarea>
+                            <textarea name="ultima" id="informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao() " onblur="validaInformacao()"></textarea>
                         </div>
                         <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite" >
                         <span id="textoErro"></span>
                     </span>
-                        <span id="contador-caracteres">0 / 150 </span>
+                        <span id="contador-caracteres">0 / 255 </span>
                     </div>
                     <div class="alinha_cad_button">
-                        <button class="button" type="submit" onclick=" validarFormulario()" >Enviar</button>
+                        <button class="button" type="submit" onclick="validarFormularioAnimal()">Enviar</button>
                     </div>
                 </div>
             </nav>

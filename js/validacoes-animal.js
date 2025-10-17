@@ -8,7 +8,7 @@ function validaNomeAnimal() {
     const textoErro = document.getElementById('textoErro');
     const label = document.getElementById('labelNome');
 
-    const regex = /^[A-Za-zÀ-ÿ\scons]+$/;
+    const regex = /^[A-Za-zÀ-ÿ\s]+$/;
 
     input.classList.remove('input-erro', 'input-sucesso');
     msgErro.classList.remove('sucesso', 'erro');
@@ -21,6 +21,9 @@ function validaNomeAnimal() {
         input.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
         label.style.color = "green";
         input.classList.add('input-sucesso');
     }
@@ -59,16 +62,22 @@ function validaNumeroIdade() {
         input.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
         label.style.color = "green";
         input.classList.add('input-sucesso');
     }
 
-    if (idadeNum === "") {
+   // Converte para número 
+    const idadeNum = Number(idade);
+
+    
+    if (idade === "") {
         mostrarErro("Campo obrigatório");
-    } else if (idade === 0) {
-        mostrarErro("Coloque uma idade valida");
-    }
-    else {
+    } else if (idadeNum === 0) {
+        mostrarErro("A idade não pode ser 0");
+    } else {
         mostrarSucesso();
     }
 }
@@ -81,7 +90,7 @@ function validaRaca() {
     const textoErro = document.getElementById('textoErro');
     const label = document.getElementById('labelRaca');
 
-    const regex = /^[A-Za-zÀ-ÿ\scons]+$/;
+    const regex = /^[A-Za-zÀ-ÿ\s]+$/;
 
     input.classList.remove('input-erro', 'input-sucesso');
     msgErro.classList.remove('sucesso', 'erro');
@@ -94,6 +103,9 @@ function validaRaca() {
         input.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
         label.style.color = "green";
         input.classList.add('input-sucesso');
     }
@@ -112,14 +124,14 @@ function validaRaca() {
 
 }
 
-function validaUltimaInformacao() {
-    const input = document.getElementById('ultima_informacao');
+function validaInformacao() {
+    const input = document.getElementById('informacao');
     const informacao = input.value.trim();
     const msgErro = document.getElementById('msgErro-procurado');
     const textoErro = document.getElementById('textoErro');
     const label = document.getElementById('label_informacao');
 
-    const regex = /^[A-Za-zÀ-ÿ\scons]+$/;
+    const regex = /^[A-Za-zÀ-ÿ\ss]+$/;
 
     input.classList.remove('input-erro', 'input-sucesso');
     msgErro.classList.remove('sucesso', 'erro');
@@ -132,14 +144,18 @@ function validaUltimaInformacao() {
         input.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
+
         label.style.color = "green";
         input.classList.add('input-sucesso');
     }
 
     if (informacao === "") {
         mostrarErro("Campo obrigatório");
-    } else if (informacao.length < 5) {
-        mostrarErro("Mínimo 5 caracteres");
+    } else if (informacao.length < 10) {
+        mostrarErro("Mínimo 10 caracteres");
     } else if (informacao.length > 255) {
         mostrarErro("Máximo 255 caracteres");
     } else if (!regex.test(informacao)) {
@@ -170,6 +186,9 @@ function validaSexo() {
         select.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
         label.style.color = "green";
         select.classList.add('input-sucesso');
     }
@@ -203,6 +222,9 @@ function validaEspecie() {
     function mostrarSucesso() {
         label.style.color = "green";
         select.classList.add('input-sucesso');
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
     }
 
     if (especie === "") {
@@ -212,9 +234,8 @@ function validaEspecie() {
     }
 }
 
-function validaIdadeTipo()
-{
-    const select = Document.getElementById('idade_tipo');
+function validaIdadeTipo() {
+    const select = document.getElementById('idade_tipo');
     const idade_tipo = select.value.trim();
     const msgErro = document.getElementById('msgErro-procurado');
     const textoErro = document.getElementById('textoErro');
@@ -232,6 +253,9 @@ function validaIdadeTipo()
         select.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = ""
         label.style.color = "green";
         select.classList.add('input-sucesso');
     }
@@ -243,7 +267,7 @@ function validaIdadeTipo()
     }
 }
 
-function validaPorte(){
+function validaPorte() {
     const select = document.getElementById('porte');
     const porte = select.value.trim();
     const msgErro = document.getElementById('msgErro-procurado');
@@ -262,6 +286,9 @@ function validaPorte(){
         select.classList.add('input-erro');
     }
     function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = "";
         label.style.color = "green";
         select.classList.add('input-sucesso');
     }
@@ -274,3 +301,114 @@ function validaPorte(){
 }
 
 
+
+
+function validaCastrado() {
+    const select = document.getElementById('castrado');
+    const castrado = select.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelCastrado');
+
+
+    select.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        select.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = "";
+        label.style.color = "green";
+        select.classList.add('input-sucesso');
+    }
+
+    if (castrado === "") {
+        mostrarErro("Campo obrigatório");
+    } else {
+        mostrarSucesso();
+    }
+}
+
+
+
+
+function validaVacinado() {
+    const select = document.getElementById('vacinado');
+    const vacinado= select.value.trim();
+    const msgErro = document.getElementById('msgErro-procurado');
+    const textoErro = document.getElementById('textoErro');
+    const label = document.getElementById('labelVacinado');
+
+
+    select.classList.remove('input-erro', 'input-sucesso');
+    msgErro.classList.remove('sucesso', 'erro');
+    msgErro.style.display = "inline-block";
+
+    function mostrarErro(msg) {
+        textoErro.textContent = msg;
+        msgErro.classList.add('erro');
+        label.style.color = "red";
+        select.classList.add('input-erro');
+    }
+    function mostrarSucesso() {
+        msgErro.classList.remove('erro');
+        msgErro.style.display = "none";
+        textoErro.textContent = "";
+        label.style.color = "green";
+        select.classList.add('input-sucesso');
+    }
+
+    if (vacinado === "") {
+        mostrarErro("Campo obrigatório");
+    } else {
+        mostrarSucesso();
+    }
+}
+
+function validarFormularioAnimal() {
+    let valid = true;
+
+    if(!validaNomeAnimal()){
+        valid = false;
+    }
+    if(!validaNumeroIdade()){
+        valid = false;
+    }
+    if(!validaRaca()){
+        valid = false;
+    }
+    if(!validaInformacao()){
+        valid = false;
+    }
+    if(!validaSexo()){
+        valid = false;
+    }
+    if(!validaEspecie()){
+        valid = false;
+    }
+    if(!validaIdadeTipo()){
+        valid = false;
+    }
+    if(!validaPorte()){
+        valid = false;
+    }
+    if(!validaCastrado()){
+        valid = false;
+    }
+     if(!validaVacinado()){
+        valid = false;
+    }
+
+    if(!valid) {
+        return false; 
+    }
+    
+    return true;
+}
