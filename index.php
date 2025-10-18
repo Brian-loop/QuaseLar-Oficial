@@ -15,7 +15,7 @@ include './template/header.php';
     </div>
 </section>
 <section class="title-html">
-        <h1>Doaçao</h1>
+        <h1>Doação</h1>
     
 </section>
 <section class="group_cards">
@@ -64,10 +64,10 @@ include './template/header.php';
                     <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
                     <div class="carousel-imagens-index">
                         <div class="carousel-slide-index slide-1">
-                            <img src="./img/fundo-animado.gif" alt="Slide 1">
+                            <img src="" alt="Slide 1">
                         </div>
                         <div class="carousel-slide-index slide-2">
-                            <img src="./img/sobre_nos.png" alt="Slide 2">
+                            <img src="" alt="Slide 2">
                         </div>
                         <div class="carousel-slide-index slide-3">
                             <img src="" alt="Slide 3">
@@ -131,6 +131,7 @@ include './template/header.php';
                             </div>
                             <p>Motivo Da Doação:</p>
                             <div class="motivo">
+
                                 A tecnologia transforma o modo como vivemos, trabalhamos e nos conectamos. Cada inovação amplia possibilidades, aproxima pessoas e cria novos desafios. Adaptar-se a essas mudanças é essencial para evoluir em um mundo cada vez mais digital e interligado.
                             </div>
                         </div>
@@ -152,22 +153,5 @@ include './template/header.php';
 
 
     </section>
-<script>
 
-function abrirModal() {
-    const modal = document.querySelector('.modal-overlay-index');
-    const fecharBtn = document.querySelector('.btn-fechar-index');
-    modal.style.display = 'flex';
-    fecharBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
 
-    modal.addEventListener('click', (event) => {
-        const modalBody = document.querySelector('.modal-body-index');
-        if (!modalBody.contains(event.target)) {
-            modal.style.display = 'none';
-        }
-    });
-}
-
-</script>
