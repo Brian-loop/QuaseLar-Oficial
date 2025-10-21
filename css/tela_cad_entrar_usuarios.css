@@ -8,11 +8,13 @@
     background-color: white;
 }
 .group_usuarios_inputs{
-    height: 32rem;
+    height: 34rem;
     width: 46rem;
-    border: 1px rebeccapurple solid;
     display: flex;
     flex-direction: row;
+    border-radius: 1rem;
+    box-shadow: 0 3em 3em 1em rgba(0, 0, 0, 0.1);
+
 }
 .titulo_cad_usuario{
     margin-bottom: 0.475rem;
@@ -35,7 +37,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px coral solid;
     padding: 2rem;
 }
 .juntos, .juntos2{
@@ -230,7 +231,27 @@
     z-index: 10;
 }
 
-
+/**/
+.btn-cadastrar{
+    color: #ecf0f1;
+    background-color: #0E6ABE;
+    border: 1px solid #0a559b;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 2.3rem;
+    width: 5rem;
+    box-shadow: 0px 6px 0px #0c5294;
+    transition: all 0.1s;
+    padding: 0.5rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-cadastrar:active{
+    box-shadow: 0px 2px 0px #0c5294;
+    position: relative;
+    top: 2px;
+}
 
 
 

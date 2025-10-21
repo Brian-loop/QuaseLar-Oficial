@@ -1,6 +1,7 @@
 <?php 
-
+require_once './class/BancoDeDados_conexao.php';
 include './class/Usuario.php';
+
 
 $nome = $_POST["nome"];
 $email = $_POST["email"];

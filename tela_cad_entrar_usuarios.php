@@ -122,7 +122,7 @@ include './template/header.php';
                     <span id="textoErroConfir_senha"></span>
                     </span>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick=" return validarFormulario()">Cadastrar</button>
+                <button type="submit" class="btn-cadastrar" onclick=" return validarFormulario()" >Cadastrar</button>
             </nav>
         </form>
     </main>
