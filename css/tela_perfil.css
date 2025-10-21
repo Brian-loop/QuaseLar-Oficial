@@ -1,0 +1,48 @@
+
+
+
+.fundo-perfil{
+height: 100%;
+width: 100%; 
+background-color: #ffff;  
+}
+
+
+
+.caixa-aviso-perfil{
+    width: 20rem;
+    height: 6rem;
+    background-color: rgba(14, 106, 190, 1);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 2rem;
+    margin: 1rem;
+}
+
+.texto_titulo_perfil{
+   padding: 1rem; 
+}
+.texto_titulo_perfil h1{
+    margin: 1rem 0 0 0;
+    font-family: 'open';
+    font-size: 2rem;
+    color: #ffff;
+    font-weight: 600;
+}
+.texto_titulo_perfil p{
+    color: #ffff;
+    font-family: 'work';
+    font-size: 1rem;
+}
+
+
+.grid_anuncio{
+    display: grid;
+    grid-template-columns: repeat(3, 27rem);
+    grid-template-rows: repeat(2, 11rem);
+    row-gap: 12rem;
+    justify-items: center;
+    margin: 2rem;
+}

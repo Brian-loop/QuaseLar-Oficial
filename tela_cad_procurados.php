@@ -61,7 +61,7 @@ include './template/header.php';
                         <div class="text_file">
                             <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
                         </div>
-                        <input type="file" id="file" name="file" accept="image/*" multiple required onchange="previewImagens()">
+                        <input type="file" id="file" name="file[]" accept="image/*" multiple required onchange="previewImagens()">
                         <input type="submit" value="enviar">
                     </label>
                 </div>
