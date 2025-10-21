@@ -17,15 +17,3 @@ class Quaselar {
       return $this->conn;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
