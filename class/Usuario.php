@@ -1,41 +1,67 @@
 <?php
+require_once './class/BancoDeDados_conexao.php';
+// class Usuario {
 
-class Usuario {
+//     private $conn;
 
-    private $conn;
+//     public function __construct()
+//     {
+//         $dsn = "mysql:dbname=db_quaselar_oficial;host=127.0.0.1";
+//         $usuario ='root';
+//         $senha = '';
+//         $this->conn = new PDO($dsn, $usuario, $senha);
+//     }
 
-    public function __construct()
-    {
-        $dsn = "mysql:dbname=db_quaselar_oficial;host=127.0.0.1";
-        $usuario ='root';
-        $senha = '';
-        $this->conn = new PDO($dsn, $usuario, $senha);
-    }
-
-    public function cadastro($nome, $email, $telefone, $endereco, $cep,$cpf, $senha)
-    {
-        $script = "INSERT INTO tb_usuario (nome, email, telefone, endereco, cep, cpf, senha) VALUES (:nome,:email,:telefone, :endereco, :cep, :cpf, :senha)";
+//     public function cadastro($nome, $email, $telefone, $endereco, $cep,$cpf, $senha)
+//     {
+//         $script = "INSERT INTO tb_usuario (nome, email, telefone, endereco, cep, cpf, senha) VALUES (:nome,:email,:telefone, :endereco, :cep, :cpf, :senha)";
         
-        $insert = $this->conn ->prepare($script);
+//         $insert = $this->conn ->prepare($script);
 
-        $insert->execute ([
+//         $insert->execute ([
+//             ":nome" => $nome,
+//             ":email" => $email,
+//             ":telefone" => $telefone,
+//             ":endereco" => $endereco,
+//             ":cep" => $cep,
+//             ":cpf" => $cpf,
+//             ":senha" => $senha
+//         ]);
+        
+//         return $this->conn->lastInsertId();
+
+//     }
+
+// }
+
+
+
+
+
+class Usuario{
+
+    public function cadastro($nome, $email, $telefone, $endereco, $cep, $cpf, $senha){
+
+        $db = new BancoDeDados_conexao();
+        $conn = $db->getConexao();
+
+        $script = "INSERT INTO tb_usuario (nome, email, telefone, endereco, cep, cpf, senha) 
+        VALUES (:nome,:email,:telefone, :endereco, :cep, :cpf, :senha)";
+
+        $insert = $this->$conn ->prepare($script);
+
+         $insert->execute ([
             ":nome" => $nome,
             ":email" => $email,
             ":telefone" => $telefone,
             ":endereco" => $endereco,
             ":cep" => $cep,
             ":cpf" => $cpf,
-            ":senha" => $senha
+            ":senha" => password_hash($senha, PASSWORD_DEFAULT)
         ]);
         
-        return $this->conn->lastInsertId();
-
+        return $this->$conn->lastInsertId();
     }
-
-
-
-
-
-
-
 }
+
+
