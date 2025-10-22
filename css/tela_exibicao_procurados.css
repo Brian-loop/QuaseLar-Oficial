@@ -1,155 +1,412 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
-
-@font-face {
-    font-family: 'open';
-    src: url(../font/OpenSans-VariableFont_wdth\,wght.ttf);
-}
-@font-face {
-    font-family: 'work';
-    src: url(../font/WorkSans-VariableFont_wght.ttf);
-}
-
-
-
-
-.fundo_procurados_exibicao {
-    margin: 0;
-    height: 100%;
+.group_cards_exibicao_procurados{
+    min-height: 100vh;
     width: 100%;
-    background-color: #ffffff;
+    max-width: 3440px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 25rem);
+    justify-content: center;
+    gap: 2rem;
+    padding: 0rem 3rem;
+    background-color: white
+}
+.card-procurados-exibicao {
+    background-color: #000000;
+    width: 100%;
+    max-width: 25rem; /* Largura máxima em rem para responsividade */
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    padding: 0.375rem;
+}
+.card-exibicao:hover {
+    transform: translateY(-0.5rem); /* Efeito sutil ao passar o mouse */
+}
+.card-header-exibicao {
+    position: relative;
+    height: 16rem; /* Altura da área da foto */
+    overflow: hidden;
+    padding: 0.5rem;
+}
+.pet-foto-procurados {
+    width: 100%;
+    max-width: 25rem;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+    background-color: #3333334f;
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 0.5rem;
+}
+.status-estado {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(145, 190, 231, 1);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+.card-body-procurados-exibicao{
+    padding: 1.5rem;
+    padding-bottom: 1rem;
+    margin: 0.875rem;
+}
+.pet-nome-procurados {
+    font-size: 1.75rem; 
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.pet-descricao-procurados {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
-.caixa-aviso_procurados{
-    width: 20rem;
-    height: 6rem;
+
+.btn-procurados {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background-color:  #0E6ABE;/* Azul da marca */
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 1.125rem; /* 18px */
+    font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: none;
+}
+.btn-procurados:hover {
+    background-color:#0a559b;/* Azul escuro no hover */
+}
+/*=================================================================================================*/
+/*modal*/
+.modal-overlay-exibicao-procurados{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-body-exibicao-procurados{
+    background-color: white;
+    width: 60rem;
+    height: 39rem;
+    border-radius: 8px;
+    padding: 2rem 3rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.btn-fechar-exibicao-procurados {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.btn-fechar-exibicao-procurados:hover {
+    color: red;
+}
+.titulo-modal-exibicao-procurados{
+    color: white;
+    height: 3rem;
+    width: 10rem;
     background-color: rgba(14, 106, 190, 1);
-    border-radius: 1rem;
     display: flex;
     align-items: center;
-    position: absolute;
-    left: 2rem;
-    margin: 1rem;
+    justify-content: center;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
 }
-.texto_titulo_procurados{
-   padding: 1rem; 
+.titulo2-modal-exibicao-procurados{
+    height: 5rem;
+    width: 13rem;
+    background-color: rgba(14, 106, 190, 1);
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    border-radius: 1.5rem;
 }
-.texto_titulo_procurados h1{
-    margin: 1rem 0 0 0;
-    font-family: 'open';
-    font-size: 2rem;
-    color: #ffff;
+.titulo2-exibicao-procurados span{
+    font-size: 1.5rem;
     font-weight: 600;
 }
-.texto_titulo_procurados p{
-    color: #ffff;
-    font-family: 'work';
+.titulo2-exibicao-procuradosp{
+    font-size: 0.75rem;
+}
+.itens-exibicao-procurados{
+    height: 100%;
+    width: 23rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.itens-exibicao-procurados{
+    height: 100%;
+    width: 30rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+/*Carroseul*/
+
+.carousel-container-index input[type="radio"]{
+    display: none;
+}
+
+/*Container Principal com o limite de tamanho (24rem x 24rem) */
+.carousel-container-index{
+    position: relative;
+    width: 22rem; 
+    height: 22rem; 
+    overflow: hidden; 
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Pista/Trilha do Carrossel */
+.carousel-imagens-index{
+    display: flex;
+    width: 500%; /* 5 slides * 100% */
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Adiciona a transição de deslize */
+}
+
+/*Estilo de cada Slide/Imagem */
+.carousel-slide-index {
+    width: 20%; /* 100% / 5 slides = 20% */
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.carousel-slide-index img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+
+/*Lógica de Navegação: Quando um rádio é checado, move a pista (imagens) */
+#slide-1:checked ~ .carousel-imagens-index {
+    transform: translateX(0);
+}
+#slide-2:checked ~ .carousel-imagens-index {
+    transform: translateX(-20%);
+}
+#slide-3:checked ~ .carousel-imagens-index {
+    transform: translateX(-40%);
+}
+#slide-4:checked ~ .carousel-imagens-index {
+    transform: translateX(-60%);
+}
+#slide-5:checked ~ .carousel-imagens-index {
+    transform: translateX(-80%);
+}
+
+/*Estilo e Posicionamento das Setas */
+.carousel-group-setas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.seta-anterior, .seta-proxima {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    opacity: 0; /* Esconde a seta por padrão */
+    transition: opacity 0.3s;
+}
+
+.carousel-container-index:hover .seta-anterior, 
+.carousel-container-index:hover .seta-proxima {
+    opacity: 1; /* Mostra a seta ao passar o mouse */
+}
+
+.seta-anterior{
+    left: 0.5rem;
+}
+
+.seta-proxima{
+    right: 0.5rem;
+}
+/* Lógica: Mostra APENAS a seta de navegação da imagem anterior e da próxima */
+/* PRÓXIMO: Mostra a seta "Next" quando o slide atual está checado */
+#slide-1:checked ~ .carousel-group-setas .proximo-slide-1,
+#slide-2:checked ~ .carousel-group-setas .proximo-slide-2,
+#slide-3:checked ~ .carousel-group-setas .proximo-slide-3,
+#slide-4:checked ~ .carousel-group-setas .proximo-slide-4,
+#slide-5:checked ~ .carousel-group-setas .proximo-slide-5 {
+    display: block;
+}
+/* ANTERIOR: Mostra a seta "Prev" quando o slide atual está checado */
+#slide-1:checked ~ .carousel-group-setas .slide-anterior-1,
+#slide-2:checked ~ .carousel-group-setas .slide-anterior-2,
+#slide-3:checked ~ .carousel-group-setas .slide-anterior-3,
+#slide-4:checked ~ .carousel-group-setas .slide-anterior-4,
+#slide-5:checked ~ .carousel-group-setas .slide-anterior-5 {
+    display: block;
+}
+/* Esconde todas as setas (exceto as que devem aparecer) */
+.seta-anterior, .seta-proxima {
+    display: none;
+}
+/* Estilo e Posicionamento dos Indicadores (Inputs Radius/Pontos) */
+.carousel-indicadores-index{
+    position: absolute;
+    bottom: 0.5rem;
+    /* left: 0; */
+    left: 8rem;
+    /* transform: translateX(-50%); */
+    display: flex;
+    gap: 0.5rem;
+    /* z-index: 10; */
+}
+.ponto{
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ponto:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Lógica: Mudar cor do ponto ativo (checado) */
+#slide-1:checked ~ .carousel-indicadores-index .ponto-1,
+#slide-2:checked ~ .carousel-indicadores-index .ponto-2,
+#slide-3:checked ~ .carousel-indicadores-index .ponto-3,
+#slide-4:checked ~ .carousel-indicadores-index .ponto-4,
+#slide-5:checked ~ .carousel-indicadores-index .ponto-5 {
+    background-color: #007bff; /* Cor de destaque para o ponto ativo */
+    border: 2px solid white;
+}
+
+/*laod direito do modal*/
+
+.container-modal-index {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5rem;
+    width: 29rem;
+}
+.info-pet {
+    background: #f7f9fc;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+.info-pet-header {
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.info-pet-header h3{
+    font-weight: 600;
+    color: white;
+    width: 18rem;
+    text-align: center;
+    background-color: rgba(14, 106, 190, 1);
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
     font-size: 1rem;
 }
-
-/* grid dos cards */
-.grid_procurados_exibicao{
-    display: grid;
-    grid-template-columns: repeat(3, 27rem);
-    grid-template-rows: repeat(2, 11rem);
-    row-gap: 12rem;
-    justify-items: center;
-    margin: 2rem;
-    position: absolute;
-    right: 7rem;
-    top: 12rem;
-}
-
-/* cada card da pagina coloquei backgroud image para colocar as imagens */
-.card_procurados_exibicao{
-    height: 345px;
-    width: 19rem;
-    border-radius: 25px;
-    background-color: rgb(255, 255, 255);
+.info-pet-header2{
+    width: 100%;
+    height: 0.5rem;
+    position: relative;
     display: flex;
-    justify-content: center;
-    
-}
-
-
-
-
-.card_procurados_exibicao>h4{
-    height: 3rem;
-    width: 12rem;
-    padding: 1rem;
-    background-color: rgba(145, 190, 231, 1);
-    border-radius: 1rem;
-    font-family: 'work';
-    font-size: 1.2rem;
-    color: black;
-    text-align: center;  
-    z-index: 3;
-    position: absolute;
-
-}
-
-.card_exibicao{
-    height: 7rem;  /*[1]*/
-    width: 19rem;    
-    position: absolute;
-    bottom: 12.4rem;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 0px 0px 24px 24px;
     align-items: center;
-    z-index: 2;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 }
-.card_exibicao p{
-    position: relative;
-    left: 130px;
-    bottom: 40px;
+.info-pet-header2 h3{
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    background-color: rgba(14, 106, 190, 1);
+    position: absolute;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+
 }
-.card_exibicao strong{
-    color: #91BEE7;
+.info-pet-body {
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: #333;
 }
-.card_exibicao h1{
-    position: relative;
-    left: 40px;
-    font-size: 30px;
-    top: 10px;
+.group_info_pets{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3rem;
 }
-
-.card_exibicao h6{
-    position: relative;
-    bottom: 50px;
-    left: 70px;
-    color: #B9D0E5;
+.group_info_pets div{
+    background-color: #adc7e2;
+    height: 2rem;
+    width: 13rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.475rem;
+    border-radius: 0.5rem;
+    margin-left: 0.275rem;
 }
+.group_info_pets p{
+    margin-left: 0.2rem;
+    height: 0.875rem;
 
-
-.card_exibicao button{
-    position: relative;
-    top: 1rem;;
-    left: 7rem;
 }
-
-.card_procurados_exibicao img{
-    position: relative;
-    z-index: 1;   
-    border-radius: 1rem;
-    height: 345px;
-    width: 19.9rem;
-    border-radius: 25px;
-    
-
-
+.motivo {
+    background: white;
+    border-radius: 0.875rem;
+    border: 0.1rem solid #ddd;
+    padding: 0.75rem;
 }

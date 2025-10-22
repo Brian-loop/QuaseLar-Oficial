@@ -91,3 +91,19 @@ function abrirModal() {
         }
     });
 }
+
+function abrirModalProcurados() {
+    const modal = document.querySelector('.modal-overlay-exibicao-procurados');
+    const fecharBtn = document.querySelector('.btn-fechar-exibicao-procurados');
+    modal.style.display = 'flex';
+    fecharBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (event) => {
+        const modalBody = document.querySelector('.modal-body-index');
+        if (!modalBody.contains(event.target)) {
+            modal.style.display = 'none';
+        }
+    });
+}
