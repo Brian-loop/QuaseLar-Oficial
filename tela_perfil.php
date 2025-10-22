@@ -10,19 +10,20 @@ include './template/header.php';
           <p>O que vai querer anunciar hoje?</p>
         </div>
       </div>
-    <button type="button" class="btn bts-primary">PROCURA-SE</button>
-    <button type="button" class="btn bts-primary">ADOCÃO</button>
+    <a href="./tela_cad_procurados.php"  type="button" class="btn btn-primary">PROCURA-SE</a>
+    <a href="./tela_cad_pets.php" type="button" class="btn btn-primary">ADOCÃO</a>
 
-
-    <figure class="grid_anuncio">
+<main class="grid_anuncio">
+  <figure class="card_animal_perfil">
     <h3 class="titulo-anuncio">Adocão</h3>
-    <img src="" alt="">
-    <figcaption>
-    <h1 class="nome-animal">Leo</h1>
+    <img src="./img/sobre_nos.png" alt="">
+    <figcaption class="cardzin_animal_perfil">
+      <h1 class="nome-animal">Leo</h1>
+      <a type="button" class="btn btn-warning">Editar</a>
+      <a type="button" class="btn btn-danger">Deletar</a>
     </figcaption>
-        <button>Editar</button>
-        <button>Deletar</button>
-    </figure>
+  </figure>
+</main>
 
 
 </section>
