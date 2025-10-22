@@ -3,18 +3,20 @@ include './template/header.php';
 ?>
 <section class="tela_cad_entrar">
     <main class="group_usuarios_inputs">
-        <!-- sessão de login de usúario -->
-        <nav class="entrar_usuario">
-            <div class="titulo_cad_usuario"><h3>Login</h3></div>
-            <div class="input-group">
-                <input type="text" id="meuInput" required>
-                <label for="meuInput">E-mail</label>
-            </div>
-             <div class="input-group">
-                <input type="password" id="meuInput" required>
-                <label for="meuInput">Senha</label>
-            </div>
-        </nav>
+        <form class="entrar_usuario" action="cad_entrar_usuario.php" method="POST">
+            <!-- sessão de login de usúario -->
+            <nav class="entrar_usuario">
+                <div class="titulo_cad_usuario"><h3>Login</h3></div>
+                <div class="input-group">
+                    <input type="text" id="meuInput" required>
+                    <label for="meuInput">E-mail</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="meuInput" required>
+                    <label for="meuInput">Senha</label>
+                </div>
+            </nav>
+        </form>
         <!-- tela divisoria -->
         <div class="tela-que-se-mexe" id="telaMovel"></div>
 
