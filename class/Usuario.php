@@ -95,6 +95,7 @@ class Usuario {
             return false;
         }
     }
+    
 
     public function login($email, $senha) {
         try {
