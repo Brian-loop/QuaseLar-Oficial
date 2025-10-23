@@ -10,6 +10,11 @@
     padding: 0rem 3rem;
     background-color: white
 }
+.caixa_exibicao_procurase{
+
+background-color: #0E6ABE;
+
+}
 .card-procurados-exibicao {
     background-color: #000000;
     width: 100%;
@@ -20,7 +25,7 @@
     transition: transform 0.3s ease-in-out;
     padding: 0.375rem;
 }
-.card-exibicao:hover {
+.card-procurados-exibicao:hover {
     transform: translateY(-0.5rem); /* Efeito sutil ao passar o mouse */
 }
 .card-header-exibicao {
