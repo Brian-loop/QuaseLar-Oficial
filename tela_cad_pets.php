@@ -16,19 +16,19 @@ include './template/header.php';
 
                     <div class="carousel-track">
                         <div class="carousel-slide slide-1">
-                            <img src="./img/fundo-animado.gif" alt="Slide 1">
+                            <img src="./img/sem_foto.png" alt="Slide 1">
                         </div>
                         <div class="carousel-slide slide-2">
-                            <img src="./img/sobre_nos.png" alt="Slide 2">
+                            <img src="./img/sem_foto.png" alt="Slide 2">
                         </div>
                         <div class="carousel-slide slide-3">
-                            <img src="" alt="Slide 3">
+                            <img src="./img/sem_foto.png" alt="Slide 3">
                         </div>
                         <div class="carousel-slide slide-4">
-                            <img src="" alt="Slide 4">
+                            <img src="./img/sem_foto.png" alt="Slide 4">
                         </div>
                         <div class="carousel-slide slide-5">
-                            <img src="" alt="Slide 5">
+                            <img src="./img/sem_foto.png" alt="Slide 5">
                         </div>
                     </div>
 

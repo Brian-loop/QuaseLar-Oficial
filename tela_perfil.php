@@ -10,20 +10,66 @@ include './template/header.php';
           <p>O que vai querer anunciar hoje?</p>
         </div>
       </div>
-    <a href="./tela_cad_procurados.php"  type="button" class="btn btn-primary">PROCURA-SE</a>
-    <a href="./tela_cad_pets.php" type="button" class="btn btn-primary">ADOCÃO</a>
+    <div class="botoes_perfil">
+      <a href="./tela_cad_pets.php" type="button" class="btn">ADOÇÃO</a>
+      <a href="./tela_cad_procurados.php"  type="button" class="btn">PROCURADOS</a>
+    </div>
+
 
 <main class="grid_anuncio">
   <figure class="card_animal_perfil">
-    <h3 class="titulo-anuncio">Adocão</h3>
-    <img src="./img/sobre_nos.png" alt="">
-    <figcaption class="cardzin_animal_perfil">
+    <h3 class="titulo-anuncio">Adoção</h3>
+    <img src="./img/fundo-animado.gif"alt="" >
+    <div class="cardzin_animal_perfil">
       <h1 class="nome-animal">Leo</h1>
-      <a type="button" class="btn btn-warning">Editar</a>
-      <a type="button" class="btn btn-danger">Deletar</a>
-    </figcaption>
+    </div>
   </figure>
+  <div class="botoes_perfil2">
+    <a type="button" class="btn btn-primary">Editar</a>
+    <a type="button" class="btn btn-danger">Deletar</a>
+  </div>
+</main>
+                       ?>
+
+<main class="grid_anuncio">
+  <figure class="card_animal_perfil">
+    <h3 class="titulo-anuncio">Adoção</h3>
+    <img src="./img/fundo-animado.gif"alt="" >
+    <div class="cardzin_animal_perfil">
+      <h1 class="nome-animal">Leo</h1>
+    </div>
+  </figure>
+  <div class="botoes_perfil2">
+    <a type="button" class="btn btn-primary">Editar</a>
+    <a type="button" class="btn btn-danger">Deletar</a>
+  </div>
+</main>
+<main class="grid_anuncio">
+  <figure class="card_animal_perfil">
+    <h3 class="titulo-anuncio">Adoção</h3>
+    <img src="./img/fundo-animado.gif"alt="" >
+    <div class="cardzin_animal_perfil">
+      <h1 class="nome-animal">Leo</h1>
+    </div>
+  </figure>
+  <div class="botoes_perfil2">
+    <a type="button" class="btn btn-primary">Editar</a>
+    <a type="button" class="btn btn-danger">Deletar</a>
+  </div>
+</main>
+<main class="grid_anuncio">
+  <figure class="card_animal_perfil">
+    <h3 class="titulo-anuncio">Adoção</h3>
+    <img src="./img/fundo-animado.gif"alt="" >
+    <div class="cardzin_animal_perfil">
+      <h1 class="nome-animal">Leo</h1>
+    </div>
+  </figure>
+  <div class="botoes_perfil2">
+    <a type="button" class="btn btn-primary">Editar</a>
+    <a type="button" class="btn btn-danger">Deletar</a>
+  </div>
 </main>
 
-
+         
 </section>

@@ -1,7 +1,9 @@
 <?php include('./template/header.php'); ?>
 
 <section class="group_cards_exibicao_procurados">
-    <h1 class="titulo_exibicao_procurados">Doação</h1>
+    <div class="caixa_exibicao_procurase">
+        <h1 class="titulo_exibicao_procurados">Doação</h1>
+    </div>
 
     <div class="card-procurados-exibicao">
         <figure class="card-header-exibicao">
@@ -22,7 +24,7 @@
         <div class="btn-fechar-exibicao-procurados"><i class="bi bi-x"></i></div>
 
         <nav class="itens-exibicao-procurados">
-            <div class="titulo-modal-exibicao-procurados"><h3>Doação</h3></div>
+            <div class="titulo-modal-exibicao-procurados"><h3>Procurado</h3></div>
 
             <div class="carousel-container-index">
                 <input type="radio" name="slider" id="slide-1" checked>

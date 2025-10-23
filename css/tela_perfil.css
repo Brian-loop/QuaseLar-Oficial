@@ -1,19 +1,36 @@
 .fundo-perfil {
-    height: 100%;
-    width: 100%;
-    background-color: #ffff;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgb(208, 224, 240);
 }
 
+.botoes_perfil a {
+    background-color:rgba(145, 190, 231, 1);
+    font-family: 'open-sans';
+    height: 3rem;
+    width: 10rem;
+    color: black;
+    position: relative;
+    left: 9rem;
+    margin: 1rem;
+}
 
+.fundo-perfil a:hover {
+    color: #fff;
+    background-color: #0a559b;
+
+}
 
 .caixa-aviso-perfil {
-    width: 20rem;
-    height: 6rem;
-    background-color: rgba(14, 106, 190, 1);
+    position: relative;
+    left: 6rem;
+    width: 28rem;
+    height: 8rem;
+    background-color: #0E6ABE;
     border-radius: 1rem;
     display: flex;
     align-items: center;
-    margin: 1rem;
+    margin: 2rem;
 }
 
 .texto_titulo_perfil {
@@ -22,83 +39,96 @@
 
 .texto_titulo_perfil h1 {
     margin: 1rem 0 0 0;
-    font-family: 'open';
-    font-size: 2rem;
+    font-family: 'open-sans';
+    font-size: 3rem;
     color: #ffff;
     font-weight: 600;
 }
 
 .texto_titulo_perfil p {
     color: #ffff;
-    font-family: 'work';
-    font-size: 1rem;
+    font-family: 'open-sans';
+    font-size: 1.5rem;
 }
-
 
 .grid_anuncio {
     display: grid;
-    grid-template-columns: repeat(3, 27rem);
-    grid-template-rows: repeat(2, 11rem);
-    row-gap: 12rem;
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+    gap: 2rem;
     justify-items: center;
     margin: 2rem;
+    grid-auto-rows: auto;       /* altura automática */
+    max-height: calc(2 * 25rem); /* controla o total de altura, opcional */
 }
+
+
+.grid_anuncio a {
+    position: relative;
+    right: 10rem;
+
+
+}
+
 
 .card_animal_perfil {
-    z-index: 3;
     position: relative;
     left: 20rem;
-    height: 345px;
-    width: 19rem;
+    height:19rem ;
+    width: 20rem;
     border-radius: 25px;
-    background-color: rgb(119, 38, 38);
+    background-color:#a05151;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 }
-
 
 .card_animal_perfil h3 {
+   position:absolute;
     z-index: 2;
-    position: relative;
-    right: 20rem;
-    height: 3rem;
-    width: 12rem;
-    
-    border-radius: 1rem;
-    padding: 1rem;
-    
     background-color: rgba(145, 190, 231, 1);
-    color: rgb(255, 255, 255);
-    
-    font-family: 'work';
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-.card_animal_perfil img{
-    z-index: 1;   
-    position: relative;
-
+    color: #000000;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
-    height: 345px;
-    width: 19.9rem;
-   
 }
-
+.card_animal_perfil img {
+    position:absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.card_animal_perfil h1 {
+    color: #ffff;
+    
+}
 .cardzin_animal_perfil {
-    z-index: 2;   
-    position: relative;
+    z-index: 3;
+    position: absolute;
+    bottom: 0rem;
     
+    height: 5rem;
+    width: 20rem;
     
-    height: 7rem;  
-    width: 19rem;    
-    
-    align-items: center;    
+    align-items: center;
     border-radius: 0px 0px 24px 24px;
 
     color: white;
     background-color: rgba(0, 0, 0, 0.8);
+    justify-content: space-around;
+    display: flex;
+}
 
-}    
+.botoes_perfil2{
+    position: relative;
+    top: 19.1rem;
+    left: 4rem;
+    height: 10rem;
+    width: 10rem;
 
+
+
+
+}
 
