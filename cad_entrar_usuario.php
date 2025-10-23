@@ -3,7 +3,11 @@ require_once './class/Usuario.php';
 
 echo '<h1>cad_entrar_usuario.php</h1>';
 
+// Instanciando e passando o nome no construtor
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+   
+}
 
 
 

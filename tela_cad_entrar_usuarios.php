@@ -126,8 +126,11 @@ include './template/header.php';
                 </div>
 
                 <!-- <button type="submit" class="btn-cadastrar" onclick=" return validarFormulario()">Cadastrar</button> -->
-                <button type="submit" class="btn-cadastrar" id="btn_cadastrar" onclick=" return validarFormulario()">Cadastrar</button>
-                <!-- <button type="submit" class="btn-cadastrar" id="btn_cadastrar">Cadastrar</button> -->
+                <!-- <button type="submit" class="btn-cadastrar" id="btn_cadastrar" onclick=" return validarFormulario()">Cadastrar</button> -->
+                
+                <button type="submit" class="btn-cadastrar" id="btn_cadastrar">Cadastrar</button>
+                <!-- <label for="btn_cadastrar" class="btn-cadastrar"><button type="submit"  id="btn_cadastrar">Cadastrar</button></label>
+                <input type="button" value="" onclick="return validarFormulario()" style="display: none;"> -->
                 <!-- <label for="cadastrar" class="btn-cadastrar" onclick="return validarFormulario()">Cadastre-se</label> -->
                 <!-- <input type="submit" onclick=" return validarFormulario()" value="Cadastrar" class="btn-cadastrar"> -->
                 <!-- <input type="submit" value="" id="cadastrar" > -->

@@ -493,3 +493,5 @@ function validarFormulario() {
     return true;
    
 }
+//  window.onload = validarFormulario;
+//  validarFormulario();
