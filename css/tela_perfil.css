@@ -52,13 +52,18 @@
 }
 
 .grid_anuncio {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-    gap: 2rem;
+    /* grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); */
+    grid-template-columns: repeat(3, 20rem);
+    grid-template-rows: repeat(2, 30rem);
+    /* align-items: center; */
+    gap: 3rem;
     justify-items: center;
-    margin: 2rem;
-    grid-auto-rows: auto;       /* altura automática */
-    max-height: calc(2 * 25rem); /* controla o total de altura, opcional */
+    /* margin: 2rem; */
+      /* altura automática */
+     /* controla o total de altura, opcional */
+    border: 1px red solid;
 }
 
 
@@ -72,7 +77,8 @@
 
 .card_animal_perfil {
     position: relative;
-    left: 20rem;
+    top: 2rem;
+    left: 10rem;
     height:19rem ;
     width: 20rem;
     border-radius: 25px;
@@ -121,12 +127,10 @@
 }
 
 .botoes_perfil2{
-    position: relative;
-    top: 19.1rem;
-    left: 4rem;
-    height: 10rem;
-    width: 10rem;
-
+    z-index: 3;
+    position:absolute;
+    bottom: 0;
+    left: 25rem;
 
 
 
