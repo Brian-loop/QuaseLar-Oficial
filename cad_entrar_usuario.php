@@ -3,20 +3,27 @@ require_once './class/Usuario.php';
 
 echo '<h1>cad_entrar_usuario.php</h1>';
 
-// Instanciando e passando o nome no construtor
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-   
+function pegarCampoFormulario($campo_name) {
+    if (isset($_POST[$campo_name]) && !empty($_POST[$campo_name])) {
+        $valor = trim(htmlspecialchars($_POST[$campo_name]));
+        return $valor;
+    }
+    return null;
+}
+if (isset($_POST['cadastrar'])) {
+    // Utiliza a função para pegar os campos.
+    $nome = pegarCampoFormulario('nome');
+    $email = pegarCampoFormulario('email');
+    $telefone = pegarCampoFormulario('telefone'); 
+    $cpf = pegarCampoFormulario('cpf');
+    $cep = pegarCampoFormulario('cep');
+    $endereco = pegarCampoFormulario('endereco');
+    $senha = pegarCampoFormulario('senha');
+    $confirSenha = pegarCampoFormulario('confir_senha');
 }
 
 
-
-
-
-
-
-
-
+$dn = new Usuario();
 
 
 
