@@ -1,28 +1,28 @@
 <?php 
 include './template/header.php';
+// echo '<h1></h1>';
 ?>
 <section class="tela_cad_entrar">
     <main class="group_usuarios_inputs">
-        <form class="entrar_usuario" action="cad_entrar_usuario.php" method="POST">
+        <form class="entrar_usuario" action="cad_entrar_usuario.php" method="POST" >
             <!-- sessão de login de usúario -->
-            <nav class="entrar_usuario">
                 <div class="titulo_cad_usuario"><h3>Login</h3></div>
                 <div class="input-group">
-                    <input type="text" id="meuInput" required>
-                    <label for="meuInput">E-mail</label>
+                    <input type="email" name="email" id="emailLogin" required>
+                    <label for="emailLogin">E-mail</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="meuInput" required>
-                    <label for="meuInput">Senha</label>
+                    <input type="password" name="senha" id="senhaLogin" required>
+                    <label for="senhaLogin">Senha</label>
                 </div>
-            </nav>
+                <input type="hidden" name="acao" value="entrar">
+                <button type="submit" class="btn-cadastrar">Entrar</button>
         </form>
         <!-- tela divisoria -->
         <div class="tela-que-se-mexe" id="telaMovel"></div>
 
         <!-- formulario de cadastro -->
-        <form action="cad_entrar_usuario.php" method="POST">
-            <nav class="cad_usuario">
+        <form action="cad_entrar_usuario.php" method="POST" class="cad_usuario" >
                 <div class="titulo_cad_usuario"><h3>Cadastre-se</h3></div>
 
                 <input type="hidden" name="cadastro" value="1">
@@ -124,8 +124,14 @@ include './template/header.php';
                     <span id="textoErroConfir_senha"></span>
                     </span>
                 </div>
-                <button type="submit" class="btn-cadastrar" onclick=" return validarFormulario()" >Cadastrar</button>
-            </nav>
+
+                <!-- <button type="submit" class="btn-cadastrar" onclick=" return validarFormulario()">Cadastrar</button> -->
+                <button type="submit" class="btn-cadastrar" id="btn_cadastrar" onclick=" return validarFormulario()">Cadastrar</button>
+                <!-- <button type="submit" class="btn-cadastrar" id="btn_cadastrar">Cadastrar</button> -->
+                <!-- <label for="cadastrar" class="btn-cadastrar" onclick="return validarFormulario()">Cadastre-se</label> -->
+                <!-- <input type="submit" onclick=" return validarFormulario()" value="Cadastrar" class="btn-cadastrar"> -->
+                <!-- <input type="submit" value="" id="cadastrar" > -->
+
         </form>
     </main>
 </section>

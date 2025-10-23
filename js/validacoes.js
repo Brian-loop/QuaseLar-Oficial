@@ -491,4 +491,5 @@ function validarFormulario() {
     }
     // Se tudo estiver correto, o formulário será enviado
     return true;
+   
 }
