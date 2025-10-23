@@ -17,59 +17,20 @@ include './template/header.php';
 
 
 <main class="grid_anuncio">
-  <figure class="card_animal_perfil">
-    <h3 class="titulo-anuncio">Adoção</h3>
-    <img src="./img/fundo-animado.gif"alt="" >
-    <div class="cardzin_animal_perfil">
-      <h1 class="nome-animal">Leo</h1>
+    <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./img/fundo-animado.gif"alt="" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal">Leo</h1>
+      </figure>
+      <div class="botoes_perfil2">
+        <a type="button" class="btn btn-primary">Editar</a>
+        <a type="button" class="btn btn-danger">Deletar</a>
+      </div>
     </div>
-  </figure>
-  <div class="botoes_perfil2">
-    <a type="button" class="btn btn-primary">Editar</a>
-    <a type="button" class="btn btn-danger">Deletar</a>
-  </div>
-</main>
-                       ?>
 
-<main class="grid_anuncio">
-  <figure class="card_animal_perfil">
-    <h3 class="titulo-anuncio">Adoção</h3>
-    <img src="./img/fundo-animado.gif"alt="" >
-    <div class="cardzin_animal_perfil">
-      <h1 class="nome-animal">Leo</h1>
-    </div>
-  </figure>
-  <div class="botoes_perfil2">
-    <a type="button" class="btn btn-primary">Editar</a>
-    <a type="button" class="btn btn-danger">Deletar</a>
-  </div>
 </main>
-<main class="grid_anuncio">
-  <figure class="card_animal_perfil">
-    <h3 class="titulo-anuncio">Adoção</h3>
-    <img src="./img/fundo-animado.gif"alt="" >
-    <div class="cardzin_animal_perfil">
-      <h1 class="nome-animal">Leo</h1>
-    </div>
-  </figure>
-  <div class="botoes_perfil2">
-    <a type="button" class="btn btn-primary">Editar</a>
-    <a type="button" class="btn btn-danger">Deletar</a>
-  </div>
-</main>
-<main class="grid_anuncio">
-  <figure class="card_animal_perfil">
-    <h3 class="titulo-anuncio">Adoção</h3>
-    <img src="./img/fundo-animado.gif"alt="" >
-    <div class="cardzin_animal_perfil">
-      <h1 class="nome-animal">Leo</h1>
-    </div>
-  </figure>
-  <div class="botoes_perfil2">
-    <a type="button" class="btn btn-primary">Editar</a>
-    <a type="button" class="btn btn-danger">Deletar</a>
-  </div>
-</main>
+
 
          
 </section>
