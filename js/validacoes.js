@@ -493,5 +493,12 @@ function validarFormulario() {
     return true;
    
 }
-//  window.onload = validarFormulario;
+function validarSemPeloId(){
+    const botao = document.getElementById('btn_cadastrar');
+
+    botao.addEventListener('click', function() {
+        validarFormulario();
+    });
+}
+ window.onload = validarSemPeloId;
 //  validarFormulario();
