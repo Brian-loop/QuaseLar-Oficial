@@ -1,9 +1,9 @@
 <?php
 include "./class/Adocao.php";
-include './class/Quaselar.php';
+include './class/BancoDeDados_conexao.php';
 
-$conexao = new Quaselar();
-$resultado = $conexao->conexao();
+$conexao = new BancoDeDados_conexao();
+$resultado = $conexao->getConexao();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

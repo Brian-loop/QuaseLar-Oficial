@@ -1,9 +1,9 @@
 <?php
 include './class/Procurados.php';
-include './class/Quaselar.php';
+include './class/BancoDeDados_conexao.php';
 
-$conexao = new Quaselar();
-$resultado = $conexao->conexao();
+$conexao = new BancoDeDados_conexao();
+$resultado = $conexao->getConexao();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         
         $procurados = new Procurados();
-        $resultado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo);
+        $resultado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo, $data_criacao);
 
 
 if($_SERVER['REQUEST_METHOD'] = 'POST' && isset($_POST['cadastro']) ){

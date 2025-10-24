@@ -8,15 +8,13 @@ class Procurados {
 
     public function __construct()
     {
-        $dsn = "mysql:dbname=db_quaselar_oficial;host=127.0.0.1";
-        $usuario ='root';
-        $senha = '';
-        $this->conn = new PDO($dsn, $usuario, $senha);
+        $db = new BancoDeDados_conexao();
+        $this->conn = $db->getConexao();
     }
 
-    public function cadastro( $nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo)
+    public function cadastro( $nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo, $data_criacao)
     {
-        $script = "INSERT INTO tb_procurados (nome_p, especie_p, raca_p, sexo_p, porte_p, ultima_vez_visto, idade_valor, idade_tipo) VALUES ( :nome_p, :especie_p, :raca_p, :sexo_p, :porte_p, :ultima_vez_visto, :idade_valor,:idade_tipo)";
+        $script = "INSERT INTO tb_procurados (nome_p, especie_p, raca_p, sexo_p, porte_p, ultima_vez_visto, idade_p, idade_tipo, data_criacao_cad_p) VALUES ( :nome_p, :especie_p, :raca_p, :sexo_p, :porte_p, :ultima_vez_visto, :idade_p,:semanas_meses_anos_p, :data_criacao_cad_p )";
 
         $insert = $this->conn ->prepare($script);
 
@@ -28,8 +26,9 @@ class Procurados {
             ":sexo_p" => $sexo,
             ":porte_p" => $porte,
             ":ultima_vez_visto" => $ultima_vez,
-            ":idade_valor" => $idade_valor,
-            ":idade_tipo" => $idade_tipo
+            ":idade_p" => $idade_valor,
+            ":semanas_meses_anos_p" => $idade_tipo,
+            ":data_criacao_cad_p" => $data_criacao
         ]);
         
         return $this->conn->lastInsertId();
