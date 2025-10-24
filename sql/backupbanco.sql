@@ -74,3 +74,14 @@ CREATE TABLE tb_img_procurados (
     FOREIGN KEY (id_procurados) REFERENCES tb_procurados(id_procurados)
         ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- para o adm --    
+
+ALTER TABLE tb_usuario ADD COLUMN tipo_usuario ENUM('admin','usuario') DEFAULT 'usuario';
+INSERT INTO tb_usuario (nome, email, senha, tipo_usuario)
+VALUES ('Administrador', 'admin@site.com', 
+        '$2y$10$M6I7gnw6YovWlYj0rf3X6uK2H8l.YVnXr8xK8IahRu.CtVxZ0VgQa', 
+        'admin');
+
+
