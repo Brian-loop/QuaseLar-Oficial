@@ -16,6 +16,7 @@ class BancoDeDados_conexao{
             // $senha = '';
 
             $this->conn = new PDO($dsn, $usuario, $senha);
+            
         } catch (PDOException $e) {
             die("Erro ao conectar ao banco de dados: " . $e->getMessage());
         }

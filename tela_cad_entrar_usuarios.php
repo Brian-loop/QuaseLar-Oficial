@@ -4,19 +4,19 @@ include './template/header.php';
 ?>
 <section class="tela_cad_entrar">
     <main class="group_usuarios_inputs">
-        <form class="entrar_usuario" action="cad_entrar_usuario.php" method="POST" >
+        <form class="entrar_usuario" action="login.php" method="POST" >
             <!-- sessão de login de usúario -->
                 <div class="titulo_cad_usuario"><h3>Login</h3></div>
                 <div class="input-group">
-                    <input type="email" name="email" id="emailLogin" required>
-                    <label for="emailLogin">E-mail</label>
+                    <input type="email" name="email" required>
+                    <label for="email">E-mail</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="senha" id="senhaLogin" required>
-                    <label for="senhaLogin">Senha</label>
+                    <input type="password" name="senha"required>
+                    <label for="senha">Senha</label>
                 </div>
-                <input type="hidden" name="acao" value="entrar">
-                <button type="submit" class="btn-cadastrar">Entrar</button>
+                <!-- <button type="submit" class="btn-cadastrar">Entrar</button> -->
+                <button type="submit" id="btn_login" name="login">Entrar</button>
         </form>
         <!-- tela divisoria -->
         <div class="tela-que-se-mexe" id="telaMovel"></div>

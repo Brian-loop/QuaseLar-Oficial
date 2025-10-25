@@ -1,29 +1,29 @@
 <?php 
+require_once './class/BancoDeDados_conexao.php';
 require_once './class/Usuario.php';
 
 echo '<h1>cad_entrar_usuario.php</h1>';
 
-function pegarCampoFormulario($campo_name) {
-    if (isset($_POST[$campo_name]) && !empty($_POST[$campo_name])) {
-        $valor = trim(htmlspecialchars($_POST[$campo_name]));
-        return $valor;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $dados = [
+        'nome' => $_POST['nome'],
+        'email' => $_POST['email'],
+        'telefone' => $_POST['telefone'],
+        'endereco' => $_POST['endereco'],
+        'cep' => $_POST['cep'],
+        'cpf' => $_POST['cpf'],
+        'senha' => $_POST['senha']
+    ];
+
+    $usuario = new Usuario();
+
+    if ($usuario->cadastrar($dados)) {
+        echo "Usuário cadastrado com sucesso!";
+        // header('Location: login.php');
+    } else {
+        echo "Erro ao cadastrar usuário!";
     }
-    return null;
-}
-if (isset($_POST['cadastrar'])) {
-    // Utiliza a função para pegar os campos.
-    $nome = pegarCampoFormulario('nome');
-    $email = pegarCampoFormulario('email');
-    $telefone = pegarCampoFormulario('telefone'); 
-    $cpf = pegarCampoFormulario('cpf');
-    $cep = pegarCampoFormulario('cep');
-    $endereco = pegarCampoFormulario('endereco');
-    $senha = pegarCampoFormulario('senha');
-    $confirSenha = pegarCampoFormulario('confir_senha');
-}
-
-
-$dn = new Usuario();
+} 
 
 
 
@@ -50,44 +50,48 @@ $dn = new Usuario();
 
 
 
-// $acao = $_POST['acao'] ?? '';
 
-// $usuario = new Usuario();
 
-// if ($acao === 'cadastrar') {
-//     $dados = [
-//         'nome' => $_POST['nome'] ?? '',
-//         'email' => $_POST['email'] ?? '',
-//         'telefone' => $_POST['telefone'] ?? '',
-//         'endereco' => $_POST['endereco'] ?? '',
-//         'cep' => $_POST['cep'] ?? '',
-//         'cpf' => $_POST['cpf'] ?? '',
-//         'senha' => $_POST['senha'] ?? '',
-//     ];
 
-//     if ($usuario->cadastrar($dados)) {
-//         header( 'Location: tela_cad_entrar_usuarios.php?msg=cadastro_ok');
-//         exit;
-//     } else {
-//         header('Location: tela_cad_entrar_usuarios.php?erro=cadastro');
-//         exit;
-//     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//metodo basico de cadastro de usuario so com os campos nome e email
+
+// if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+//     die('Acesso inválido.');
 // }
 
-// if ($acao === 'entrar') {
-//     $email = $_POST['email'] ?? '';
-//     $senha = $_POST['senha'] ?? '';
+// $nome = $_POST['nome'];
+// $email = $_POST['email'];
 
-//     if ($usuario->login($email, $senha)) {
-//         header('Location: index.php');
-//         exit;
-//     } else {
-//         header('Location: tela_cad_entrar_usuarios.php?erro=login');
-//         exit;
-//     }
+// //chamando a classe de conexão com o banco de dados
+// $banco = new BancoDeDados_conexao();    
+// //pegando a conexão com o banco de dados
+// $conn = $banco->getConexao();          
+
+// $script = $conn->prepare("INSERT INTO tb_usuario (nome, email) VALUES ('$nome','$email')");
+
+// $resultado = $script->execute();
+
+
+// if($resultado == true){
+//     echo "Usuário cadastrado com sucesso!";
+// } else{
+//     echo "Erro ao cadastrar usuário: " . mysqli_error($this->conn); 
+
+
+        
 // }
-
-
-
-
-
