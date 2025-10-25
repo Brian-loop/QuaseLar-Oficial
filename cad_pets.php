@@ -2,6 +2,8 @@
 include "./class/Adocao.php";
 include './class/BancoDeDados_conexao.php';
 
+
+
 $conexao = new BancoDeDados_conexao();
 $resultado = $conexao->getConexao();
 

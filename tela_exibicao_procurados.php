@@ -1,4 +1,9 @@
-<?php include('./template/header.php'); ?>
+<?php 
+include('./template/header.php'); 
+
+
+
+?>
 
 <section class="group_cards_exibicao_procurados">
     <div class="caixa_exibicao_procurase">
