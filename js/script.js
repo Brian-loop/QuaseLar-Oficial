@@ -107,3 +107,46 @@ function abrirModalProcurados() {
         }
     });
 }
+
+
+
+
+function precisaEstarLogado(message, duration = 3000) {
+    const modal = document.createElement('div');
+    modal.id = 'temporary-modal-message';
+
+    modal.textContent = message;
+
+    modal.style.position = 'fixed'; 
+    modal.style.top = '50%';        
+    modal.style.left = '50%';       
+    modal.style.transform = 'translate(-50%, -50%)'; 
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; 
+    modal.style.color = 'white';    
+    modal.style.padding = '20px 30px';
+    modal.style.borderRadius = '8px'; 
+    modal.style.zIndex = '10000';   
+    modal.style.fontSize = '1.2em'; 
+    modal.style.textAlign = 'center';
+    modal.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+    modal.style.transition = 'opacity 0.5s ease-in-out'; 
+    modal.style.opacity = '0'; 
+
+    document.body.appendChild(modal);
+
+    setTimeout(() => {
+        modal.style.opacity = '1';
+    }, 10); // Pequeno atraso
+
+    setTimeout(() => {
+        // Iniciar o fade-out
+        modal.style.opacity = '0';
+
+        // Remover o elemento do DOM após a transição de fade-out
+        setTimeout(() => {
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+        }, 500); // 500ms (0.5s) 
+    }, duration);
+}
