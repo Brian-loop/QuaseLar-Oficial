@@ -1,5 +1,17 @@
 <?php
+
+// Verifica se o usuário está logado
+// tais se vc na consegue não consegue ver esta página no navegador é so vc comentar o session_start() e o if abaixo
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    echo "<script>precisaEstarLogado('Você precisa estar logado para acessar esta página.');</script>";
+    header("Location: ./index.php");
+    exit;    
+}
+//==================================================================================================================
+// Se o usuário estiver logado, continue com a exibição da página
 include './template/header.php';
+
 ?>
 
 <section class="page_cad_pets">
