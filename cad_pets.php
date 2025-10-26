@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($arquivo_tmp, $caminho)) {
 
 
-                $sql = "INSERT INTO img_animal (nome_arquivo, localizacao) VALUES ('$novoNome', '$caminho')";
+                $sql = "INSERT INTO tb_img_animal (nome_arquivo, localizacao) VALUES ('$novoNome', '$caminho')";
 
                 if ($resultado->query($sql)) {
                     echo 'Foto cadastrada com sucesso!';

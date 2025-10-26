@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (move_uploaded_file($arquivo_tmp, $caminho)) {
                     
                     
-                    $sql = "INSERT INTO img_animal (nome_arquivo, localizacao) VALUES ('$novoNome', '$caminho')";
+                    $sql = "INSERT INTO tb_img_procurados (nome_arquivo, localizacao) VALUES ('$novoNome', '$caminho')";
                     
                     if ($resultado->query($sql)) {
                         echo 'Foto cadastrada com sucesso!';
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         
         $procurados = new Procurados();
-        $resultado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo, $data_criacao);
+        $resultado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo);
 
 
 if($_SERVER['REQUEST_METHOD'] = 'POST' && isset($_POST['cadastro']) ){

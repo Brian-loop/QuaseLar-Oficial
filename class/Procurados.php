@@ -12,9 +12,9 @@ class Procurados {
         $this->conn = $db->getConexao();
     }
 
-    public function cadastro( $nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo, $data_criacao)
+    public function cadastro( $nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo)
     {
-        $script = "INSERT INTO tb_procurados (nome_p, especie_p, raca_p, sexo_p, porte_p, ultima_vez_visto, idade_p, idade_tipo, data_criacao_cad_p) VALUES ( :nome_p, :especie_p, :raca_p, :sexo_p, :porte_p, :ultima_vez_visto, :idade_p,:semanas_meses_anos_p, :data_criacao_cad_p )";
+        $script = "INSERT INTO tb_procurados (nome_p, especie_p, raca_p, sexo_p, porte_p, ultima_vez_visto, idade_p,semanas_meses_anos_p) VALUES ( :nome_p, :especie_p, :raca_p, :sexo_p, :porte_p, :ultima_vez_visto, :idade_p,:semanas_meses_anos_p)";
 
         $insert = $this->conn ->prepare($script);
 
@@ -28,7 +28,7 @@ class Procurados {
             ":ultima_vez_visto" => $ultima_vez,
             ":idade_p" => $idade_valor,
             ":semanas_meses_anos_p" => $idade_tipo,
-            ":data_criacao_cad_p" => $data_criacao
+       
         ]);
         
         return $this->conn->lastInsertId();
