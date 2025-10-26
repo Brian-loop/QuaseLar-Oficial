@@ -22,13 +22,76 @@ include './template/header.php';
       <img src="./img/fundo-animado.gif"alt="" >
       <div class="cardzin_animal_perfil">
         <h1 class="nome-animal">Leo</h1>
-      </figure>
-      <div class="botoes_perfil2">
-        <a type="button" class="btn btn-primary">Editar</a>
-        <a type="button" class="btn btn-danger">Deletar</a>
       </div>
-    </div>
+    
+        <div class="botoes_perfil2">
+          <a type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
 
+      <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./img/fundo-animado.gif"alt="" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal">Leo</h1>
+      </div>
+    
+        <div class="botoes_perfil2">
+          <a type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
+
+      <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./img/fundo-animado.gif"alt="" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal">Leo</h1>
+      </div>
+    
+        <div class="botoes_perfil2">
+          <a type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
+      <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./img/fundo-animado.gif"alt="" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal">Leo</h1>
+      </div>
+    
+        <div class="botoes_perfil2">
+          <a type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
+      <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./img/fundo-animado.gif"alt="" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal">Leo</h1>
+      </div>
+    
+        <div class="botoes_perfil2">
+          <a type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
+      <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./img/fundo-animado.gif"alt="" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal">Leo</h1>
+      </div>
+    
+        <div class="botoes_perfil2">
+          <a type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
+      
 </main>
 
 
