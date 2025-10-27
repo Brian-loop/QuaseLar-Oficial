@@ -222,7 +222,7 @@ include './template/header.php';
 
     // Se tiver menos de 5 imagens, as outras ficam vazias
     for (let j = total; j < slides.length; j++) {
-        slides[j].src = "";
+        slides[j].src = "./img/sem_foto.png";
     }
 }
 

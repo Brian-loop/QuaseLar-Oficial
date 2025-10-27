@@ -179,9 +179,9 @@
 }
 .status-chip {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: #507fff; 
+    top: 0rem;
+    left: 8rem;
+    background-color:rgba(145, 190, 231, 1);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
@@ -232,7 +232,7 @@
     width: 100%;
     padding: 1rem 1.5rem;
     text-align: center;
-    background-color: #4a6fa5; /* Azul da marca */
+    background-color: #0E6ABE;/* Azul da marca */
     color: white;
     text-decoration: none;
     border-radius: 0.5rem;
@@ -290,7 +290,7 @@
 }
 .titulo-modalIndex{
     color: white;
-    height: 3rem;
+    height: 4rem;
     width: 10rem;
     background-color: rgba(14, 106, 190, 1);
     display: flex;
@@ -309,7 +309,7 @@
     align-items: center;
     color: white;
     justify-content: center;
-    border-radius: 1.5rem;
+    border-radius: 1.0rem;
 }
 .titulo2-modalIndex span{
     font-size: 1.5rem;

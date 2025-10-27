@@ -5,9 +5,26 @@ include('./template/header.php');
 
 ?>
 
-<section class="group_cards_exibicao_procurados">
+<section class="fundo_cards_exibicao_procurados">
     <div class="caixa_exibicao_procurase">
-        <h1 class="titulo_exibicao_procurados">Doação</h1>
+        <div class="titulo_exibicao_procurados">
+            <h1>PROCURA - SE</h1>
+            <p>Você viu algum desses animais? Por favor entre em contato.</p>
+        </div>
+    </div>
+
+    <main class="grid_exibicao_procurados">
+    <div class="card-procurados-exibicao">
+        <figure class="card-header-exibicao">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto-procurados">
+            <span class="status-estado">Americana/SP</span>
+        </figure>
+
+        <div class="card-body-procurados-exibicao">
+            <h2 class="pet-nome-procurados">Mel</h2>
+            <button class="btn-procurados" onclick="abrirModalProcurados()">Mais Informações!</button>
+            <p class="pet-descricao-procurados">ultima atualização</p>
+        </div>
     </div>
 
     <div class="card-procurados-exibicao">
@@ -18,10 +35,37 @@ include('./template/header.php');
 
         <div class="card-body-procurados-exibicao">
             <h2 class="pet-nome-procurados">Mel</h2>
-            <p class="pet-descricao-procurados">Vista na frente de casa</p>
             <button class="btn-procurados" onclick="abrirModalProcurados()">Mais Informações!</button>
+            <p class="pet-descricao-procurados">ultima atualização</p>
         </div>
     </div>
+
+    <div class="card-procurados-exibicao">
+        <figure class="card-header-exibicao">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto-procurados">
+            <span class="status-estado">Americana/SP</span>
+        </figure>
+
+        <div class="card-body-procurados-exibicao">
+            <h2 class="pet-nome-procurados">Mel</h2>
+            <button class="btn-procurados" onclick="abrirModalProcurados()">Mais Informações!</button>
+            <p class="pet-descricao-procurados">ultima atualização</p>
+        </div>
+    </div>
+
+    <div class="card-procurados-exibicao">
+        <figure class="card-header-exibicao">
+            <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto-procurados">
+            <span class="status-estado">Americana/SP</span>
+        </figure>
+
+        <div class="card-body-procurados-exibicao">
+            <h2 class="pet-nome-procurados">Mel</h2>
+            <button class="btn-procurados" onclick="abrirModalProcurados()">Mais Informações!</button>
+            <p class="pet-descricao-procurados">ultima atualização</p>
+        </div>
+    </div>
+    </main>
 </section>
 
 <section class="modal-overlay-exibicao-procurados">
@@ -70,7 +114,8 @@ include('./template/header.php');
             </div>
 
             <div class="titulo2-modal-exibicao-procurados">
-                <span>Rex</span>
+                <h4>nome</h4>
+                <p>ultima atualização</p>
             </div>
         </nav>
 
@@ -80,32 +125,32 @@ include('./template/header.php');
                 <div class="info-pet">
                     <div class="info-pet-header"><h3>Informações Do Animal</h3></div>
                     <div class="info-pet-body">
-                        <div class="group_info_pets"><p>Nome Do Animal:<div>Rex</div></p></div>
+                        <?php  foreach ($resultado as $linha ){?>
+                        <div class="group_info_pets"><p><strong>Nome Do Animal:</strong><div>Rex</div></p></div>
                         <div class="group_info_pets">
-                            <p>Espécie:<div>Cachorro</div></p>
-                            <p>Sexo:<div>Macho</div></p>
-                            <p>Idade:<div>2 anos</div></p>
+                            <p><strong>Espécie: </strong><div>Cachorro</div></p>
+                            <p><strong>Sexo: </strong><div>Macho</div></p>
+                            <p><strong>Idade: </strong><div>2 anos</div></p>
                         </div>
                         <div class="group_info_pets">
-                            <p>Porte:<div>Médio</div></p>
-                            <p>Castrado:<div>Sim</div></p>
-                            <p>Vacinado:<div>Sim</div></p>
+                            <p><strong>Porte:</strong><div>Médio</div></p>
                         </div>
-                        <div class="group_info_pets"><p>Raça:<div>Golden Retriever</div></p></div>
-                        <p>Motivo Da Doação:</p>
+                        <div class="group_info_pets"><p><strong>Raça:</strong><div>Golden Retriever</div></p></div>
+                        <p><strong>Ultima Informação do animal:</strong></p>
                         <div class="motivo">
                             A tecnologia transforma o modo como vivemos, trabalhamos e nos conectamos. Cada inovação amplia possibilidades, aproxima pessoas e cria novos desafios. Adaptar-se a essas mudanças é essencial para evoluir em um mundo cada vez mais digital e interligado.
                         </div>
                     </div>
                 </div>
+                    <?php } ?>
 
                 <!-- info-pet 2 -->
                 <div class="info-pet">
                     <div class="info-pet-header2"><h3>Conversar com Responsável</h3></div>
                     <div class="info-pet-body">
-                        <p>Nome: Luana Vega</p>
-                        <p>Telefone: (19) 8797-2154</p>
-                        <p>Email: aline@123</p>
+                        <p><strong>Nome: </strong> Luana Vega</p>
+                        <p><strong>Telefone: </strong> (19) 8797-2154</p>
+                        <p><strong>Email: </strong> aline@123</p>
                     </div>
                 </div>
             </div>

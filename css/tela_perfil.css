@@ -23,7 +23,7 @@
 
 .caixa-aviso-perfil {
     position: relative;
-    left: 6rem;
+    left: 4rem;
     width: 28rem;
     height: 8rem;
     background-color: #0E6ABE;
@@ -63,7 +63,7 @@
     /* margin: 2rem; */
       /* altura automática *
      /* controla o total de altura, opcional */
-    border: 1px red solid;
+
 }
 
 
@@ -78,11 +78,10 @@
 .card_animal_perfil {
     position: relative;
     top: 2rem;
-    left: 15rem;
+    left: 10rem;
     height:19rem ;
     width: 20rem;
     border-radius: 25px;
-    background-color:#a05151;
     display: flex;
     flex-direction: column;
     align-items: center;
