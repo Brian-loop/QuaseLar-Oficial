@@ -15,8 +15,8 @@ include './template/header.php';
     </div>
 </section>
 <section class="title-html">
-        <h1>Doação</h1>
-    
+    <h1>Doação</h1>
+    <p>Mude um destino: adote um pet hoje!</p>
 </section>
 <section class="group_cards">
     <div class="card-adocao">
@@ -54,7 +54,9 @@ include './template/header.php';
         <section class="modal-body-index">
             <div class="btn-fechar-index"><i class="bi bi-x"></i></div>
             <nav class="itens-modal-index1">
-                <div class="titulo-modalIndex"><h3>Doação</h3></div>
+                <div class="titulo-modalIndex">
+                    <h3>Doação</h3>
+                </div>
 
                 <div class="carousel-container-index">
                     <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
@@ -116,20 +118,20 @@ include './template/header.php';
                                 <p>Nome Do Animal:<div>Rex</div></p>
                             </div>
                             <div class="group_info_pets">
-                                <p>Espécie:<div>Cachorro</div> </p>
-                                <p>Sexo:<div>Macho</div></p>
-                                <p>Idade:<div>2 anos</div></p>
+                                <p><strong>Espécie: </strong><div> Cachorro</div> </p>
+                                <p><strong>Sexo: </strong><div> Macho</div></p>
+                                <p><strong>Idade: </strong><div> 2 anos</div></p>
                             </div>
                             <div class="group_info_pets">
                                 
-                                <p>Porte:<div>Medio</div></p>
-                                <p>Castrado:<div>Sim</div></p>
-                                <p>Vacinado:<div>Sim</div></p>
+                                <p><strong>Porte:</strong><div>Medio</div></p>
+                                <p><strong>Castrado:</strong><div>Sim</div></p>
+                                <p><strong>Vacinado:</strong><div>Sim</div></p>
                             </div>
                             <div class="group_info_pets">
-                                <p>Raça:<div>Golden Sla oq</div></p>
+                                <p><strong>Raça:</strong><div>Golden Sla oq</div></p>
                             </div>
-                            <p>Motivo Da Doação:</p>
+                            <p><strong>Motivo Da Doação:</strong></p>
                             <div class="motivo">
 
                                 A tecnologia transforma o modo como vivemos, trabalhamos e nos conectamos. Cada inovação amplia possibilidades, aproxima pessoas e cria novos desafios. Adaptar-se a essas mudanças é essencial para evoluir em um mundo cada vez mais digital e interligado.
@@ -140,9 +142,9 @@ include './template/header.php';
                     <div class="info-pet">
                         <div class="info-pet-header2"><h3>Conversar com Responsável</h3></div>
                         <div class="info-pet-body">
-                            <p>Nome: luana vega</p>
-                            <p>N* telefone: 1987972154</p>
-                            <p>Email para contato: aline@123</p>
+                            <p><strong>Nome: </strong>luana vega</p>
+                            <p><strong>Telefone:</strong> 1987972154</p>
+                            <p><strong>Email: </strong>aline@123</p>
                         </div>
                     </div>
                 </div>
