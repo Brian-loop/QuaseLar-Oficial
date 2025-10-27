@@ -150,3 +150,14 @@ function precisaEstarLogado(message, duration = 3000) {
         }, 500); // 500ms (0.5s) 
     }, duration);
 }
+
+
+function cardOculto(){
+
+    
+
+
+
+}
+
+
