@@ -14,7 +14,7 @@ class Adocao {
 
     public function cadastro( $nome, $especie, $raca, $sexo, $porte, $castrado, $idade_valor, $idade_tipo, $motivo_da_doacao, $vacinado)
     {
-        $script = "INSERT INTO tb_adocao (nome_pet, raca, sexo, porte, castrado, idade, semanas_meses_anos, motivo_da_adocao, especie, vacinado) VALUES (:nome_pet, :raca, :sexo, :porte, :castrado, :idade, :semanas_meses_anos, :motivo_da_adocao, :especie, :vacinado)"; 
+        $script = "INSERT INTO tb_adocao (nome_pet, raca, sexo, porte, castrado, idade, semanas_meses_anos, motivo_da_doacao, especie, vacinado) VALUES (:nome_pet, :raca, :sexo, :porte, :castrado, :idade, :semanas_meses_anos, :motivo_da_doacao, :especie, :vacinado)"; 
         $insert = $this->conn ->prepare($script);
 
         $insert->execute ([
@@ -25,7 +25,7 @@ class Adocao {
             ":castrado" => $castrado,
             ":idade" => $idade_valor,
             ":semanas_meses_anos" => $idade_tipo,    
-            ":motivo_da_adocao" => $motivo_da_doacao,
+            ":motivo_da_doacao" => $motivo_da_doacao,
             ":especie" => $especie,
             ":vacinado" => $vacinado
 
