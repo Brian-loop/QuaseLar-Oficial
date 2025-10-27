@@ -11,8 +11,8 @@ include './template/header.php';
         </div>
       </div>
     <div class="botoes_perfil">
-      <a href="./tela_cad_pets.php" type="button" class="btn">ADOÇÃO</a>
-      <a href="./tela_cad_procurados.php"  type="button" class="btn">PROCURADOS</a>
+      <a href="./tela_cad_pets.php" type="button" class="btn"><strong>ADOÇÃO</strong></a>
+      <a href="./tela_cad_procurados.php"  type="button" class="btn"><strong>PROCURADOS</strong></a>
     </div>
 
 
@@ -31,8 +31,8 @@ include './template/header.php';
     </figure>
 
       <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./img/fundo-animado.gif"alt="" >
+      <h3 class="titulo-anuncio">Procurados</h3>
+      <img src="./img/fundo-animado.gif"alt="" onclick="abrirModalProcurados()" >
       <div class="cardzin_animal_perfil">
         <h1 class="nome-animal">Leo</h1>
       </div>
