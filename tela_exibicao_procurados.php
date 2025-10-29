@@ -97,7 +97,7 @@ include('./template/header.php');
         <?php foreach ($animaisProcurados as $procuradosInfo) { ?>
 
                 <h4><?= $procuradosInfo['nome_p'] ?></h4>
-                <p><strong>Ultima atualização: </strong> <?= $procuradosinfo['data_cadastro'] ?></p>
+                <p><strong>Ultima atualização:</strong><?= $procuradosinfo['data_cadastro'] ?></p>
             </div>
         </nav>
             <?php } ?>
