@@ -33,9 +33,40 @@ class Procurados {
         
         return $this->conn->lastInsertId();
     }
+    public function consultarAnimais(){
 
-    
+        $script = 'SELECT * FROM tb_procurados';
 
+        $resultado = $this->conn->query($script)->fetchAll();
+
+        return $resultado;
+    }
+
+    public function consultarAnimaisById($id){
+
+        $script = "SELECT * FROM tb_procurados WHERE id = {$id}";
+
+        $resultado = $this->conn->query($script)->fetchAll();
+
+        return $resultado;
+    }
+
+     public function consultarImgAnimais(){
+
+        $script = 'SELECT * FROM tb_img_procurados';
+
+        $resultado = $this->conn->query($script)->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultado;
+    }
+
+   public function consultarImgAnimaisById($idProcurado){
+    $script = "SELECT * FROM tb_img_procurados WHERE id_procurados = :id_procurados";
+    $stmt = $this->conn->prepare($script);
+    $stmt->bindValue(':id_procurados', $idProcurado, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 
