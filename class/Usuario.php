@@ -53,4 +53,23 @@ class Usuario {
             return false;
         }
     }
+    
+   public function ConsultaUsuario(){
+    
+    $script = 'SELECT * FROM tb_usuario';
+
+    $resultado = $this->conn->query($script)->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultado;
+    }
+
+    public function ConsultaUsuarioById($idUsuario){
+        $script = "SELECT * FROM tb_usuario WHERE id_usuario = :id_usuario";
+        $stmt = $this->conn->prepare($script);
+        $stmt->bindValue(':id_procurados', $idUsuario, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }

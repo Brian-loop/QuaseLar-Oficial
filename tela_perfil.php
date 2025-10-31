@@ -1,5 +1,20 @@
 <?php
 include './template/header.php';
+include './class/BancoDeDados_conexao.php';
+include './class/Procurados.php';
+include './class/Usuario.php';
+include './class/Adocao.php';
+
+$usuario = new Usuario();
+$procurados = new Procurados();
+$adocao = new Adocao();
+
+$usuarioInfo = $usuario->ConsultaUsuario();
+
+$animaisProcurados = $procurados->consultarAnimais();
+$imgAnimais = $procurados->consultarImgAnimais();
+
+
 //tela de cadastro de pet desaparecidos
 ?>
 
@@ -17,6 +32,7 @@ include './template/header.php';
 
 
 <main class="grid_anuncio">
+  <?php { ?>
     <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Adoção</h3>
       <img src="./img/fundo-animado.gif"alt="" >
@@ -29,22 +45,11 @@ include './template/header.php';
           <a type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>
+<?php } ?>
 
+<?php {?>
       <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Procurados</h3>
-      <img src="./img/fundo-animado.gif"alt="" onclick="abrirModalProcurados()" >
-      <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal">Leo</h1>
-      </div>
-    
-        <div class="botoes_perfil2">
-          <a type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
-        </div>
-    </figure>
-
-      <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Adoção</h3>
       <img src="./img/fundo-animado.gif"alt="" >
       <div class="cardzin_animal_perfil">
         <h1 class="nome-animal">Leo</h1>
@@ -55,43 +60,7 @@ include './template/header.php';
           <a type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>
-      <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./img/fundo-animado.gif"alt="" >
-      <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal">Leo</h1>
-      </div>
-    
-        <div class="botoes_perfil2">
-          <a type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
-        </div>
-    </figure>
-      <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./img/fundo-animado.gif"alt="" >
-      <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal">Leo</h1>
-      </div>
-    
-        <div class="botoes_perfil2">
-          <a type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
-        </div>
-    </figure>
-      <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./img/fundo-animado.gif"alt="" >
-      <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal">Leo</h1>
-      </div>
-    
-        <div class="botoes_perfil2">
-          <a type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
-        </div>
-    </figure>
-      
+   <?php }?>
 </main>
 
 

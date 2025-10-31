@@ -1,5 +1,15 @@
 <?php
 include('./template/header.php');
+include './class/BancoDeDados_conexao.php';
+include './class/Procurados.php';
+include './class/Usuario.php';
+
+$usuario = new Usuario();
+$procurados = new Procurados();
+
+$usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario);
+$animaisProcurados = $procurados->consultarAnimaisById($id);
+$imgAnimais = $procurados->consultarImgAnimaisById($idProcurados);
 
 
 
@@ -13,18 +23,12 @@ include('./template/header.php');
             <p>Você viu algum desses animais? Por favor entre em contato.</p>
         </div>
     </div>
-    <?php
-    include './class/BancoDeDados_conexao.php';
-    include './class/Procurados.php';
-    $procurados = new Procurados();
     
-    $animaisProcurados = $procurados->consultarAnimais();
-    $imgAnimais = $procurados->consultarImgAnimais();
 
-    // echo "<pre>";
+    <!-- // echo "<pre>";
     // print_r($imgAnimais);
-    // echo "</pre>";
-    ?>
+    // echo "</pre>"; -->
+    
     <main class="grid_exibicao_procurados">
 
         <?php foreach ($imgAnimais as $procuradosimg) { ?>
@@ -100,8 +104,7 @@ include('./template/header.php');
                 <p><strong>Ultima atualização:</strong><?= $procuradosinfo['data_cadastro'] ?></p>
             </div>
         </nav>
-            <?php } ?>
-
+        
         <nav class="itens-exibicao-procurados">
             <div class="container-modal-index">
                 <!-- info-pet 1 -->
@@ -110,24 +113,24 @@ include('./template/header.php');
                         <h3>Informações Do Animal</h3>
                     </div>
                     <div class="info-pet-body">
-                        <?php foreach ($animaisProcurados as $procuradosInfo) { ?>
+               
                             <div class="group_info_pets">
                                 <p><strong>Nome Do Animal:</strong>
                                 <div> <?= $procuradosInfo['nome_p'] ?></div>
-                                </p>
-                            </div>
+                            </p>
+                        </div>
                             <div class="group_info_pets">
                                 <p><strong>Espécie: </strong>
                                 <div><?= $procuradosInfo['especie_p'] ?></div>
                                 </p>
                                 <p><strong>Sexo: </strong>
                                 <div><?= $procuradosInfo['sexo_p'] ?></div>
-                                </p>
-                                <p><strong>Idade: </strong>
-                                <div><?= $procuradosInfo['idade_p'] ?></div>
-                                </p>
-                            </div>
-                            <div class="group_info_pets">
+                            </p>
+                            <p><strong>Idade: </strong>
+                            <div><?= $procuradosInfo['idade_p'] ?></div>
+                        </p>
+                    </div>
+                    <div class="group_info_pets">
                                 <p><strong>Porte:</strong>
                                 <div><?= $procuradosInfo['porte_p'] ?></div>
                                 </p>
@@ -135,26 +138,29 @@ include('./template/header.php');
                             <div class="group_info_pets">
                                 <p><strong>Raça:</strong>
                                 <div><?= $procuradosInfo['raca_p'] ?></div>
-                                </p>
+                            </p>
                             </div>
                             <p><strong>Ultima Informação do animal:</strong></p>
                             <div class="motivo"><?= $procuradosInfo['ultima_vez_visto'] ?> </div>
                     </div>
                 </div>
+           
             <?php } ?>
 
+            <?php foreach ($usuarioInfo as $linhaUsuario ) { ?>
             <!-- info-pet 2 -->
             <div class="info-pet">
                 <div class="info-pet-header2">
                     <h3>Conversar com Responsável</h3>
                 </div>
                 <div class="info-pet-body">
-                    <p><strong>Nome: </strong> Luana Vega</p>
-                    <p><strong>Telefone: </strong> (19) 8797-2154</p>
-                    <p><strong>Email: </strong> aline@123</p>
+                    <p><strong>Nome: </strong> <?= $linhaUsuario['nome'] ?></p>
+                    <p><strong>Telefone: </strong> <?= $linhaUsuario['telefone'] ?></p>
+                    <p><strong>Email: </strong> <?=$linhaUsuario['emeil'] ?></p>
                 </div>
             </div>
             </div>
+            <?php } ?>
         </nav>
     </section>
 </section>
