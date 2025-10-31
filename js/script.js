@@ -159,5 +159,52 @@ function cardOculto(){
 
 
 }
+//tela movel do cadastro
+
+function iniciarMovimentoTela() {
+    const tela = document.getElementById("telaMovel");
+    const direita = document.getElementById("direita");
+    const esquerda = document.getElementById("esquerda");
+
+    let texto = document.getElementById("text");
+    texto.textContent = "Entrar";
+    
+    let estaNaDireita = false;
+
+    function moverTela() {
+        if (estaNaDireita) {
+            tela.style.transform = "translateX(0)";
+            tela.style.width = "20rem";
+            texto.textContent = "Entrar";
+
+
+        } else {
+            tela.style.transform = "translateX(20rem)";
+            tela.style.width = "26rem";
+            texto.textContent = "Cadastrar-se";
+
+        }
+        estaNaDireita = !estaNaDireita; // inverte o estado
+    }
+
+    direita.addEventListener("click", () => {
+        tela.style.transform = "translateX(20rem)";
+        tela.style.width = "26rem";
+        estaNaDireita = true;
+        texto.textContent = "Cadastrar-se";
+
+    });
+    
+    esquerda.addEventListener("click", () => {
+        tela.style.transform = "translateX(0)";
+        tela.style.width = "20rem";
+        estaNaDireita = false;
+        texto.textContent = "Entrar";
+    });
+
+    tela.addEventListener("click", moverTela);
+}
+
+document.addEventListener("DOMContentLoaded", iniciarMovimentoTela);
 
 

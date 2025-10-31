@@ -19,7 +19,7 @@ include './template/header.php';
                 <button type="submit" id="btn_login" name="login">Entrar</button>
         </form>
         <!-- tela divisoria -->
-        <div class="tela-que-se-mexe" id="telaMovel"></div>
+        <div class="tela-movel" id="telaMovel"><span id="texto"></span></div>
 
         <!-- formulario de cadastro -->
         <form action="cad_entrar_usuario.php" method="POST" class="cad_usuario" >
