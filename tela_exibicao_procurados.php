@@ -1,6 +1,5 @@
 <?php
 include('./template/header.php');
-include './class/BancoDeDados_conexao.php';
 include './class/Usuario.php';
 require './class/Procurados.php';
 
