@@ -1,15 +1,16 @@
 <?php
 include('./template/header.php');
 include './class/BancoDeDados_conexao.php';
-include './class/Procurados.php';
 include './class/Usuario.php';
+require './class/Procurados.php';
 
 $usuario = new Usuario();
-$procurados = new Procurados();
+$procurados = new Procurados(); 
 
-$usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario);
-$animaisProcurados = $procurados->consultarAnimaisById($id);
-$imgAnimais = $procurados->consultarImgAnimaisById($idProcurados);
+$usuarioInfo = $usuario->ConsultaUsuario();
+
+
+
 
 
 
@@ -24,26 +25,41 @@ $imgAnimais = $procurados->consultarImgAnimaisById($idProcurados);
         </div>
     </div>
     
-
-    <!-- // echo "<pre>";
-    // print_r($imgAnimais);
-    // echo "</pre>"; -->
     
-    <main class="grid_exibicao_procurados">
+    <!-- // echo "<pre>";
+        // print_r($imgAnimais);
+        // echo "</pre>"; -->
+        
+        <main class="grid_exibicao_procurados">
+            <?php
+        $dadosProcurados = $procurados->consultarAnimais();
+        if (empty($dadosProcurados)) {
+            echo '<h1> Nenhum animal Cadastrado... </h1>';
+        } else { 
+            // echo'<pre>';
+            // var_dump($dadosProcurados);
+            // echo'</pre>';
+            foreach($dadosProcurados as $valores){
 
-        <?php foreach ($imgAnimais as $procuradosimg) { ?>
+                ?>
+
             <div class="card-procurados-exibicao">
                 <figure class="card-header-exibicao">
-                    <img src="<?= $procuradosimg['localizacao'] ?>" alt="Foto do animal Mel" class="pet-foto-procurados">
+                    <img src="./uploads/<?php echo $valores['foto_capa']; ?>">
                     <span class="status-estado">Americana/SP</span>
                 </figure>
                 <div class="card-body-procurados-exibicao">
-                    <h2 class="pet-nome-procurados"></h2>
-                    <button class="btn-procurados" onclick="abrirModalProcurados()">Mais Informações!</button>
-                    <p class="pet-descricao-procurados"><strong>Ultima atualização: </strong> <?= $procuradosimg['data_cadastro'] ?></p>
+                    <h2 class="pet-nome-procurados"><?php echo $valores['nome_p']; ?></h2>
+                    <button class="btn-procurados" onclick="abrirModalProcurados(<?php echo $valores['id_procurados']; ?>)">Mais Informações!</button>
+                    <p class="pet-descricao-procurados"><strong>Ultima atualização: </strong><?php echo $valores['data_criacao_cad_p']; ?></p>
                 </div>
-            </div>
-            <?php } ?>
+            </div>    
+            
+            <?php
+        }
+        }
+        ?>
+
 
 
     </main>
@@ -64,29 +80,28 @@ $imgAnimais = $procurados->consultarImgAnimaisById($idProcurados);
                 <input type="radio" name="slider" id="slide-3">
                 <input type="radio" name="slider" id="slide-4">
                 <input type="radio" name="slider" id="slide-5">
-                <?php foreach ($imgAnimais as $procuradosimg) { ?>
-                    <div class="carousel-imagens-index">
-                        <div class="carousel-slide-index"><img src="<?= $procuradosimg['localizacao'] ?>" alt="Slide 1"></div>
-                        <div class="carousel-slide-index"><img src="<?= $procuradosimg['localizacao'] ?>" alt="Slide 2"></div>
-                        <div class="carousel-slide-index"><img src="<?= $procuradosimg['localizacao'] ?>" alt="Slide 3"></div>
-                        <div class="carousel-slide-index"><img src="<?= $procuradosimg['localizacao'] ?>" alt="Slide 4"></div>
-                        <div class="carousel-slide-index"><img src="<?= $procuradosimg['localizacao'] ?>" alt="Slide 5"></div>
+                <div class="carousel-imagens-index">
+                      
+                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 1"></div>
+                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 2"></div>
+                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 3"></div>
+                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 4"></div>
+                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 5"></div>
                     </div>
-                <?php } ?>
-                <div class="carousel-group-setas">
-                    <label for="slide-5" class="seta-anterior slide-anterior-1">&#10094;</label>
-                    <label for="slide-1" class="seta-anterior slide-anterior-2">&#10094;</label>
-                    <label for="slide-2" class="seta-anterior slide-anterior-3">&#10094;</label>
-                    <label for="slide-3" class="seta-anterior slide-anterior-4">&#10094;</label>
-                    <label for="slide-4" class="seta-anterior slide-anterior-5">&#10094;</label>
-
+                    <div class="carousel-group-setas">
+                        <label for="slide-5" class="seta-anterior slide-anterior-1">&#10094;</label>
+                        <label for="slide-1" class="seta-anterior slide-anterior-2">&#10094;</label>
+                        <label for="slide-2" class="seta-anterior slide-anterior-3">&#10094;</label>
+                        <label for="slide-3" class="seta-anterior slide-anterior-4">&#10094;</label>
+                        <label for="slide-4" class="seta-anterior slide-anterior-5">&#10094;</label>
+                        
                     <label for="slide-2" class="seta-proxima proximo-slide-1">&#10095;</label>
                     <label for="slide-3" class="seta-proxima proximo-slide-2">&#10095;</label>
                     <label for="slide-4" class="seta-proxima proximo-slide-3">&#10095;</label>
                     <label for="slide-5" class="seta-proxima proximo-slide-4">&#10095;</label>
                     <label for="slide-1" class="seta-proxima proximo-slide-5">&#10095;</label>
                 </div>
-
+             
                 <div class="carousel-indicadores-index">
                     <label for="slide-1" class="ponto ponto-1"></label>
                     <label for="slide-2" class="ponto ponto-2"></label>
@@ -96,13 +111,13 @@ $imgAnimais = $procurados->consultarImgAnimaisById($idProcurados);
                 </div>
             </div>
 
-          
-            <div class="titulo2-modal-exibicao-procurados">
-        <?php foreach ($animaisProcurados as $procuradosInfo) { ?>
 
-                <h4><?= $procuradosInfo['nome_p'] ?></h4>
-                <p><strong>Ultima atualização:</strong><?= $procuradosinfo['data_cadastro'] ?></p>
+            <div class="titulo2-modal-exibicao-procurados">
+      
+                <h4><?php echo $valores['nome_p']; ?></h4>
+                <p><strong>Ultima atualização:</strong><?php echo $valores['data_criacao_cad_p']; ?></p>
             </div>
+        
         </nav>
         
         <nav class="itens-exibicao-procurados">
@@ -113,54 +128,54 @@ $imgAnimais = $procurados->consultarImgAnimaisById($idProcurados);
                         <h3>Informações Do Animal</h3>
                     </div>
                     <div class="info-pet-body">
-               
-                            <div class="group_info_pets">
-                                <p><strong>Nome Do Animal:</strong>
-                                <div> <?= $procuradosInfo['nome_p'] ?></div>
+                        
+       
+                        <div class="group_info_pets">
+                            <p><strong>Nome Do Animal:</strong>
+                            <div> <?php echo $valores['nome_p']; ?></div>
                             </p>
                         </div>
-                            <div class="group_info_pets">
-                                <p><strong>Espécie: </strong>
-                                <div><?= $procuradosInfo['especie_p'] ?></div>
-                                </p>
-                                <p><strong>Sexo: </strong>
-                                <div><?= $procuradosInfo['sexo_p'] ?></div>
+                        <div class="group_info_pets">
+                            <p><strong>Espécie: </strong>
+                            <div><?php echo $valores['especie_p']; ?><div>
+                            </p>
+                            <p><strong>Sexo: </strong>
+                            <div><?php echo $valores['sexo_p']; ?></div>
                             </p>
                             <p><strong>Idade: </strong>
-                            <div><?= $procuradosInfo['idade_p'] ?></div>
-                        </p>
-                    </div>
-                    <div class="group_info_pets">
-                                <p><strong>Porte:</strong>
-                                <div><?= $procuradosInfo['porte_p'] ?></div>
-                                </p>
-                            </div>
-                            <div class="group_info_pets">
-                                <p><strong>Raça:</strong>
-                                <div><?= $procuradosInfo['raca_p'] ?></div>
+                            <div><?php echo $valores['idade_p']; ?></div>
                             </p>
-                            </div>
-                            <p><strong>Ultima Informação do animal:</strong></p>
-                            <div class="motivo"><?= $procuradosInfo['ultima_vez_visto'] ?> </div>
+                        </div>
+                        <div class="group_info_pets">
+                            <p><strong>Porte:</strong>
+                            <div><?php echo $valores['porte_p']; ?></div>
+                            </p>
+                        </div>
+                        <div class="group_info_pets">
+                            <p><strong>Raça:</strong>
+                            <div><?php echo $valores['raca_p']; ?></div>
+                            </p>
+                        </div>
+                        <p><strong>Ultima Informação do animal:</strong></p>
+                        <div class="motivo"><?php echo $valores['ultima_vez_visto']; ?></div>
                     </div>
                 </div>
-           
-            <?php } ?>
 
-            <?php foreach ($usuarioInfo as $linhaUsuario ) { ?>
-            <!-- info-pet 2 -->
-            <div class="info-pet">
-                <div class="info-pet-header2">
-                    <h3>Conversar com Responsável</h3>
-                </div>
-                <div class="info-pet-body">
-                    <p><strong>Nome: </strong> <?= $linhaUsuario['nome'] ?></p>
-                    <p><strong>Telefone: </strong> <?= $linhaUsuario['telefone'] ?></p>
-                    <p><strong>Email: </strong> <?=$linhaUsuario['emeil'] ?></p>
+
+            <?php foreach ($usuarioInfo as $linhaUsuario) { ?>
+                <!-- info-pet 2 -->
+                <div class="info-pet">
+                    <div class="info-pet-header2">
+                        <h3>Conversar com Responsável</h3>
+                    </div>
+                    <div class="info-pet-body">
+                        <p><strong>Nome: </strong> <?= $linhaUsuario['nome'] ?></p>
+                        <p><strong>Telefone: </strong> <?= $linhaUsuario['telefone'] ?></p>
+                        <p><strong>Email: </strong> <?= $linhaUsuario['email'] ?></p>
+                    </div>
                 </div>
             </div>
-            </div>
-            <?php } ?>
+        <?php } ?>
         </nav>
     </section>
 </section>
