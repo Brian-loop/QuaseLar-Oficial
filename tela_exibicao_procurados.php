@@ -3,11 +3,13 @@ include('./template/header.php');
 include './class/Usuario.php';
 require './class/Procurados.php';
 
+
+
+
 $usuario = new Usuario();
 $procurados = new Procurados(); 
 
-$usuarioInfo = $usuario->ConsultaUsuario();
-
+$usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario)
 
 
 
@@ -161,20 +163,20 @@ $usuarioInfo = $usuario->ConsultaUsuario();
                 </div>
 
 
-            <?php foreach ($usuarioInfo as $linhaUsuario) { ?>
+        
                 <!-- info-pet 2 -->
                 <div class="info-pet">
                     <div class="info-pet-header2">
                         <h3>Conversar com Responsável</h3>
                     </div>
                     <div class="info-pet-body">
-                        <p><strong>Nome: </strong> <?= $linhaUsuario['nome'] ?></p>
-                        <p><strong>Telefone: </strong> <?= $linhaUsuario['telefone'] ?></p>
-                        <p><strong>Email: </strong> <?= $linhaUsuario['email'] ?></p>
+                        <p><strong>Nome: </strong> <?= $usuarioInfo['nome'] ?></p>
+                        <p><strong>Telefone: </strong> <?= $usuarioInfo['telefone'] ?></p>
+                        <p><strong>Email: </strong> <?= $usuarioInfo['email'] ?></p>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+      
         </nav>
     </section>
 </section>

@@ -1,5 +1,6 @@
 
 <?php
+require_once __DIR__ . '/../class/BancoDeDados_conexao.php';
 
 class Adocao {
 
