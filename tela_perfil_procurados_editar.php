@@ -1,4 +1,5 @@
 <?php
+
 include './template/header.php';
 require './class/Procurados.php';
 $procurados = new Procurados();
@@ -7,7 +8,14 @@ $id = $_GET['id'] ?? null;
 if (!$id) {
     die("ID do animal não informado");
 }
+
 $dadosProcuradoById = $procurados->consultarAnimaisById($id);
+if (!$dadosProcuradoById) {
+    die("Animal não encontrado!");
+}
+
+$dadosProcuradoById = $dadosProcuradoById[0];
+
 $dadosImgById = $procurados->consultarImgAnimaisById($id);
 
 
@@ -17,7 +25,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
 <section class="page_cad_procurados">
     <main class="cad_procurados">
 
-        <form action="cad_procurados.php" method="POST" enctype="multipart/form-data" class="form-procurados">
+        <form action="cad_editar_perfil_procurado.php" method="POST" enctype="multipart/form-data" class="form-procurados">
             <nav class="cad_procurados_itens1">
                 <div class="carousel-container">
                     <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
@@ -26,27 +34,26 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                     <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
 
-                    <?php foreach ( $dadosImgById as $valores) 
-                    {
+                    <?php foreach ($dadosImgById as $valores) {
                     ?>
-                    <div class="carousel-track">
-                        <div class="carousel-slide slide-1">
-                            <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 1">
+                        <div class="carousel-track">
+                            <div class="carousel-slide slide-1">
+                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 1">
+                            </div>
+                            <div class="carousel-slide slide-2">
+                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 2">
+                            </div>
+                            <div class="carousel-slide slide-3">
+                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 3">
+                            </div>
+                            <div class="carousel-slide slide-4">
+                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 4">
+                            </div>
+                            <div class="carousel-slide slide-5">
+                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 5">
+                            </div>
                         </div>
-                        <div class="carousel-slide slide-2">
-                            <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 2">
-                        </div>
-                        <div class="carousel-slide slide-3">
-                            <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 3">
-                        </div>
-                        <div class="carousel-slide slide-4">
-                            <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 4">
-                        </div>
-                        <div class="carousel-slide slide-5">
-                            <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 5">
-                        </div>
-                    </div>
-                    <?php 
+                    <?php
                     }
                     ?>
                     <div class="carousel-nav-arrows">
@@ -91,58 +98,60 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                     </div>
                     <div class="procurados_cad_inputs1">
                         <div>
-                            <input type="hidden" name="cadastro" value="1" >
+                            <input type="hidden" name="id_procurados" value="<?php echo $dadosProcuradoById['id_procurados']; ?>">
+
                             <label for="nome_procurados" id="labelNome">Nome do Animal:</label>
-                            <input type="text" id="nome_pet" name="nome_procurado" placeholder="Digite o nome" maxlength="28" onblur="validaNomeAnimal()" oninput="validaNomeanimal()">
-                    
+
+                            <input type="text" id="nome_pet" name="nome_procurado_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['nome_p']); ?>" placeholder="Digite o nome" maxlength="28" onblur="validaNomeAnimal()" oninput="validaNomeanimal()">
+
                         </div>
                         <div>
-                            <label for="sexo" id="labelSexo" >Sexo:</label>
-                            <select id="sexo" name="sexo_procurado" onblur=" validaSexo()" onselect="validaSexo()">
+                            <label for="sexo" id="labelSexo">Sexo:</label>
+                            <select id="sexo" name="sexo_procurado_editar" onblur=" validaSexo()" onselect="validaSexo()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="macho">Macho</option>
-                                <option value="femea">Fêmea</option>
+                                <option value="macho" <?php echo ($dadosProcuradoById['sexo_p'] == 'macho') ? 'selected' : ''; ?>>Macho</option>
+                                <option value="femea" <?php echo ($dadosProcuradoById['sexo_p'] == 'femea') ? 'selected' : ''; ?>>Fêmea</option>
                             </select>
                         </div>
                     </div>
                     <div class="procurados_cad_inputs2">
                         <div>
                             <label for="especie" id="labelEspecie">Espécie:</label>
-                            <select id="especie" name="especie_procurado" onblur="validaEspecie()" onselect="validaEspecie()">
+                            <select id="especie" name="especie_procurado_editar" onblur="validaEspecie()" onselect="validaEspecie()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="Gato">Gato</option>
-                                <option value="Cachorro">Cachorro</option>
-                                <option value="Roedor">Roedor</option>
-                                <option value="Coelho">Coelho</option>
-                                <option value="Aves">Aves</option>
-                                <option value="Repteis">Repteis</option>
-                                <option value="Outros">Outros</option>
+                                <option value="Gato" <?php echo ($dadosProcuradoById['especie_p'] == 'Gato') ? 'selected' : ''; ?>>Gato</option>
+                                <option value="Cachorro" <?php echo ($dadosProcuradoById['especie_p'] == 'Cachorro') ? 'selected' : ''; ?>>Cachorro</option>
+                                <option value="Roedor" <?php echo ($dadosProcuradoById['especie_p'] == 'Roedor') ? 'selected' : ''; ?>>Roedor</option>
+                                <option value="Coelho" <?php echo ($dadosProcuradoById['especie_p'] == 'Coelho') ? 'selected' : ''; ?>>Coelho</option>
+                                <option value="Aves" <?php echo ($dadosProcuradoById['especie_p'] == 'Aves') ? 'selected' : ''; ?>>Aves</option>
+                                <option value="Repteis" <?php echo ($dadosProcuradoById['especie_p'] == 'Repteis') ? 'selected' : ''; ?>>Repteis</option>
+                                <option value="Outros" <?php echo ($dadosProcuradoById['especie_p'] == 'Outros') ? 'selected' : ''; ?>>Outros</option>
 
                             </select>
                         </div>
                         <div>
                             <label for="idade_animal" id="labelnumero">Idade:</label>
-                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor" required oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
-                            <select id="idade_tipo" name="idade_tipo" onblur="validaIdadeTipo()" onselect="validaIdadeTipo()">
+                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['idade_p']); ?>" required oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
+                            <select id="idade_tipo" name="idade_tipo_editar" onblur="validaIdadeTipo()" onselect="validaIdadeTipo()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="semanas">Semanas</option>
-                                <option value="meses">Meses</option>
-                                <option value="anos">Anos</option>
+                                <option value="semanas" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'semanas') ? 'selected' : ''; ?>>Semanas</option>
+                                <option value="meses" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'meses') ? 'selected' : ''; ?>>Meses</option>
+                                <option value="anos" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'anos') ? 'selected' : ''; ?>>Anos</option>
                             </select>
                         </div>
                     </div>
                     <div class="procurados_cad_inputs3">
                         <div>
                             <label for="raca" id="labelRaca">Raça:</label>
-                            <input type="text" id="raca" name="raca_procurado" placeholder="Ex: Shih tzu, vira-lata" required oninput="validaRaca()" onblur="validaRaca()">
+                            <input type="text" id="raca" name="raca_procurado_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['raca_p']); ?>" placeholder="Ex: Shih tzu, vira-lata" required oninput="validaRaca()" onblur="validaRaca()">
                         </div>
                         <div>
                             <label for="porte" id="labelPorte">Porte:</label>
-                            <select id="porte" name="porte_procurado" onblur="validaPorte()" onselect="validaPorte()">
+                            <select id="porte" name="porte_procurado_editar" onblur="validaPorte()" onselect="validaPorte()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="grande">Grande</option>
-                                <option value="medio">Medio</option>
-                                <option value="pequeno">Pequeno</option>
+                                <option value="grande" <?php echo ($dadosProcuradoById['porte_p'] == 'grande') ? 'selected' : ''; ?>>Grande</option>
+                                <option value="medio" <?php echo ($dadosProcuradoById['porte_p'] == 'medio') ? 'selected' : ''; ?>>Medio</option>
+                                <option value="pequeno" <?php echo ($dadosProcuradoById['porte_p'] == 'pequeno') ? 'selected' : ''; ?>>Pequeno</option>
                             </select>
                         </div>
                     </div>
@@ -150,11 +159,14 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                     <div class="ultima_informacao">
                         <div>
                             <label for="ultima_informacao" id="label_informacao">Ultima Informação do animal:</label>
-                            <textarea name="ultima" id="informacao" rows="5" cols="36" style=" resize: none;" placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao() " onblur="validaInformacao()"></textarea>
+                            <textarea name="ultima_editar" id="informacao" rows="5" cols="36" style="resize: none;"
+                                placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao()" onblur="validaInformacao()">
+                                <?php echo htmlspecialchars($dadosProcuradoById['ultima_vez_visto']); ?>
+                            </textarea>
                         </div>
-                        <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite" >
-                        <span id="textoErro"></span>
-                    </span>
+                        <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite">
+                            <span id="textoErro"></span>
+                        </span>
                         <span id="contador-caracteres">0 / 255 </span>
                     </div>
                     <div class="alinha_cad_button">
@@ -209,37 +221,36 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
     document.addEventListener('DOMContentLoaded', inicializarContador);
 
     function previewImagens() {
-    const input = document.getElementById('file');
-    const arquivos = input.files;
+        const input = document.getElementById('file');
+        const arquivos = input.files;
 
-    // Seleciona todas as imagens dos slides
-    const slides = document.querySelectorAll('.carousel-slide img');
+        // Seleciona todas as imagens dos slides
+        const slides = document.querySelectorAll('.carousel-slide img');
 
 
-    // Limita a 5 imagens (uma para cada slide)
-    const maxImagens = 5;
-    const total = Math.min(arquivos.length, maxImagens);
+        // Limita a 5 imagens (uma para cada slide)
+        const maxImagens = 5;
+        const total = Math.min(arquivos.length, maxImagens);
 
-    // Limpa as imagens anteriores
-    slides.forEach(slide => {
-        slide.src = "";
-    });
+        // Limpa as imagens anteriores
+        slides.forEach(slide => {
+            slide.src = "";
+        });
 
-    // Mostra as novas imagens nos quadrados
-    for (let i = 0; i < total; i++) {
-        const leitor = new FileReader();
+        // Mostra as novas imagens nos quadrados
+        for (let i = 0; i < total; i++) {
+            const leitor = new FileReader();
 
-        leitor.onload = function (e) {
-            slides[i].src = e.target.result; // coloca a imagem no slide correspondente
-        };
+            leitor.onload = function(e) {
+                slides[i].src = e.target.result; // coloca a imagem no slide correspondente
+            };
 
-        leitor.readAsDataURL(arquivos[i]); // lê o arquivo como base64
+            leitor.readAsDataURL(arquivos[i]); // lê o arquivo como base64
+        }
+
+        // Se tiver menos de 5 imagens, as outras ficam vazias
+        for (let j = total; j < slides.length; j++) {
+            slides[j].src = "./img/sem_foto.png";
+        }
     }
-
-    // Se tiver menos de 5 imagens, as outras ficam vazias
-    for (let j = total; j < slides.length; j++) {
-        slides[j].src = "./img/sem_foto.png";
-    }
-}
-
 </script>

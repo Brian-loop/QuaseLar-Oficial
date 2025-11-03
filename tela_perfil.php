@@ -32,7 +32,7 @@ $imgAnimais = $procurados->consultarImgAnimais();
     <?php
         $dadosProcurados = $procurados->consultarAnimais();
         if (empty($dadosProcurados)) {
-            echo '<h1> Nenhum animal Cadastrado... </h1>';
+            echo ' Nenhum animal Cadastrado... ';
         } else { 
             // echo'<pre>';
             // var_dump($dadosProcurados);
@@ -49,7 +49,7 @@ $imgAnimais = $procurados->consultarImgAnimais();
     
         <div class="botoes_perfil2">
           <a  href="tela_perfil_procurados_editar.php?id=<?php echo $valores['id_procurados']; ?>" type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
+          <a href="cad_perfil_deletar.php?id_deletar=<?php echo $valores['id_procurados']; ?>" type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>
 <?php 

@@ -1,15 +1,13 @@
 <?php
 include './class/Procurados.php';
-include './class/BancoDeDados_conexao.php';
+
 
 $conexao = new BancoDeDados_conexao();
 $resultado = $conexao->getConexao();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // ===========================
-    // 1️⃣ Cadastro do animal primeiro
-    // ===========================
+    
     $nome = $_POST["nome_procurado"];
     $especie = $_POST["especie_procurado"];
     $raca = $_POST["raca_procurado"];
@@ -21,12 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $procurados = new Procurados();
 
-    // Aqui mudamos para pegar o ID do animal cadastrado
+  
     $id_procurado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo);
 
-    // ===========================
-    // 2️⃣ Upload das imagens depois de ter o ID do animal
-    // ===========================
+   
     if (isset($_FILES["file"]) && $_FILES["file"]["error"][0] == 0) {
 
         $totalArquivos = count($_FILES['file']['name']);
@@ -42,9 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (move_uploaded_file($arquivo_tmp, $caminho)) {
 
-                // ===========================
-                // Mudança: inserindo o id_procurado na tabela de imagens
-                // ===========================
+              
                 $sql = "INSERT INTO tb_img_procurados (id_procurados, nome_arquivo, localizacao) 
                         VALUES ($id_procurado, '$novoNome', '$caminho')";
 
@@ -59,9 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // ===========================
-        // Redireciona após cadastro
-        // ===========================
         header("location:tela_exibicao_procurados.php");
         exit;
 

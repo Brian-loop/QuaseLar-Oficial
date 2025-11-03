@@ -66,7 +66,7 @@ class Usuario {
     public function ConsultaUsuarioById($idUsuario){
         $script = "SELECT * FROM tb_usuario WHERE id_usuario = :id_usuario";
         $stmt = $this->conn->prepare($script);
-        $stmt->bindValue(':id_procurados', $idUsuario, PDO::PARAM_INT);
+        $stmt->bindValue(':id_usuario', $idUsuario, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
