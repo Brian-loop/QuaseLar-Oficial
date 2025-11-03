@@ -1,16 +1,16 @@
 <?php 
-$_ENV = parse_ini_file(".env");
+$_ENV = parse_ini_file(__DIR__ . '/../.env');  //torna o arquivo ".env" em global
+// $_ENV = parse_ini_file(".env");
 class BancoDeDados_conexao{
     private $conn;
 
     public function __construct(){
         try{
-            //Conexao feita em conjunto com o arquivo .env   ============================
+            // Conexao feita em conjunto com o arquivo .env   ============================
             $dsn = "mysql:dbname={$_ENV['BANCO']};host={$_ENV['HOST']};charset=utf8";
             $usuario = $_ENV['USUARIO'];
             $senha = $_ENV['SENHA'];
             //===========================================================================
-
             // $dsn = "mysql:dbname=db_quaselar_oficial;host=localhost;charset=utf8";
             // $usuario = 'root';
             // $senha = '';

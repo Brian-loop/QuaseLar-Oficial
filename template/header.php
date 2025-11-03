@@ -51,6 +51,11 @@
                 <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
                 <li><a href="tela_config_perfil.php"><i class="bi bi-gear-fill"></i>Configurações</a></li>
+                <!-- ================================================================================== -->
+                <!-- so para visualizar a pag do admin-->
+                <li><a href="./template/admin/admin_index.php">admin</a></li>
+                <!-- ================================================================================== -->
+
             </ul>
         </nav>
     </header> 

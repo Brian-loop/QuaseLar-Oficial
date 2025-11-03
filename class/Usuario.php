@@ -1,5 +1,5 @@
 <?php
-require_once './class/BancoDeDados_conexao.php';
+require_once __DIR__ . '/../class/BancoDeDados_conexao.php';
 
 class Usuario {
     private $conn;
