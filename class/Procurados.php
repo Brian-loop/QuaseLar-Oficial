@@ -1,6 +1,6 @@
 
 <?php
-require './class/BancoDeDados_conexao.php';
+require_once __DIR__ . '/../class/BancoDeDados_conexao.php';
 
 class Procurados
 {
@@ -58,9 +58,9 @@ class Procurados
     public function consultarAnimaisById($id)
     {
 
-     
+
         $cmd = $this->conn->prepare("SELECT * FROM tb_procurados WHERE id_procurados = :id_procurados");
-        $cmd->bindValue(':id_procurados',$id);
+        $cmd->bindValue(':id_procurados', $id);
         $cmd->execute();
         if ($cmd->rowCount() > 0) {
             $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
@@ -82,10 +82,50 @@ class Procurados
 
     public function consultarImgAnimaisById($id)
     {
-        $cmd = "SELECT nome_arquivo FROM tb_img_procurados WHERE id_procurados = :id_procurados";
-        $cmd = $this->conn->prepare($cmd);
+        $cmd = $this->conn->prepare("SELECT * FROM tb_procurados WHERE id_procurados = :id_procurados");
         $cmd->bindValue(':id_procurados', $id, PDO::PARAM_INT);
         $cmd->execute();
-        return $cmd->fetchAll(PDO::FETCH_ASSOC);
+        return $cmd->fetch(PDO::FETCH_ASSOC); 
+    }
+
+    public function EditarAnimalProcurado($dadosUpdate)
+    {
+        $update = "UPDATE tb_procurados SET
+            nome_p = :nome_p,
+            sexo_p = :sexo_p,
+            idade_p = :idade_p,
+            semanas_meses_anos_p = :semanas_meses_anos_p,
+            porte_p = :porte_p,
+            raca_p = :raca_p,
+            ultima_vez_visto = :ultima_vez_visto,
+            especie_p = :especie_p
+            WHERE id_procurados = :id_procurados";
+    
+        $stmt = $this->conn->prepare($update);
+        $stmt->bindValue(':id_procurados', $dadosUpdate['id_procurados']);
+        $stmt->bindValue(':nome_p', $dadosUpdate['nome_p']);
+        $stmt->bindValue(':sexo_p', $dadosUpdate['sexo_p']);
+        $stmt->bindValue(':idade_p', $dadosUpdate['idade_p']);
+        $stmt->bindValue(':semanas_meses_anos_p', $dadosUpdate['semanas_meses_anos_p']);
+        $stmt->bindValue(':porte_p', $dadosUpdate['porte_p']);
+        $stmt->bindValue(':raca_p', $dadosUpdate['raca_p']);
+        $stmt->bindValue(':ultima_vez_visto', $dadosUpdate['ultima_vez_visto']);
+        $stmt->bindValue(':especie_p', $dadosUpdate['especie_p']);
+    
+
+        var_dump($_POST);
+        return $stmt->execute();
+
+
+    }
+
+    public function DeletarAnimalProcurado($id)
+    {
+        $delete = 'DELETE FROM tb_procurados WHERE id_procurados = :id_procurados';
+        $stmt = $this->conn->prepare($delete);
+        $stmt->bindValue(':id_procurados', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+
+        return $resultado;
     }
 }
