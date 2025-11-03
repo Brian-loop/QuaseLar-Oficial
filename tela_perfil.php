@@ -1,6 +1,5 @@
 <?php
 include './template/header.php';
-include './class/BancoDeDados_conexao.php';
 include './class/Procurados.php';
 include './class/Usuario.php';
 include './class/Adocao.php';
@@ -10,8 +9,6 @@ $procurados = new Procurados();
 $adocao = new Adocao();
 
 $usuarioInfo = $usuario->ConsultaUsuario();
-
-$animaisProcurados = $procurados->consultarAnimais();
 $imgAnimais = $procurados->consultarImgAnimais();
 
 
@@ -32,27 +29,50 @@ $imgAnimais = $procurados->consultarImgAnimais();
 
 
 <main class="grid_anuncio">
-  <?php { ?>
-    <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./img/fundo-animado.gif"alt="" >
-      <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal">Leo</h1>
-      </div>
-    
-        <div class="botoes_perfil2">
-          <a type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
-        </div>
-    </figure>
-<?php } ?>
+    <?php
+        $dadosProcurados = $procurados->consultarAnimais();
+        if (empty($dadosProcurados)) {
+            echo '<h1> Nenhum animal Cadastrado... </h1>';
+        } else { 
+            // echo'<pre>';
+            // var_dump($dadosProcurados);
+            // echo'</pre>';
+            foreach($dadosProcurados as $valores){
 
-<?php {?>
-      <figure class="card_animal_perfil">
-      <h3 class="titulo-anuncio">Procurados</h3>
-      <img src="./img/fundo-animado.gif"alt="" >
+                ?>
+    <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Procurado</h3>
+      <img src="./uploads/<?php echo $valores['foto_capa']; ?>"alt="" >
       <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal">Leo</h1>
+        <h1 class="nome-animal"><?php echo $valores['nome_p']; ?></h1>
+      </div>
+    
+        <div class="botoes_perfil2">
+          <a  href="tela_perfil_procurados_editar.php?id=<?php echo $valores['id_procurados']; ?>" type="button" class="btn btn-primary">Editar</a>
+          <a type="button" class="btn btn-danger">Deletar</a>
+        </div>
+    </figure>
+<?php 
+            }
+} 
+?>
+
+  <?php
+        $dadosAdocao = $adocao->consultarAnimaisDoacao();
+        if (empty($dadosAdocao)) {
+            echo '<h1> Nenhum animal Cadastrado... </h1>';
+        } else { 
+            // echo'<pre>';
+            // var_dump($dadosProcurados);
+            // echo'</pre>';
+            foreach($$dadosAdocao as $values){
+
+                ?>
+      <figure class="card_animal_perfil">
+      <h3 class="titulo-anuncio">Adoção</h3>
+      <img src="./uploads/<?php echo $valores['foto_capa_adocao']; ?>"" >
+      <div class="cardzin_animal_perfil">
+        <h1 class="nome-animal"><?php echo $valores['nome_pet']; ?></h1>
       </div>
     
         <div class="botoes_perfil2">
@@ -60,7 +80,10 @@ $imgAnimais = $procurados->consultarImgAnimais();
           <a type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>
-   <?php }?>
+ <?php 
+            }
+} 
+?>
 </main>
 
 

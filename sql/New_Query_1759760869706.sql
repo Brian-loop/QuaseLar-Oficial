@@ -101,3 +101,7 @@ CREATE TABLE `tb_usuario` (
   `cpf` int(11) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL
 )
+
+SELECT * FROM tb_procurados;
+SELECT * FROM tb_img_procurados;
+SELECT * FROM tb_img_procurados WHERE id_procurados IS NULL;

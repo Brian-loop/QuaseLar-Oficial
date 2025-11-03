@@ -34,5 +34,25 @@ class Adocao {
         return $this->conn->lastInsertId();
     }
 
+ public function consultarAnimaisDoacao()
+    {
+
+        $cmd = $this->conn->query("
+      SELECT *,
+       (SELECT nome_arquivo 
+        FROM tb_img_animal
+        WHERE id_adocao = tb_adocao.id_adocao
+        LIMIT 1) AS foto_capa_adocao
+       FROM tb_procurados
+");
+
+        if ($cmd->rowCount() > 0) {
+            $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            $dados = array();
+        }
+        return $dados;
+    }
+
 
 }
