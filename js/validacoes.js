@@ -502,3 +502,21 @@ function validarSemPeloId(){
 }
  window.onload = validarSemPeloId;
 //  validarFormulario();
+
+
+
+function mostrarModal(mensagem, tempo = 3000) {
+    const modal = document.getElementById('modal-temporario');
+    const conteudo = document.getElementById('modal-conteudo');
+    
+    if (!modal || !conteudo) return;
+
+    conteudo.textContent = mensagem;
+    modal.style.display = 'flex';
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, tempo);
+
+    
+}

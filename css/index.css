@@ -178,9 +178,6 @@
     border-radius: 0.5rem;
 }
 .status-chip {
-    position: absolute;
-    top: 0rem;
-    left: 8rem;
     background-color:rgba(145, 190, 231, 1);
     color: white;
     padding: 0.5rem 1rem;
