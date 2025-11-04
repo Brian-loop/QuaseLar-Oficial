@@ -2,7 +2,7 @@
 .config_tela{
     height: 90vh;
     width: 100%;
-    background-color: rgb(230, 202, 237);
+    background-color: rgb(255, 255, 255);
     max-width: 3440px;
     display: flex;
     justify-content: center;
@@ -18,21 +18,21 @@
     grid-template-rows: 5rem 27rem;
 }
 .imagem-configuracoes{
-    border: 1px rgb(143, 153, 51) solid;
+    border: 1px rgb(109, 109, 109) solid;
     height: 32rem;
-    background-color: rgb(143, 153, 51);
+    background-color: rgb(109, 109, 109);
 
 }
 .confg_menu{
-    border: 1px rgb(51, 153, 51) solid;
+    border: 1px #CACACA solid;
     height: 5rem;
     grid-row: 1;
-    background-color: rgb(51, 153, 51);
+    background-color: #CACACA;
     grid-column: 2;
     
 }
 .itens_confg1{
-    background-color: brown;
+    background-color: #F5F5F5;
     height: 27rem;
     grid-row: 2;
     grid-column: 2;

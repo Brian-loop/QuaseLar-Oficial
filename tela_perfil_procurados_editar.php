@@ -4,7 +4,7 @@ include './template/header.php';
 require './class/Procurados.php';
 $procurados = new Procurados();
 
-$id = $_GET['id'] ?? null;
+$id = $_GET['id'];
 if (!$id) {
     die("ID do animal não informado");
 }
@@ -36,20 +36,23 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
 
                     <div class="carousel-track">
                         <?php
-                     
+
                         $caminho_base = './uploads/';
 
                         $num_slides = 5;
 
                         for ($i = 0; $i < $num_slides; $i++) {
-                          
+                            
                             $imagem_existe = isset($dadosImgById[$i]['nome_arquivo']);
 
-                            $url_imagem = $imagem_existe
-                                ? $caminho_base . htmlspecialchars($dadosImgById[$i]['nome_arquivo'])
-                                : './img/sem_foto.png'; 
+                            if ($imagem_existe) {
+                       
+                                $url_imagem = $caminho_base .($dadosImgById[$i]['nome_arquivo']);
+                            } else {
+                          
+                                $url_imagem = './img/sem_foto.png';
+                            }
 
-                           
                             $slide_numero = $i + 1;
                         ?>
                             <div class="carousel-slide slide-<?php echo $slide_numero; ?>">
@@ -110,15 +113,15 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
 
                             <label for="nome_procurados" id="labelNome">Nome do Animal:</label>
 
-                            <input type="text" id="nome_pet" name="nome_procurado_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['nome_p']); ?>" placeholder="Digite o nome" maxlength="28" onblur="validaNomeAnimal()" oninput="validaNomeanimal()">
+                            <input type="text" id="nome_pet" name="nome_procurado_editar" value="<?php echo ($dadosProcuradoById['nome_p']); ?>" placeholder="Digite o nome" maxlength="28" onblur="validaNomeAnimal()" oninput="validaNomeanimal()">
 
                         </div>
                         <div>
                             <label for="sexo" id="labelSexo">Sexo:</label>
                             <select id="sexo" name="sexo_procurado_editar" onblur=" validaSexo()" onselect="validaSexo()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="macho" <?php echo ($dadosProcuradoById['sexo_p'] == 'macho') ? 'selected' : ''; ?>>Macho</option>
-                                <option value="femea" <?php echo ($dadosProcuradoById['sexo_p'] == 'femea') ? 'selected' : ''; ?>>Fêmea</option>
+                                <option value="macho" <?php echo ($dadosProcuradoById['sexo_p'] == 'Macho') ? 'selected' : ''; ?>>Macho</option>
+                                <option value="femea" <?php echo ($dadosProcuradoById['sexo_p'] == 'Femea') ? 'selected' : ''; ?>>Fêmea</option>
                             </select>
                         </div>
                     </div>
@@ -142,24 +145,24 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                             <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['idade_p']); ?>" required oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
                             <select id="idade_tipo" name="idade_tipo_editar" onblur="validaIdadeTipo()" onselect="validaIdadeTipo()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="semanas" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'semanas') ? 'selected' : ''; ?>>Semanas</option>
-                                <option value="meses" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'meses') ? 'selected' : ''; ?>>Meses</option>
-                                <option value="anos" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'anos') ? 'selected' : ''; ?>>Anos</option>
+                                <option value="semanas" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'Semanas') ? 'selected' : ''; ?>>Semanas</option>
+                                <option value="meses" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'Meses') ? 'selected' : ''; ?>>Meses</option>
+                                <option value="anos" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'Anos') ? 'selected' : ''; ?>>Anos</option>
                             </select>
                         </div>
                     </div>
                     <div class="procurados_cad_inputs3">
                         <div>
                             <label for="raca" id="labelRaca">Raça:</label>
-                            <input type="text" id="raca" name="raca_procurado_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['raca_p']); ?>" placeholder="Ex: Shih tzu, vira-lata" required oninput="validaRaca()" onblur="validaRaca()">
+                            <input type="text" id="raca" name="raca_procurado_editar" value="<?php echo ($dadosProcuradoById['raca_p']); ?>" placeholder="Ex: Shih tzu, vira-lata" required oninput="validaRaca()" onblur="validaRaca()">
                         </div>
                         <div>
                             <label for="porte" id="labelPorte">Porte:</label>
                             <select id="porte" name="porte_procurado_editar" onblur="validaPorte()" onselect="validaPorte()">
                                 <option value="" disabled selected>--Selecione--</option>
-                                <option value="grande" <?php echo ($dadosProcuradoById['porte_p'] == 'grande') ? 'selected' : ''; ?>>Grande</option>
-                                <option value="medio" <?php echo ($dadosProcuradoById['porte_p'] == 'medio') ? 'selected' : ''; ?>>Medio</option>
-                                <option value="pequeno" <?php echo ($dadosProcuradoById['porte_p'] == 'pequeno') ? 'selected' : ''; ?>>Pequeno</option>
+                                <option value="grande" <?php echo ($dadosProcuradoById['porte_p'] == 'Grande') ? 'selected' : ''; ?>>Grande</option>
+                                <option value="medio" <?php echo ($dadosProcuradoById['porte_p'] == 'Medio') ? 'selected' : ''; ?>>Medio</option>
+                                <option value="pequeno" <?php echo ($dadosProcuradoById['porte_p'] == 'Pequeno') ? 'selected' : ''; ?>>Pequeno</option>
                             </select>
                         </div>
                     </div>
@@ -168,9 +171,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                         <div>
                             <label for="ultima_informacao" id="label_informacao">Ultima Informação do animal:</label>
                             <textarea name="ultima_editar" id="informacao" rows="5" cols="36" style="resize: none;"
-                                placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao()" onblur="validaInformacao()">
-                                <?php echo htmlspecialchars($dadosProcuradoById['ultima_vez_visto']); ?>
-                            </textarea>
+                                placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao()" onblur="validaInformacao()"><?php echo htmlspecialchars($dadosProcuradoById['ultima_vez_visto']); ?></textarea>
                         </div>
                         <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite">
                             <span id="textoErro"></span>
@@ -193,7 +194,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
         const contador = document.getElementById('contador-caracteres');
 
         // 2. Garante que os elementos existem e que há um maxlength
-        if (!textarea || !contador) {
+        if (!textarea || !contador) {<?php echo ($dadosProcuradoById['sexo_p'] == 'Macho') ? 'selected' : ''; ?>
             console.error("Elementos Textarea ou Contador não encontrados!");
             return;
         }

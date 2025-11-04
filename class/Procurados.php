@@ -82,10 +82,10 @@ class Procurados
 
     public function consultarImgAnimaisById($id)
     {
-        $cmd = $this->conn->prepare("SELECT * FROM tb_procurados WHERE id_procurados = :id_procurados");
+        $cmd = $this->conn->prepare("SELECT * FROM tb_img_procurados WHERE id_procurados = :id_procurados");
         $cmd->bindValue(':id_procurados', $id, PDO::PARAM_INT);
         $cmd->execute();
-        return $cmd->fetch(PDO::FETCH_ASSOC); 
+        return $cmd->fetchAll(PDO::FETCH_ASSOC); 
     }
 
     public function EditarAnimalProcurado($dadosUpdate)

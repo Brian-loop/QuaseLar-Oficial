@@ -1,8 +1,8 @@
 <?php
 include './template/header.php';
-include './class/Procurados.php';
-include './class/Usuario.php';
-include './class/Adocao.php';
+require './class/Procurados.php';
+require './class/Usuario.php';
+require './class/Adocao.php';
 
 $usuario = new Usuario();
 $procurados = new Procurados();

@@ -1,6 +1,6 @@
 <?php
 include('./template/header.php');
-include './class/Usuario.php';
+require './class/Usuario.php';
 require './class/Procurados.php';
 
 
@@ -9,8 +9,8 @@ require './class/Procurados.php';
 $usuario = new Usuario();
 $procurados = new Procurados(); 
 
-$usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario)
-
+$usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario);
+$dadosImgById = $procurados->consultarImgAnimaisById($id);
 
 
 
@@ -75,42 +75,66 @@ $usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario)
                 <h3>Procurado</h3>
             </div>
 
-            <div class="carousel-container-index">
-                <input type="radio" name="slider" id="slide-1" checked>
-                <input type="radio" name="slider" id="slide-2">
-                <input type="radio" name="slider" id="slide-3">
-                <input type="radio" name="slider" id="slide-4">
-                <input type="radio" name="slider" id="slide-5">
-                <div class="carousel-imagens-index">
-                      
-                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 1"></div>
-                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 2"></div>
-                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 3"></div>
-                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 4"></div>
-                        <div class="carousel-slide-index"><img src="./uploads/<?php echo $value['localizacao']; ?>" alt="Slide 5"></div>
+           <div class="carousel-container">
+                    <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
+                    <input type="radio" name="slider" id="slide-2" class="slide_input_radio">
+                    <input type="radio" name="slider" id="slide-3" class="slide_input_radio">
+                    <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
+                    <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
+
+                    <div class="carousel-track">
+                        <?php
+                     
+                        $caminho_base = './uploads/';
+
+                        $num_slides = 5;
+
+                        for ($i = 0; $i < $num_slides; $i++) {
+                          
+                            $imagem_existe = isset($dadosImgById[$i]['nome_arquivo']);
+
+                            $url_imagem = $imagem_existe
+                                ? $caminho_base . htmlspecialchars($dadosImgById[$i]['nome_arquivo'])
+                                : './img/sem_foto.png'; 
+
+                           
+                            $slide_numero = $i + 1;
+                        ?>
+                            <div class="carousel-slide slide-<?php echo $slide_numero; ?>">
+                                <img src="<?php echo $url_imagem; ?>" alt="Slide <?php echo $slide_numero; ?>">
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </div>
-                    <div class="carousel-group-setas">
-                        <label for="slide-5" class="seta-anterior slide-anterior-1">&#10094;</label>
-                        <label for="slide-1" class="seta-anterior slide-anterior-2">&#10094;</label>
-                        <label for="slide-2" class="seta-anterior slide-anterior-3">&#10094;</label>
-                        <label for="slide-3" class="seta-anterior slide-anterior-4">&#10094;</label>
-                        <label for="slide-4" class="seta-anterior slide-anterior-5">&#10094;</label>
-                        
-                    <label for="slide-2" class="seta-proxima proximo-slide-1">&#10095;</label>
-                    <label for="slide-3" class="seta-proxima proximo-slide-2">&#10095;</label>
-                    <label for="slide-4" class="seta-proxima proximo-slide-3">&#10095;</label>
-                    <label for="slide-5" class="seta-proxima proximo-slide-4">&#10095;</label>
-                    <label for="slide-1" class="seta-proxima proximo-slide-5">&#10095;</label>
+
+                    <div class="carousel-nav-arrows">
+                    </div>
+                    <div class="carousel-indicators">
+                    </div>
+                    <div class="carousel-nav-arrows">
+                        <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
+                        <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
+                        <label for="slide-2" class="prev-arrow prev-slide-3"><span>&#10094;</span></label>
+                        <label for="slide-3" class="prev-arrow prev-slide-4"><span>&#10094;</span></label>
+                        <label for="slide-4" class="prev-arrow prev-slide-5"><span>&#10094;</span></label>
+
+                        <label for="slide-2" class="next-arrow next-slide-1"><span>&#10095;</span></label>
+                        <label for="slide-3" class="next-arrow next-slide-2"><span>&#10095;</span></label>
+                        <label for="slide-4" class="next-arrow next-slide-3"><span>&#10095;</span></label>
+                        <label for="slide-5" class="next-arrow next-slide-4"><span>&#10095;</span></label>
+                        <label for="slide-1" class="next-arrow next-slide-5"><span>&#10095;</span></label>
+                    </div>
+
+                    <div class="carousel-indicators">
+                        <label for="slide-1" class="ponto ponto-1"></label>
+                        <label for="slide-2" class="ponto ponto-2"></label>
+                        <label for="slide-3" class="ponto ponto-3"></label>
+                        <label for="slide-4" class="ponto ponto-4"></label>
+                        <label for="slide-5" class="ponto ponto-5"></label>
+                    </div>
                 </div>
-             
-                <div class="carousel-indicadores-index">
-                    <label for="slide-1" class="ponto ponto-1"></label>
-                    <label for="slide-2" class="ponto ponto-2"></label>
-                    <label for="slide-3" class="ponto ponto-3"></label>
-                    <label for="slide-4" class="ponto ponto-4"></label>
-                    <label for="slide-5" class="ponto ponto-5"></label>
-                </div>
-            </div>
+
 
 
             <div class="titulo2-modal-exibicao-procurados">
