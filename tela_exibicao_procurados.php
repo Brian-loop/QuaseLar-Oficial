@@ -116,7 +116,7 @@ $usuarioInfo = $usuario->ConsultaUsuarioById($idUsuario)
             <div class="titulo2-modal-exibicao-procurados">
       
                 <h4><?php echo $valores['nome_p']; ?></h4>
-                <p><strong>Ultima atualização:</strong><?php echo $valores['data_criacao_cad_p']; ?></p>
+                <p><strong>Ultima atualização:</strong><br><?php echo $valores['data_criacao_cad_p']; ?></p>
             </div>
         
         </nav>

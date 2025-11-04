@@ -198,8 +198,8 @@
 }
 
 .titulo2-modal-exibicao-procurados {
-    height: 5rem;
-    width: 13rem;
+    height: 7rem;
+    width: 15rem;
     background-color: rgba(14, 106, 190, 1);
     margin-top: 0.6rem;
     display: flex;
@@ -209,6 +209,7 @@
     justify-content: center;
     border-radius: 1.0rem;
 }
+
 
 .titulo2-exibicao-procurados span {
     font-size: 1.5rem;

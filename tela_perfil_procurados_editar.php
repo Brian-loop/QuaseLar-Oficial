@@ -19,7 +19,7 @@ $dadosProcuradoById = $dadosProcuradoById[0];
 $dadosImgById = $procurados->consultarImgAnimaisById($id);
 
 
-//tela de cadastro de pet desaparecidos
+//tela de edição de pet desaparecidos
 ?>
 
 <section class="page_cad_procurados">
@@ -34,28 +34,36 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                     <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
 
-                    <?php foreach ($dadosImgById as $valores) {
-                    ?>
-                        <div class="carousel-track">
-                            <div class="carousel-slide slide-1">
-                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 1">
+                    <div class="carousel-track">
+                        <?php
+                     
+                        $caminho_base = './uploads/';
+
+                        $num_slides = 5;
+
+                        for ($i = 0; $i < $num_slides; $i++) {
+                          
+                            $imagem_existe = isset($dadosImgById[$i]['nome_arquivo']);
+
+                            $url_imagem = $imagem_existe
+                                ? $caminho_base . htmlspecialchars($dadosImgById[$i]['nome_arquivo'])
+                                : './img/sem_foto.png'; 
+
+                           
+                            $slide_numero = $i + 1;
+                        ?>
+                            <div class="carousel-slide slide-<?php echo $slide_numero; ?>">
+                                <img src="<?php echo $url_imagem; ?>" alt="Slide <?php echo $slide_numero; ?>">
                             </div>
-                            <div class="carousel-slide slide-2">
-                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 2">
-                            </div>
-                            <div class="carousel-slide slide-3">
-                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 3">
-                            </div>
-                            <div class="carousel-slide slide-4">
-                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 4">
-                            </div>
-                            <div class="carousel-slide slide-5">
-                                <img src="./uploads/<?php echo $valores['localizacao']; ?>" alt="Slide 5">
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                        <?php
+                        }
+                        ?>
+                    </div>
+
+                    <div class="carousel-nav-arrows">
+                    </div>
+                    <div class="carousel-indicators">
+                    </div>
                     <div class="carousel-nav-arrows">
                         <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
                         <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
@@ -181,7 +189,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
     // A função principal que configura o contador
     function inicializarContador() {
         // 1. Pega os elementos do DOM
-        const textarea = document.getElementById('ultima_informacao');
+        const textarea = document.getElementById('informacao');
         const contador = document.getElementById('contador-caracteres');
 
         // 2. Garante que os elementos existem e que há um maxlength
