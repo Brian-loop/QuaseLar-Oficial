@@ -1,6 +1,7 @@
 <?php 
 require_once './class/BancoDeDados_conexao.php';
 require_once './class/Usuario.php';
+// require_once __DIR__ . './js/validacoes.js';
 
 echo '<h1>cad_entrar_usuario.php</h1>';
 
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($usuario->cadastrar($dados)) {
         echo "Usuário cadastrado com sucesso!";
-        // header('Location: login.php');
+        header("Location: index.php?runJs=1");
     } else {
         echo "Erro ao cadastrar usuário!";
     }
