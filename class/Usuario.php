@@ -68,7 +68,7 @@ class Usuario {
         $stmt = $this->conn->prepare($script);
         $stmt->bindValue(':id_usuario', $idUsuario, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
 

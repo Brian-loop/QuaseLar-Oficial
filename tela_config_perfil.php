@@ -9,20 +9,34 @@ include './template/header.php';
     <main class="container_confg">
 
             <div class="imagem-configuracoes"></div>
-            <div class="confg_menu">
-
+            <div class="config_menu">
+                <a href="">Informações do Usuario</a>
+                <a href="">Privacidade e Segurança</a>
             </div>
             <nav class="itens_confg1">
-                <label for="">Nome</label>
+                <h3> <strong>Atualizar Informações</strong></h3>
+                <label for=""><strong>Nome</strong></label>
                 <input type="text">
-                <label for=""></label>
+                <label for=""><strong>Telefone</strong></label>
                 <input type="text">
-                <label for=""></label>
+                <label for=""><strong>Email</strong></label>
                 <input type="text">
-
+                <div class="botoes_config">
+                     <button type="button" class="btn btn-secondary" >Limpar Tudo</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
             </nav>
             <nav class="itens_confg2">
-
+                    <h3><strong>Atualizar Informações</strong></h3>
+                    <label for="">Senha</label>
+                    <input type="text">
+                    <label for="">Confirmar senha</label>
+                    <input type="text">
+                    <div class="botoes_config2">
+                        <button  type="button" class="btn btn-danger" >excluir conta</button>
+                        <button type="button" class="btn btn-secondary" >Limpar tudo</button>
+                        <button  type="button" class="btn btn-primary">Salvar</button>
+                    </div>
             </nav>
         </main>
     </form>

@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $procurados = new Procurados();
 
   
-    $id_procurado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo);
+    $id_procurado = $procurados->cadastro($nome, $especie, $raca, $sexo, $porte, $ultima_vez, $idade_valor, $idade_tipo,$id_usuario);
 
    
     if (isset($_FILES["file"]) && $_FILES["file"]["error"][0] == 0) {
