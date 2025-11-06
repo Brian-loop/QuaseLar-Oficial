@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        header("location:tela_exibicao_procurados.php");
+        echo "<script>alert('Animal Cadastrado com sucesso!'); window.location.href='tela_exibicao_procurados_.php';</script>";
         exit;
 
     } else {

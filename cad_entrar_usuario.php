@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = new Usuario();
 
     if ($usuario->cadastrar($dados)) {
-        echo "Usuário cadastrado com sucesso!";
-        header("Location: index.php?runJs=1");
+        echo "<script>alert('Usuario Cadastrado com sucesso!'); window.location.href='index.php';</script>";
     } else {
         echo "Erro ao cadastrar usuário!";
     }

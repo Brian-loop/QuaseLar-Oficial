@@ -57,7 +57,7 @@ $resultado = $adoacao->cadastro($nome, $especie, $raca, $sexo, $porte, $castrado
 
 if ($_SERVER['REQUEST_METHOD'] = 'POST' && isset($_POST['cadastro'])) {
 
-    header("location:tela_cad_pets.php");
+    echo "<script>alert('Animal Cadastrado com sucesso!'); window.location.href='index.php';</script>";
 } else {
 
     echo 'erro na conexao POST para fazer o cadastro';
