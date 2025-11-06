@@ -78,6 +78,14 @@ CREATE TABLE tb_img_procurados (
 
 -- para o adm --    
 
+UPDATE tb_usuario 
+SET status = 'HABILITADO' 
+WHERE status IS NULL OR status = '';
+
+ALTER TABLE tb_usuario 
+MODIFY status ENUM('HABILITADO', 'DESABILITADO') NOT NULL DEFAULT 'HABILITADO';
+
+
 ALTER TABLE tb_usuario ADD COLUMN tipo_usuario ENUM('admin','usuario') DEFAULT 'usuario';
 INSERT INTO tb_usuario (nome, email, senha, tipo_usuario)
 VALUES ('Administrador', 'admin@site.com', 
