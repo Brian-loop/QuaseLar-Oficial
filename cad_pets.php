@@ -1,6 +1,6 @@
 <?php
 include "./class/Adocao.php";
-include './class/BancoDeDados_conexao.php';
+
 
 
 
