@@ -294,6 +294,7 @@ function validaNumero(){
         label.style.color = "green";
         input.classList.add('input-sucesso');
     }
+    
 
     if(numero === ""){
         mostrarErro("Campo obrigatório");

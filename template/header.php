@@ -33,7 +33,7 @@
             <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
             </div>
             <div class="itens2">
-                <a href="" class="entrar" id="direita">Entrar</a>
+                <a href="./tela_cad_entrar_usuarios.php" class="entrar" id="direita">Entrar</a>
                 <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Cadastrar-se</a>
             </div>
         </nav>
@@ -79,3 +79,4 @@
             </div>
         </div>
     </div>
+    

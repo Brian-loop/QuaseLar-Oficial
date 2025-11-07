@@ -1,3 +1,18 @@
+<?php 
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Verifica se é administrador
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    echo "❌ Acesso negado. Esta área é restrita a administradores.";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

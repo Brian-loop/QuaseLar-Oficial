@@ -22,7 +22,8 @@ include './template/header.php';
             <button type="submit" id="btn_login" name="login">Entrar</button>
         </form>
         <!-- tela divisoria -->
-        <div class="tela-movel" id="telaMovel"><span id="texto"></span></div>
+         
+        <!-- <div class="tela-movel" id="telaMovel"><span id="texto"></span></div> -->
 
         <!-- formulario de cadastro -->
         <form action="cad_entrar_usuario.php" method="POST" class="cad_usuario">
@@ -87,7 +88,7 @@ include './template/header.php';
                     </span>
                 </div>
                 <div class="input-group">
-                    <input type="number" class="num_input" id="numero" name="numero" required maxlength="4" onblur="validaNumero()" oninput="validaNumero()">
+                    <input type="number" class="num_input" id="numero" name="numero" required maxlength="4" pattern="[0-9]{4}" onblur="validaNumero()" oninput="validaNumero()">
                     <label for="numero" id="labelNumero">Número</label>
                     <span id="msgErroNumero" class="mensagem-erro-numero" role="alert" aria-live="polite">
                         <i class="bi bi-check-circle icone-ok"></i>
@@ -138,4 +139,51 @@ include './template/header.php';
         </form>
     </main>
 </section>
-            
+<script>
+    function iniciarMovimentoTela() {
+    const tela = document.getElementById("telaMovel");
+    const direita = document.getElementById("direita");
+    const esquerda = document.getElementById("esquerda");
+
+    let texto = document.getElementById("text");
+    texto.innerText = "Entrar";
+    
+    let estaNaDireita = false;
+
+    function moverTela2() {
+        if (estaNaDireita) {
+            tela.style.transform = "translateX(0)";
+            tela.style.width = "20rem";
+            texto.innerText = "Entrar";
+
+
+        } else {
+            tela.style.transform = "translateX(20rem)";
+            tela.style.width = "26rem";
+            texto.innerText = "Cadastrar-se";
+
+        }
+        estaNaDireita = !estaNaDireita; // inverte o estado
+    }
+
+    direita.addEventListener("click", () => {
+        tela.style.transform = "translateX(20rem)";
+        tela.style.width = "26rem";
+        estaNaDireita = true;
+        texto.innerText = "Cadastrar-se";
+
+    });
+    
+    esquerda.addEventListener("click", () => {
+        tela.style.transform = "translateX(0)";
+        tela.style.width = "20rem";
+        estaNaDireita = false;
+        texto.innerText = "Entrar";
+    });
+
+    tela.addEventListener("click", moverTela2);
+}
+
+document.addEventListener("DOMContentLoaded", iniciarMovimentoTela);
+
+</script>
