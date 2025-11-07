@@ -8,8 +8,8 @@ $usuario = new Usuario();
 $procurados = new Procurados();
 $adocao = new Adocao();
 
-$usuarioInfo = $usuario->ConsultaUsuario();
-$imgAnimais = $procurados->consultarImgAnimais();
+
+
 
 
 //tela de cadastro de pet desaparecidos
@@ -49,7 +49,7 @@ $imgAnimais = $procurados->consultarImgAnimais();
     
         <div class="botoes_perfil2">
           <a  href="tela_perfil_procurados_editar.php?id=<?php echo $valores['id_procurados']; ?>" type="button" class="btn btn-primary">Editar</a>
-          <a href="cad_perfil_deletar.php?id_deletar=<?php echo $valores['id_procurados']; ?>" type="button" class="btn btn-danger">Deletar</a>
+          <a href="cad_perfil_deletar_procurado.php?id_deletar=<?php echo $valores['id_procurados']; ?>" type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>
 <?php 
@@ -58,30 +58,28 @@ $imgAnimais = $procurados->consultarImgAnimais();
 ?>
 
   <?php
-        $dadosAdocao = $adocao->consultarAnimaisDoacao();
+        $dadosAdocao = $adocao->consultarAnimaisAdocao();
         if (empty($dadosAdocao)) {
-            echo '<h1> Nenhum animal Cadastrado... </h1>';
+            echo '<h1> Nenhum animal para doação cadastrado... </h1>';
         } else { 
             // echo'<pre>';
             // var_dump($dadosProcurados);
             // echo'</pre>';
-            foreach($$dadosAdocao as $values){
-
-                ?>
+            foreach($dadosAdocao as $values){?>
       <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./uploads/<?php echo $valores['foto_capa_adocao']; ?>"" >
+      <img src="./uploads/<?php echo $values['foto_capa_adocao']; ?>" >
       <div class="cardzin_animal_perfil">
-        <h1 class="nome-animal"><?php echo $valores['nome_pet']; ?></h1>
+        <h1 class="nome-animal"><?php echo $values['nome_pet']; ?></h1>
       </div>
     
         <div class="botoes_perfil2">
-          <a type="button" class="btn btn-primary">Editar</a>
-          <a type="button" class="btn btn-danger">Deletar</a>
+        <a  href="tela_perfil_adocao_editar.php?id=<?php echo $values['id_adocao']; ?>" type="button" class="btn btn-primary">Editar</a>
+        <a href="cad_perfil_deletar_adocao.php?id_deletar=<?php echo $values['id_adocao']; ?>" type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>
  <?php 
-            }
+         }
 } 
 ?>
 </main>
