@@ -84,7 +84,7 @@ WHERE status IS NULL OR status = '';
 
 ALTER TABLE tb_usuario 
 MODIFY status ENUM('HABILITADO', 'DESABILITADO') NOT NULL DEFAULT 'HABILITADO';
-
+--=====================================================---
 ALTER TABLE tb_adocao 
 MODIFY status_cad_pet ENUM('ATIVO', 'DESATIVADO') NOT NULL DEFAULT 'ATIVO';
 

@@ -63,10 +63,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                         ?>
                     </div>
 
-                    <div class="carousel-nav-arrows">
-                    </div>
-                    <div class="carousel-indicators">
-                    </div>
+                 
                     <div class="carousel-nav-arrows">
                         <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
                         <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
@@ -142,7 +139,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                         </div>
                         <div>
                             <label for="idade_animal" id="labelnumero">Idade:</label>
-                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor_editar" value="<?php echo htmlspecialchars($dadosProcuradoById['idade_p']); ?>" required oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
+                            <input type="number" style="width: 3rem;" pattern="[0-9]{2}" maxlength="99" required id="idade_animal" name="idade_valor_editar" value="<?php echo ($dadosProcuradoById['idade_p']); ?>" required oninput="validaNumeroIdade()" onblur="validaNumeroIdade()">
                             <select id="idade_tipo" name="idade_tipo_editar" onblur="validaIdadeTipo()" onselect="validaIdadeTipo()">
                                 <option value="" disabled selected>--Selecione--</option>
                                 <option value="semanas" <?php echo ($dadosProcuradoById['semanas_meses_anos_p'] == 'Semanas') ? 'selected' : ''; ?>>Semanas</option>
@@ -171,7 +168,7 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                         <div>
                             <label for="ultima_informacao" id="label_informacao">Ultima Informação do animal:</label>
                             <textarea name="ultima_editar" id="informacao" rows="5" cols="36" style="resize: none;"
-                                placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao()" onblur="validaInformacao()"><?php echo htmlspecialchars($dadosProcuradoById['ultima_vez_visto']); ?></textarea>
+                                placeholder="Ex: Vi ele na frente de casa ..." maxlength="255" oninput="validanformacao()" onblur="validaInformacao()"><?php echo($dadosProcuradoById['ultima_vez_visto']); ?></textarea>
                         </div>
                         <span id="msgErro-procurado" class="mensagem-erro-procurado" role="alert" aria-live="polite">
                             <span id="textoErro"></span>

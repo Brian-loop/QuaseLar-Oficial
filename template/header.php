@@ -6,7 +6,7 @@
     <title>QuaseLar</title>
     <!-- conexão para o css -->
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/tela_cad_pets.css">
     <link rel="stylesheet" href="./css/tela_cad_entrar_usuarios.css">
     <link rel="stylesheet" href="./css/tela_cad_procurados.css">
@@ -35,6 +35,9 @@
             <div class="itens2">
                 <a href="" class="entrar" id="direita">Entrar</a>
                 <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Cadastrar-se</a>
+                <a href=""></a>
+
+
             </div>
         </nav>
         <button id="hamburger" class="hamburger" aria-label="Abrir Menu">

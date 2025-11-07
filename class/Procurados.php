@@ -108,29 +108,28 @@ class Procurados
             especie_p = :especie_p
             WHERE id_procurados = :id_procurados";
 
-        $stmt = $this->conn->prepare($update);
-        $stmt->bindValue(':id_procurados', $dadosUpdate['id_procurados']);
-        $stmt->bindValue(':nome_p', $dadosUpdate['nome_p']);
-        $stmt->bindValue(':sexo_p', $dadosUpdate['sexo_p']);
-        $stmt->bindValue(':idade_p', $dadosUpdate['idade_p']);
-        $stmt->bindValue(':semanas_meses_anos_p', $dadosUpdate['semanas_meses_anos_p']);
-        $stmt->bindValue(':porte_p', $dadosUpdate['porte_p']);
-        $stmt->bindValue(':raca_p', $dadosUpdate['raca_p']);
-        $stmt->bindValue(':ultima_vez_visto', $dadosUpdate['ultima_vez_visto']);
-        $stmt->bindValue(':especie_p', $dadosUpdate['especie_p']);
+        $script = $this->conn->prepare($update);
+        $script->bindValue(':id_procurados', $dadosUpdate['id_procurados']);
+        $script->bindValue(':nome_p', $dadosUpdate['nome_p']);
+        $script->bindValue(':sexo_p', $dadosUpdate['sexo_p']);
+        $script->bindValue(':idade_p', $dadosUpdate['idade_p']);
+        $script->bindValue(':semanas_meses_anos_p', $dadosUpdate['semanas_meses_anos_p']);
+        $script->bindValue(':porte_p', $dadosUpdate['porte_p']);
+        $script->bindValue(':raca_p', $dadosUpdate['raca_p']);
+        $script->bindValue(':ultima_vez_visto', $dadosUpdate['ultima_vez_visto']);
+        $script->bindValue(':especie_p', $dadosUpdate['especie_p']);
 
 
         var_dump($_POST);
-        return $stmt->execute();
+        return $script->execute();
     }
 
     public function DeletarAnimalProcurado($id)
     {
         $delete = 'DELETE FROM tb_procurados WHERE id_procurados = :id_procurados';
-        $stmt = $this->conn->prepare($delete);
-        $stmt->bindValue(':id_procurados', $id, PDO::PARAM_INT);
-        return $stmt->execute();
+        $script = $this->conn->prepare($delete);
+        $script->bindValue(':id_procurados', $id);
+        return $script->execute();
 
-        return $resultado;
     }
 }
