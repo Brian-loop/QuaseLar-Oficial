@@ -11,10 +11,6 @@ class BancoDeDados_conexao{
             $usuario = $_ENV['USUARIO'];
             $senha = $_ENV['SENHA'];
             //===========================================================================
-            // $dsn = "mysql:dbname=db_quaselar_oficial;host=localhost;charset=utf8";
-            // $usuario = 'root';
-            // $senha = '';
-
             $this->conn = new PDO($dsn, $usuario, $senha);
             
         } catch (PDOException $e) {
