@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['usuario_nome'])) {
+    echo '<script>alert("Precisa estar logado para acessar")</script>';
+    header("Location: ./tela_cad_entrar_usuarios.php");
+    exit;
+}
 include './template/header.php';
 require './class/Procurados.php';
 require './class/Usuario.php';
@@ -7,10 +12,6 @@ require './class/Adocao.php';
 $usuario = new Usuario();
 $procurados = new Procurados();
 $adocao = new Adocao();
-
-
-
-
 
 //tela de cadastro de pet desaparecidos
 ?>

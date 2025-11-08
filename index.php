@@ -1,5 +1,8 @@
 <?php
+session_start();
 include './template/header.php';
+include './class/BancoDeDados_conexao.php';
+include './class/Usuario.php';
 ?>
 
 <section class="apresentacao" style="background-color: rgba(14, 106, 190, 1);">
@@ -21,8 +24,8 @@ include './template/header.php';
 <section class="group_cards">
     <div class="card-adocao">
         <div class="card-header">
+            <!-- <span class="status-chip">Americana/SP</span> -->
             <img src="./img/sobre_nos.png" alt="Foto do animal Mel" class="pet-foto">
-            <span class="status-chip">Americana/SP</span>
         </div>
         <div class="card-body">
             <h2 class="pet-nome">Mel</h2>
@@ -30,21 +33,13 @@ include './template/header.php';
                 Mel é uma fêmea dócil e brincalhona de 2 anos. Adora correr no parque e se dá bem com crianças.
                 Procura um lar cheio de amor!
             </p>
-
             <div class="pet-caracteristicas">
-                <!-- <div class="caracteristica-item">
-                    <strong>Porte:</strong> Médio
-                </div> -->
                 <div class="caracteristica-item">
                     <strong>Idade:</strong> 2 anos
                 </div>
                 <div class="caracteristica-item">
                     <strong>Gênero:</strong> Fêmea
                 </div>
-                <!-- <div class="caracteristica-item">
-                    <strong>Vacinação:</strong> Em dia
-                </div> -->
-
             </div>
             <button class="btn-adotar" onclick="abrirModal()">Saiba mais!</button>
         </div>

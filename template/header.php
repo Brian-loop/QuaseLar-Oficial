@@ -32,13 +32,19 @@
             <div class="itens1">
             <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
             </div>
+
+            <div class="itens3">
+                <a href="">Quero adotar !</a>
+                <a href="">Veja os desaparecios</a>
+            </div>
+            <?php if(isset($_SESSION['usuario_nome'])): ?>
+                <p>Olá, <b><?= htmlspecialchars($_SESSION['usuario_nome']) ?></b>!</p>
+            <?php else: ?>
             <div class="itens2">
                 <a href="./tela_cad_entrar_usuarios.php" class="entrar" id="direita">Entrar</a>
                 <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Cadastrar-se</a>
-                <a href=""></a>
-
-
             </div>
+            <?php endif; ?>
         </nav>
         <button id="hamburger" class="hamburger" aria-label="Abrir Menu">
             <span class="barra1"></span>
@@ -54,11 +60,11 @@
                 <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
                 <li><a href="tela_config_perfil.php"><i class="bi bi-gear-fill"></i>Configurações</a></li>
-                <!-- ================================================================================== -->
-                <!-- so para visualizar a pag do admin-->
-                <li><a href="./template/admin/admin_index.php">admin</a></li>
-                <!-- ================================================================================== -->
-
+                
+            <?php if (isset($_SESSION['usuario_nome'])): ?>    
+                <li><a href="logoff.php?acao=logout"><i class="bi bi-gear-fill"></i>SAIR</a></li>
+            <?php else: ?>
+            <?php endif; ?>
             </ul>
         </nav>
     </header> 
@@ -82,4 +88,3 @@
             </div>
         </div>
     </div>
-    

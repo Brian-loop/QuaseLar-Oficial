@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($usuario->login($email, $senha)) {
         echo "Login bem-sucedido!";
         // redireciona para o painel do usuário
-        // header('Location: painel.php');
+        header('Location: index.php');
         exit;
     } else {
         echo "Email ou senha incorretos!";
