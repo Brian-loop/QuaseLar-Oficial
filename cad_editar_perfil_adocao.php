@@ -6,6 +6,7 @@ $conexao = new BancoDeDados_conexao();
 $resultado = $conexao->getConexao();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_adocao = $_POST['id_adocao'];
     $nome = $_POST['nome'];
     $especie = $_POST['especie'];
     $raca = $_POST['raca'];
@@ -17,12 +18,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $vacinado = $_POST['vacinado'];
     $motivo_da_doacao = $_POST['motivo'];
 
-    $adocao = new Adocao();
-
+    
     $dadosUpdate = [
-     
+        'id_adocao' => $id_adocao,   
+        'nome' => $nome,
+        'sexo' => $sexo,
+        'idade_pet' => $idade_valor,
+        'idade' => $idade_tipo,
+        'porte' => $porte,
+        'raca' => $raca,
+        'motivo' => $motivo_da_doacao,
+        'especie' => $especie,
+        'castrado' => $castrado,
+        'vacinado' => $vacinado
     ];
-
+    
+    $adocao = new Adocao();
+    
     if ($adocao->EditarAnimaladocao($dadosUpdate)) {
         echo "Informações do animal atualizadas!";
     } else {
@@ -46,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         SET nome_arquivo = :nome_arquivo, localizacao = :localizacao 
                         WHERE id_adocao = :id_adocao";
                 $stmt = $resultado->prepare($sql);
-                $stmt->bindValue(':id_adocao', $id);
+                $stmt->bindValue(':id_adocao', $id_adocao);
                 $stmt->bindValue(':nome_arquivo', $novoNome);
                 $stmt->bindValue(':localizacao', $caminho);
                 $stmt->execute();

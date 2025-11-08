@@ -77,6 +77,7 @@ class Adocao
         $cmd->execute();
         return $cmd->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function DeletarAnimaisAdocao($id)
     {
         $delete = 'DELETE FROM tb_adocao WHERE id_adocao = :id_adocao';
@@ -88,29 +89,33 @@ class Adocao
     public function EditarAnimaladocao($dadosUpdate)
     {
         $update = "UPDATE tb_adocao SET
-    nome = :nome_p,
-    sexo= :sexo_p,
-    idade = :idade_p,
-    semanas_meses_anos = :semanas_meses_anos_p,
-    porte = :porte_p,
-    raca = :raca_p,
+    nome_pet = :nome_pet,
+    sexo= :sexo,
+    idade = :idade,
+    semanas_meses_anos = :semanas_meses_anos,
+    porte = :porte,
+    raca = :raca,
     motivo_da_doacao = :motivo_da_doacao,
-    especie= :especie
-    WHERE id_procurados = :id_procurados";
+    especie= :especie,
+    castrado = :castrado,
+    vacinado = :vacinado
+    WHERE id_adocao = :id_adocao";
 
         $script = $this->conn->prepare($update);
-        $script->bindValue(':id_procurados', $dadosUpdate['id_procurados']);
-        $script->bindValue(':nome_p', $dadosUpdate['nome_p']);
-        $script->bindValue(':sexo_p', $dadosUpdate['sexo_p']);
-        $script->bindValue(':idade_p', $dadosUpdate['idade_p']);
-        $script->bindValue(':semanas_meses_anos_p', $dadosUpdate['semanas_meses_anos_p']);
-        $script->bindValue(':porte_p', $dadosUpdate['porte_p']);
-        $script->bindValue(':raca_p', $dadosUpdate['raca_p']);
-        $script->bindValue(':ultima_vez_visto', $dadosUpdate['ultima_vez_visto']);
-        $script->bindValue(':especie_p', $dadosUpdate['especie_p']);
+        $script->bindValue(':id_adocao', $dadosUpdate['id_adocao']);
+        $script->bindValue(':nome_pet', $dadosUpdate['nome']);
+        $script->bindValue(':sexo', $dadosUpdate['sexo']);
+        $script->bindValue(':idade', $dadosUpdate['idade_pet']);
+        $script->bindValue(':semanas_meses_anos', $dadosUpdate['idade']);
+        $script->bindValue(':porte', $dadosUpdate['porte']);
+        $script->bindValue(':raca', $dadosUpdate['raca']);
+        $script->bindValue(':motivo_da_doacao', $dadosUpdate['motivo']);
+        $script->bindValue(':especie', $dadosUpdate['especie']);
+        $script->bindValue(':castrado', $dadosUpdate['castrado']);
+        $script->bindValue(':vacinado', $dadosUpdate['vacinado']);
 
 
-        var_dump($_POST);
+        // var_dump($_POST);
         return $script->execute();
     }
 }

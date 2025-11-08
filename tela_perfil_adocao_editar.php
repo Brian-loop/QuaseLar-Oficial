@@ -103,7 +103,7 @@ $dadosImgById = $adocao->consultarImgAnimaisAdocaoById($id);
                     </div>
                     <div class="pet_cad_inputs1">
                         <div>
-                            <input type="hidden" name="id_procurados" value=" <?php echo $dadosadocaoById['id_adocao']; ?>">
+                            <input type="hidden" name="id_adocao" value="<?php echo $dadosadocaoById['id_adocao']; ?>">
                             <label for="nome_pet" id="labelNome">Nome do pet:</label>
                             <input type="text" id="nome_pet" name="nome" placeholder="Digite o nome do pet"  value="<?php echo ($dadosadocaoById['nome_pet']); ?>"  maxlength="28" onblur=" validaNomeAnimal()" oninput=" validaNomeAnimal()">
                         </div>
