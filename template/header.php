@@ -38,16 +38,16 @@
             <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
             </div>
 
-            <div class="itens3">
-                <a href="">Quero adotar !</a>
-                <a href="">Veja os desaparecios</a>
-            </div>
             <?php if(isset($_SESSION['usuario_nome'])): ?>
+                <div class="itens3">
+                   <a href="" onclick="document.getElementById('card_pets').scrollIntoView({behavior:'smooth'}); return false;"><i class="bi bi-arrow-down-circle"></i>Ver Pets</a>
+                   <a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Veja os Desaparecidos</a>
+                </div>
                 <p>Olá, <b><?= htmlspecialchars($_SESSION['usuario_nome']) ?></b>!</p>
             <?php else: ?>
             <div class="itens2">
-                <a href="./tela_cad_entrar_usuarios.php" class="entrar" id="direita">Entrar</a>
-                <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Cadastrar-se</a>
+       
+                <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Quero adotar !</a>
             </div>
             <?php endif; ?>
         </nav>
@@ -58,11 +58,11 @@
         </button>
         <nav class="tela_burguer" id="tela_menu">
             <ul class="itens_menu">
-                <li class="entrar-menu"><a href="" class="entrar-menu"><i class="bi bi-box-arrow-in-right"></i>Entrar</a></li>
-                <li class="cadastrar-menu"><a href="" class="cadastrar-menu"><i class="bi bi-person-add"></i>Casdastrar-se</a></li>
+                <li class="entrar-menu"><a href="" class="entrar-menu"><i class="bi bi-box-arrow-in-right"></i>Quero adotar !</a></li>
+                <li class="cadastrar-menu"><a href="" class="cadastrar-menu"><i class="bi bi-person-add"></i>Cadastrar-se</a></li>
                 <li><a href="tela_perfil.php"><i class="bi bi-person-circle"></i>Meu Perfil</a></li>
-                <!-- <li><a href="tela_cad_pets.php"><i class="bi bi-box2-heart"></i>Colocar para adoção</a></li> -->
-                <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
+                <!-- <li><a href="template/admin/admin_index.php"><i class="bi bi-box2-heart"></i>Colocar para adoção</a></li> -->
+                 <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
 
                 

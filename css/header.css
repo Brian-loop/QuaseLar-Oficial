@@ -89,29 +89,7 @@
     box-shadow: none;
     transform: scale(0.98);
 }
-.entrar{
-    padding: 12.5px 30px;
-    border: 0;
-    border-radius: 5px;
-    border: 1.6px rgb(192, 188, 188) dashed;
-    color:  #0E6ABE;
-    font-weight: Bold;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    text-decoration: none;
-}
-.entrar:hover {
-    color: white;
-    background-color:#0E6ABE;
-    box-shadow: 0 0 20px #0c5294;
-    transform: scale(1.1);
-}
-.entrar:active {
-    transition: all 0.25s;
-    -webkit-transition: all 0.25s;
-    box-shadow: none;
-    transform: scale(0.98);
-}
+
 /*============================================================================================================================================*/
 /* menu hamburger */
 
@@ -217,7 +195,23 @@
     margin-right: 0.5rem;
     margin-left: 0.6rem;
 }
-
+.itens3 a{
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 5px;
+    border: 1.6px rgb(192, 188, 188) dashed;
+    color:  #0E6ABE;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    text-decoration: none;
+}
+.itens3 a:hover{
+    color: white;
+    background-color:#0E6ABE;
+    box-shadow: 0 0 20px #0c5294;
+    transform: scale(1.1);
+}
 /* botões ocultos */
 /*so para a versão mobile*/
 .entrar-menu, .cadastrar-menu{
