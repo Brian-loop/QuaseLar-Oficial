@@ -56,7 +56,7 @@ if (count($pet_ids) > 0) {
 </section>
 
 <!-- ===================== LISTA DE PETS ===================== -->
-<section class="group_cards">
+<section class="group_cards" id="card_pets">
     <?php foreach ($pets as $pet): ?>
         <?php
         $imgs = $imagens[$pet['id_adocao']] ?? [];
