@@ -1,20 +1,23 @@
-<?php 
-session_start();
+<?php
+require_once __DIR__ . '/../../class/Usuario.php';
+require_once __DIR__ . '/../../class/Procurados.php';
+// session_start();
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../login.php");
-    exit;
-}
+// // Verifica se o usuário está logado
+// if (!isset($_SESSION['usuario_id'])) {
+//     header("Location: ../login.php");
+//     exit;
+// }
 
-// Verifica se é administrador
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
-    echo "❌ Acesso negado. Esta área é restrita a administradores.";
-    exit;
-}
+// // Verifica se é administrador
+// if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+//     echo "❌ Acesso negado. Esta área é restrita a administradores.";
+//     exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,40 +76,40 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label" for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="Digite o email">
+                            <input type="email" class="form-control" name="email" placeholder="Digite o email">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Telefone</label>
-                            <input type="text" class="form-control" placeholder="(99) 99999-9999">
+                            <input type="text" class="form-control" name="telefone" placeholder="(99) 99999-9999">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">CPF</label>
-                            <input type="text" class="form-control" placeholder="Digite o CPF">
+                            <input type="text" class="form-control" name="cpf" placeholder="Digite o CPF">
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">CEP</label>
-                            <input type="text" class="form-control" placeholder="Digite o CEP">
+                            <input type="text" class="form-control" name="cep" placeholder="Digite o CEP">
                         </div>
                         <div class="col-md-2">
                             <label class="form-label">Número</label>
-                            <input type="text" class="form-control" placeholder="Digite o número">
+                            <input type="text" class="form-control" name="numero" placeholder="Digite o número">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Endereço</label>
-                            <input type="text" class="form-control" placeholder="Rua, número, bairro">
+                            <input type="text" class="form-control" name="endereco" placeholder="Rua, número, bairro">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Senha</label>
-                            <input type="password" class="form-control" placeholder="Digite a senha">
+                            <input type="password" class="form-control" name="senha" placeholder="Digite a senha">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Confirmar senha</label>
-                            <input type="password" class="form-control" placeholder="Confirme a senha">
+                            <input type="password" class="form-control" name="confimar-senha" placeholder="Confirme a senha">
                         </div>
 
                         <div class="col-12">
@@ -139,21 +142,28 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="tr-css">
-                                    <td><button class="btn btn-warning btn-sm" id="btnAdminCadUsuario">Editar</button>
-                                        <button class="btn btn-danger btn-sm">Excluir</button>
-                                    </td>
-                                    <td>1</td>
-                                    <td>Mark LEonardo luis</td>
-                                    <td>email@example.com</td>
-                                    <td>19995667307</td>
-                                    <td>23849695766</td>
-                                    <td>136278922</td>
-                                    <td>rua da batata 1233 vila dor Santa-barabara</td>
-                                    <td>1386281736812638126381628376128736812736</td>
-                                    <td>2025-10-31 14:24:15</td>
-                                    <td>admin</td>
-                                </tr>
+                                <?php
+                                $usuario = new Usuario();
+                                $dadosUsuario = $usuario->ConsultaUsuario();
+
+                                foreach ($dadosUsuario as $valores) { ?>
+                                    <tr class="tr-css">
+                                         <td><button class="btn btn-warning btn-sm" id="btnAdminCadUsuario">Editar</button>
+                                            <a href="adm_deletar_usuario.php?id_deletar=<?php echo $valores['id_usuario']; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                                        </td>
+
+                                        <td><?php echo $valores['id_usuario']; ?></td>
+                                        <td><?php echo $valores['nome']; ?></td>
+                                        <td><?php echo $valores['email']; ?></td>
+                                        <td><?php echo $valores['telefone']; ?></td>
+                                        <td><?php echo $valores['cpf']; ?></td>
+                                        <td><?php echo $valores['cep']; ?></td>
+                                        <td><?php echo $valores['endereco']; ?></td>
+                                        <td><?php echo $valores['senha']; ?></td>
+                                        <td><?php echo $valores['data_criacao']; ?></td>
+                                        <td><?php echo $valores['tipo_usuario']; ?></td>
+                                    </tr>
+                                    <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -528,97 +538,88 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
         <!-- CADASTRAR DESAPARECIDOS -->
         <div id="desaparecidos-registrar" class="section">
-            <h3>Cadastrar Animal Desaparecido</h3>
-            <form class="mt-3">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Nome do Animal Desaparecido</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Raça</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Idade</label>
-                        <div class="align-items-center d-flex">
+    <h3>Cadastrar Animal Desaparecido</h3>
+    <form class="mt-3" action="adm_cad_procurados.php" method="POST" enctype="multipart/form-data">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label" for="nome_pet">Nome do Animal Desaparecido</label>
+                <input type="text" class="form-control" id="nome_pet" name="nome_procurado" maxlength="28">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="raca">Raça</label>
+                <input type="text" class="form-control" id="raca" name="raca_procurado" placeholder="Ex: Shih tzu, vira-lata">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" for="idade_animal">Idade</label>
+                <div class="align-items-center d-flex">
+                    <input type="number" class="form-control" id="idade_animal" name="idade_valor" style="width: 4rem;">
+                    <select name="idade_tipo" id="idade_tipo" class="form-select" style="width: 8rem;">
+                        <option value="" disabled selected>--Selecione--</option>
+                        <option value="semanas">Semanas</option>
+                        <option value="meses">Meses</option>
+                        <option value="anos">Anos</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" for="sexo">Sexo</label>
+                <select class="form-select" id="sexo" name="sexo_procurado">
+                    <option value="" disabled selected>--Selecione--</option>
+                    <option value="macho">Macho</option>
+                    <option value="femea">Fêmea</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" for="especie">Espécie</label>
+                <select class="form-select" id="especie" name="especie_procurado">
+                    <option value="" disabled selected>--Selecione--</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Coelho">Coelho</option>
+                    <option value="Roedor">Roedor</option>
+                    <option value="Repteis">Répteis</option>
+                    <option value="Outros">Outro</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" for="castrado">Castrado</label>
+                <select class="form-select" id="castrado" name="castrado">
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" for="porte">Porte</label>
+                <select class="form-select" id="porte" name="porte_procurado">
+                    <option value="" disabled selected>--Selecione--</option>
+                    <option value="pequeno">Pequeno</option>
+                    <option value="medio">Médio</option>
+                    <option value="grande">Grande</option>
+                </select>
+            </div>
 
-                            <input type="number" class="form-control" style="width: 4rem;">
-                            <select name="" id="" class="form-select" style="width: 8rem;">
-                                <option value="">Semanas</option>
-                                <option value="">Meses</option>
-                                <option value="">Anos</option>
-                            </select>
+            <div class="col-md-12">
+                <div class="card shadow-sm mt-3">
+                    <div class="card-body">
+                        <h4 class="mb-3">Enviar até 5 imagens</h4>
+                        <div class="mb-3 d-flex gap-2">
+                            <input class="form-control" type="file" id="file" name="file[]" accept="image/*" multiple >
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Sexo</label>
-                        <select class="form-select">
-                            <option>Macho</option>
-                            <option>Fêmea</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Espécie</label>
-                        <select class="form-select">
-                            <option>Cachorro</option>
-                            <option>Gato</option>
-                            <option>Coelho</option>
-                            <option>Roedor</option>
-                            <option>Répteis</option>
-                            <option>Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label class="form-label">Castrado</label>
-                        <select class="form-select">
-                            <option>Sim</option>
-                            <option>Não</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label class="form-label">Porte</label>
-                        <select class="form-select">
-                            <option>Pequeno</option>
-                            <option>Médio</option>
-                            <option>Grande</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card shadow-sm mt-3">
-                            <div class="card-body">
-                                <h4 class="mb-3">Enviar até 5 imagens</h4>
-                                <div class="mb-3 d-flex gap-2">
-                                    <input class="form-control" type="file" id="inputImagensDesaparecidos"
-                                        accept="image/*" multiple>
-                                    <button type="button" class="btn btn-success" style="width: 200px;"
-                                        onclick="handleImageUpload('desaparecidos')">Adicionar Imagem</button>
-                                </div>
-                                <label style="font-size: 0.785rem;">Clique no botão "Adicionar Imagem" para
-                                    visualizar a
-                                    imagem ou as imagens selecionada.</label>
-                                <div class="preview-container d-flex flex-wrap gap-2" id="previewDesaparecidos">
-                                </div>
-                                <button type="button" class="btn btn-outline-secondary mt-3"
-                                    onclick="resetarPreview('desaparecidos')">Limpar</button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <label class="form-label">Ultima vez visto</label>
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-primary">Cadastrar</button>
+                        <label style="font-size: 0.785rem;">Selecione as imagens e clique em enviar no formulário.</label>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
 
+            <div class="col-md-12">
+                <label class="form-label" for="informacao">Última vez visto</label>
+                <textarea class="form-control" id="informacao" name="ultima" rows="3" placeholder="Ex: Vi ele na frente de casa ..."></textarea>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>
         <!-- LISTAR DESAPARECIDOS -->
         <div id="desaparecidos-listar" class="section">
             <h3>Lista de Animais Desaparecidos</h3>
@@ -644,25 +645,31 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+
+                            $procurados = new Procurados();
+                            $dadosProcurados = $procurados->consultarAnimais();
+                            
+                            foreach ($dadosProcurados as $valores)
+                            {?>   
                             <tr class="tr-css">
                                 <td>
                                     <button class="btn btn-warning btn-sm" id="btnAdminCadProdurados">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                    <a href="adm_deletar_procurados.php?id_deletar=<?php echo $valores['id_procurados']; ?>" class="btn btn-danger btn-sm">Excluir</a>
                                 </td>
-                                <td>1</td>
-                                <td>Rex</td>
-                                <td>Vira-lata</td>
-                                <td>2</td>
-                                <td>Meses</td>
-                                <td>Macho</td>
-                                <td>Cachorro</td>
-                                <td>Médio</td>
+                                <td><?php echo $valores['id_procurados']; ?></td>
+                                <td><?php echo $valores['nome_p']; ?></td>
+                                <td><?php echo $valores['raca_p']; ?></td>
+                                <td><?php echo $valores['idade_p']; ?></td>
+                                <td><?php echo $valores['semanas_meses_anos_p']; ?></td>
+                                <td><?php echo $valores['sexo_p']; ?></td>
+                                <td><?php echo $valores['especie_p']; ?></td>
+                                <td><?php echo $valores['porte_p']; ?></td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalDesaparecido1">Ver Imagens</button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="modalDesaparecido1" tabindex="-1"
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="modalDesaparecido1" tabindex="-1"
                                         aria-labelledby="labelDesaparecido1" aria-hidden="true">
                                         <div class="modal-dialog modal-xl modal-dialog-centered">
                                             <div class="modal-content">
@@ -670,32 +677,33 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                                                     <h5 class="modal-title" id="labelDesaparecido1">Galeria de
                                                         Imagens -
                                                         Rex</h5>
-                                                    <button type="button" class="btn-close"
+                                                        <button type="button" class="btn-close"
                                                         data-bs-dismiss="modal"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row g-2">
-                                                        <div class="col-6 col-md-2"><img
-                                                                src="./img/Captura de tela 2025-09-02 194013.png"
-                                                                class="img-fluid rounded"></div>
-                                                        <div class="col-6 col-md-2"><img src="./img/Captura2.png"
-                                                                class="img-fluid rounded"></div>
-                                                        <div class="col-6 col-md-2"><img src="./img/Captura3.png"
-                                                                class="img-fluid rounded"></div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row g-2">
+                                                            <div class="col-6 col-md-2"><img
+                                                            src="./img/Captura de tela 2025-09-02 194013.png"
+                                                            class="img-fluid rounded"></div>
+                                                            <div class="col-6 col-md-2"><img src="./img/Captura2.png"
+                                                            class="img-fluid rounded"></div>
+                                                            <div class="col-6 col-md-2"><img src="./img/Captura3.png"
+                                                            class="img-fluid rounded"></div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-danger"
-                                                        data-bs-dismiss="modal">Fechar</button>
+                                                    data-bs-dismiss="modal">Fechar</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Problemas de saúde</td>
-                                <td>2025-10-31 14:24:15</td>
-                                <td>Ativo</td>
+                                 <td><?php echo $valores['ultima_vez_visto']; ?></td>
+                                <td><?php echo $valores['data_criacao_cad_p']; ?></td>
+                                <td><?php echo $valores['status_p']; ?></td>
                             </tr>
+                            <?php }?>
                         </tbody>
                     </table>
                 </div>

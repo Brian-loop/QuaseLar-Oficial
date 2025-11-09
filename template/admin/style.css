@@ -3,6 +3,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 .wrapper {
     display: flex;
