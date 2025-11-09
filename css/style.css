@@ -89,61 +89,6 @@
 
 
 }
-/* laptop*/
-@media screen and (max-width:1200px) and (min-width:769px){
-    /* .grid{
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 200px);
-    }
-    .box{
-        background-color: blue;
-        transition: 1s;
-    } */
-
-}
-/* mobile */
-@media screen and (max-width:768px) {
-    /* .grid{
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 200px);
-    }
-    .box{
-        background-color: brown;
-        transition: 1s;
-    } */
-    .apresentacao{
-        background: none;
-    }
-    .mobile-img{
-        display: block;
-        border: 1px red solid;
-    }
-    .group_text_apresentacao{
-        width: 100%;
-        height: 100%;
-        grid-template-columns: 1fr;
-        grid-template-rows: 35% 35% 30% ;
-
-    }
-    .txt_apresentacao1{
-        padding: 3rem;
-        grid-column: 1;
-        grid-row: 2;
-        padding-bottom: 0;
-        padding-top: 0.875rem;
-    }
-    .txt_apresentacao2{
-        padding: 3rem;
-        padding-bottom: 0.875rem;
-        padding-top: 0;
-        grid-column: 1;
-        grid-row: 3;
-        
-    }
-}
-
-
-/**/
 .card-adocao {
     background-color: #ffffff;
     width: 100%;
@@ -174,16 +119,7 @@
     border-style: none;
     border-radius: 0.5rem;
 }
-.status-chip {
-    background-color:rgba(145, 190, 231, 1);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: bold;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
-}
+
 .card-body{
     padding: 1.5rem;
     padding-bottom: 1rem;
@@ -291,7 +227,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: -2rem;
 }
 .titulo2-modalIndex{
     height: 5rem;
@@ -312,6 +248,7 @@
 .titulo2-modalIndex p{
     font-size: 0.75rem;
 }
+
 .itens-modal-index1{
     height: 100%;
     width: 23rem;
@@ -327,152 +264,6 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-}
-/*Carroseul*/
-
-.carousel-container-index input[type="radio"]{
-    display: none;
-}
-
-/*Container Principal com o limite de tamanho (24rem x 24rem) */
-.carousel-container-index{
-    position: relative;
-    width: 22rem; 
-    height: 22rem; 
-    overflow: hidden; 
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Pista/Trilha do Carrossel */
-.carousel-imagens-index{
-    display: flex;
-    width: 500%; /* 5 slides * 100% */
-    height: 100%;
-    transition: transform 0.5s ease-in-out; /* Adiciona a transição de deslize */
-}
-
-/*Estilo de cada Slide/Imagem */
-.carousel-slide-index {
-    width: 20%; /* 100% / 5 slides = 20% */
-    height: 100%;
-    flex-shrink: 0;
-}
-
-.carousel-slide-index img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
-}
-
-/*Lógica de Navegação: Quando um rádio é checado, move a pista (imagens) */
-#slide-1:checked ~ .carousel-imagens-index {
-    transform: translateX(0);
-}
-#slide-2:checked ~ .carousel-imagens-index {
-    transform: translateX(-20%);
-}
-#slide-3:checked ~ .carousel-imagens-index {
-    transform: translateX(-40%);
-}
-#slide-4:checked ~ .carousel-imagens-index {
-    transform: translateX(-60%);
-}
-#slide-5:checked ~ .carousel-imagens-index {
-    transform: translateX(-80%);
-}
-
-/*Estilo e Posicionamento das Setas */
-.carousel-group-setas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.seta-anterior, .seta-proxima {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 10;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 0 0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    opacity: 0; /* Esconde a seta por padrão */
-    transition: opacity 0.3s;
-}
-
-.carousel-container-index:hover .seta-anterior, 
-.carousel-container-index:hover .seta-proxima {
-    opacity: 1; /* Mostra a seta ao passar o mouse */
-}
-
-.seta-anterior{
-    left: 0.5rem;
-}
-
-.seta-proxima{
-    right: 0.5rem;
-}
-/* Lógica: Mostra APENAS a seta de navegação da imagem anterior e da próxima */
-/* PRÓXIMO: Mostra a seta "Next" quando o slide atual está checado */
-#slide-1:checked ~ .carousel-group-setas .proximo-slide-1,
-#slide-2:checked ~ .carousel-group-setas .proximo-slide-2,
-#slide-3:checked ~ .carousel-group-setas .proximo-slide-3,
-#slide-4:checked ~ .carousel-group-setas .proximo-slide-4,
-#slide-5:checked ~ .carousel-group-setas .proximo-slide-5 {
-    display: block;
-}
-/* ANTERIOR: Mostra a seta "Prev" quando o slide atual está checado */
-#slide-1:checked ~ .carousel-group-setas .slide-anterior-1,
-#slide-2:checked ~ .carousel-group-setas .slide-anterior-2,
-#slide-3:checked ~ .carousel-group-setas .slide-anterior-3,
-#slide-4:checked ~ .carousel-group-setas .slide-anterior-4,
-#slide-5:checked ~ .carousel-group-setas .slide-anterior-5 {
-    display: block;
-}
-/* Esconde todas as setas (exceto as que devem aparecer) */
-.seta-anterior, .seta-proxima {
-    display: none;
-}
-/* Estilo e Posicionamento dos Indicadores (Inputs Radius/Pontos) */
-.carousel-indicadores-index{
-    position: absolute;
-    bottom: 0.5rem;
-    /* left: 0; */
-    left: 8rem;
-    /* transform: translateX(-50%); */
-    display: flex;
-    gap: 0.5rem;
-    /* z-index: 10; */
-}
-.ponto{
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.ponto:hover{
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-/* Lógica: Mudar cor do ponto ativo (checado) */
-#slide-1:checked ~ .carousel-indicadores-index .ponto-1,
-#slide-2:checked ~ .carousel-indicadores-index .ponto-2,
-#slide-3:checked ~ .carousel-indicadores-index .ponto-3,
-#slide-4:checked ~ .carousel-indicadores-index .ponto-4,
-#slide-5:checked ~ .carousel-indicadores-index .ponto-5 {
-    background-color: #007bff; /* Cor de destaque para o ponto ativo */
-    border: 2px solid white;
 }
 
 /*laod direito do modal*/

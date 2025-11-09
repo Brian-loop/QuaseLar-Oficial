@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="./css/tela_exibicao_procurados.css">
     <link rel="stylesheet" href="./css/tela_perfil.css">
 
+    <!-- <link rel="stylesheet" href="./style1.css"> -->
+    <!-- <link rel="stylesheet" href="./style2.css"> -->
+
+    
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- bootstrap icons-->
@@ -24,6 +29,7 @@
     <script defer src="./js/script.js"></script>
     <script defer src="./js/validacoes.js"></script>
     <script defer src="./js/validacoes-animal.js"></script>
+    <!-- <script defer src="./js/scriptDoIndex.js"></script> -->
     
 </head>
 <body class="body">
