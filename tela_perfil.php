@@ -16,6 +16,7 @@ $adocao = new Adocao();
 //tela de cadastro de pet desaparecidos
 ?>
 
+
 <section class="fundo-perfil">
       <div class="caixa-aviso-perfil">
         <div class="texto_titulo_perfil">
@@ -58,6 +59,7 @@ $adocao = new Adocao();
 } 
 ?>
 
+
   <?php
         $dadosAdocao = $adocao->consultarAnimaisAdocao();
         if (empty($dadosAdocao)) {
@@ -66,10 +68,14 @@ $adocao = new Adocao();
             // echo'<pre>';
             // var_dump($dadosProcurados);
             // echo'</pre>';
-            foreach($dadosAdocao as $values){?>
+            foreach($dadosAdocao as $values)
+         
+              var_dump($values['foto_capa_adocao']);
+         {?>
+          
       <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Adoção</h3>
-      <img src="./uploads/<?php echo $values['foto_capa_adocao']; ?>" >
+     <img src="./uploads/<?php echo $values['foto_capa_adocao'] ?? 'sem_foto.png'; ?>" alt="Foto do animal">
       <div class="cardzin_animal_perfil">
         <h1 class="nome-animal"><?php echo $values['nome_pet']; ?></h1>
       </div>

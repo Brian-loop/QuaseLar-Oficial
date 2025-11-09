@@ -26,7 +26,8 @@ $dadosImgById = $adocao->consultarImgAnimaisAdocaoById($id);
 <section class="page_cad_pets">
     <main class="cad_pets">
 
-        <form action="./cad_editar_perfil_adocao.php" method="POST" enctype="multipart/form-data" class="form-adocao">
+       
+        <form action="cad_editar_perfil_adocao.php" method="POST" enctype="multipart/form-data" class="form-adocao">
             <nav class="cad_pets_itens1">
                 <div class="carousel-container">
                     <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
@@ -35,33 +36,36 @@ $dadosImgById = $adocao->consultarImgAnimaisAdocaoById($id);
                     <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
                     <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
 
-                    <?php
+                    <div class="carousel-track">
+                        <?php
 
-                    $caminho_base = './uploads/';
+                        $caminho_base = './uploads/';
 
-                    $num_slides = 5;
+                        $num_slides = 5;
 
-                    for ($i = 0; $i < $num_slides; $i++) {
+                        for ($i = 0; $i < $num_slides; $i++) {
+                            
+                            $imagem_existe = isset($dadosImgById[$i]['nome_arquivo']);
 
-                        $imagem_existe = isset($dadosImgById[$i]['nome_arquivo']);
+                            if ($imagem_existe) {
+                       
+                                $url_imagem = $caminho_base .($dadosImgById[$i]['nome_arquivo']);
+                            } else {
+                          
+                                $url_imagem = './img/sem_foto.png';
+                            }
 
-                        if ($imagem_existe) {
-
-                            $url_imagem = $caminho_base . ($dadosImgById[$i]['nome_arquivo']);
-                        } else {
-
-                            $url_imagem = './img/sem_foto.png';
+                            $slide_numero = $i + 1;
+                        ?>
+                            <div class="carousel-slide slide-<?php echo $slide_numero; ?>">
+                                <img src="<?php echo $url_imagem; ?>" alt="Slide <?php echo $slide_numero; ?>">
+                            </div>
+                        <?php
                         }
+                        ?>
+                    </div>
 
-                        $slide_numero = $i + 1;
-                    ?>
-                        <div class="carousel-slide slide-<?php echo $slide_numero; ?>">
-                            <img src="<?php echo $url_imagem; ?>" alt="Slide <?php echo $slide_numero; ?>">
-                        </div>
-                    <?php
-                    }
-                    ?>
-
+                 
                     <div class="carousel-nav-arrows">
                         <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
                         <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
@@ -90,7 +94,7 @@ $dadosImgById = $adocao->consultarImgAnimaisAdocaoById($id);
                         <div class="text_file">
                             <span><i class="bi bi-plus-circle"></i>Adicionar imagens</span>
                         </div>
-                        <input type="file" multiple id="file" name="file[]" accept="image/*" multiple required onchange="previewImagens()">
+                        <input type="file" id="file" name="file[]" accept="image/*" multiple required onchange="previewImagens()">
                         <input type="submit" value="enviar">
                     </label>
                 </div>
