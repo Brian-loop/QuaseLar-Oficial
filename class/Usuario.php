@@ -95,4 +95,47 @@ class Usuario
             return null;
         }
     }
+
+    public function EditarUsuario($dadosUpdate){
+
+
+        $update = "UPDATE tb_usuario SET
+            nome = :nome,
+            email = :email,
+            telefone = :telefone,
+            cpf = :cpf,
+            cep = :cep,
+            endereco = :endereco,
+            senha = :senha
+            WHERE id_usuario = :id_usuario";
+
+        $script = $this->conn->prepare($update);
+        $script->bindValue(':id_usuario', $dadosUpdate['id_usuario']);
+        $script->bindValue(':nome', $dadosUpdate['nome']);
+        $script->bindValue(':telefone', $dadosUpdate['telefone']);
+        $script->bindValue(':cpf', $dadosUpdate['cpf']);
+        $script->bindValue(':cep', $dadosUpdate['cep']);
+        $script->bindValue(':endereco', $dadosUpdate['endereco']);
+        $script->bindValue(':senha', $dadosUpdate['senha']);
+   
+        return $script->execute();
+
+
+    }
+
+public function DeletarUsuario($id){
+
+         $delete = 'DELETE FROM tb_usuario WHERE id_usuario = :id_usuario';
+        $script = $this->conn->prepare($delete);
+        $script->bindValue(':id_usuario', $id);
+        return $script->execute();
+
+
+}
+
+
+
+
+
+
 }
