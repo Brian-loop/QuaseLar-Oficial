@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./css/tela_cad_pets.css">
     <link rel="stylesheet" href="./css/tela_cad_entrar_usuarios.css">
     <link rel="stylesheet" href="./css/tela_cad_procurados.css">
-    <link rel="stylesheet" href="./css/tela_config_perfil.css">
     <link rel="stylesheet" href="./css/tela_exibicao_procurados.css">
     <link rel="stylesheet" href="./css/tela_perfil.css">
 
@@ -65,7 +64,7 @@
                 <!-- <li><a href="tela_cad_pets.php"><i class="bi bi-box2-heart"></i>Colocar para adoção</a></li> -->
                 <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
-                <li><a href="tela_config_perfil.php"><i class="bi bi-gear-fill"></i>Configurações</a></li>
+
                 
             <?php if (isset($_SESSION['usuario_nome'])): ?>    
                 <li><a href="logoff.php?acao=logout"><i class="bi bi-gear-fill"></i>SAIR</a></li>

@@ -120,7 +120,7 @@ class Procurados
         $script->bindValue(':especie_p', $dadosUpdate['especie_p']);
 
 
-        var_dump($_POST);
+       
         return $script->execute();
     }
 
