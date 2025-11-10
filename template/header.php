@@ -54,11 +54,11 @@
                 </p>
                 </p>
             <?php else: ?>
-                <div class="itens2">
-
+                 <div class="itens2">
                     <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Quero adotar !</a>
                 </div>
             <?php endif; ?>
+                 
         </nav>
         <button id="hamburger" class="hamburger" aria-label="Abrir Menu">
             <span class="barra1"></span>
