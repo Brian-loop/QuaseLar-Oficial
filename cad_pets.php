@@ -2,6 +2,8 @@
 include "./class/Adocao.php";
 
 
+$conexao = new BancoDeDados_conexao();
+$resultado = $conexao->getConexao();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -18,20 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $motivo_da_doacao = $_POST['motivo'];
 
     $adocao = new Adocao();
-    $adocao->cadastro(
+
+   $id_adocao = $adocao->cadastro(
         $nome, $especie, $raca, $sexo, $porte, 
         $castrado, $idade_valor, $idade_tipo, 
         $motivo_da_doacao, $vacinado
     );
 
-    // 🔹 2️⃣ Recupera o ID do último registro inserido
-  // 1️⃣ Cadastra o pet e pega o ID do cadastro
-$adocao = new Adocao();
-$idAdocao = $adocao->cadastro(
-    $nome, $especie, $raca, $sexo, $porte, 
-    $castrado, $idade_valor, $idade_tipo, 
-    $motivo_da_doacao, $vacinado
-);
+
 
 // 2️⃣ Faz o upload das imagens
 if (isset($_FILES["file"]) && $_FILES["file"]["error"][0] == 0) {
@@ -42,22 +38,30 @@ if (isset($_FILES["file"]) && $_FILES["file"]["error"][0] == 0) {
         $arquivo_tmp = $_FILES['file']['tmp_name'][$i];
         $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
 
+      
         $novoNome = uniqid() . "." . $extensao;
         $caminho = "./uploads/" . $novoNome;
 
         if (move_uploaded_file($arquivo_tmp, $caminho)) {
             // Associa imagem ao id_adocao recém-cadastrado
             $sql = "INSERT INTO tb_img_animal (id_adocao, nome_arquivo, localizacao)
-                    VALUES (:id_adocao, :nome_arquivo, :localizacao)";
-            $stmt = $adocao->$this->conn->prepare($sql);
-            $stmt->execute([
-                ':id_adocao' => $idAdocao,
-                ':nome_arquivo' => $novoNome,
-                ':localizacao' => $caminho
-            ]);
-        } else {
-            echo 'Erro ao mover o arquivo para a pasta de upload.';
+                    VALUES ('$id_adocao', '$novoNome', '$caminho')";
+          
+                if ($resultado->query($sql)) {
+                    echo 'Foto cadastrada com sucesso!';
+                } else {
+                    echo 'Erro ao cadastrar no banco de dados.';
+                }
+
+            } else {
+                echo 'Erro ao mover o arquivo para a pasta de upload.';
+            }
         }
+
+        echo "<script>alert('Animal Cadastrado com sucesso!'); window.location.href='index.php';</script>";
+        exit;
+
+    } else {
+        echo 'Erro no upload do arquivo.';
     }
-}
 }

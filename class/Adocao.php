@@ -39,14 +39,20 @@ class Adocao
     public function consultarAnimaisAdocao()
     {
 
-        $cmd = $this->conn->query("
-      SELECT *,
-       (SELECT nome_arquivo 
-        FROM tb_img_animal
-        WHERE id_adocao = tb_adocao.id_adocao
-        LIMIT 1) AS foto_capa_adocao
-       FROM tb_adocao
-");
+        $cmd = $this->conn->query(
+      "
+        SELECT 
+            p.*, 
+            (SELECT nome_arquivo 
+             FROM tb_img_animal
+             WHERE id_adocao = p.id_adocao 
+             LIMIT 1) AS foto_capa,
+            u.nome AS nome,
+            u.telefone AS telefone,
+            u.email AS email
+        FROM tb_adocao p
+        LEFT JOIN tb_usuario u ON p.id_usuario = u.id_usuario
+    ");
 
         if ($cmd->rowCount() > 0) {
             $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);

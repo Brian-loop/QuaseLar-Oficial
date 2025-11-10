@@ -5,9 +5,9 @@
 //     exit;
 // }
 include './template/header.php';
-require './class/Procurados.php';
-require './class/Usuario.php';
-require './class/Adocao.php';
+require_once './class/Procurados.php';
+require_once './class/Usuario.php';
+require_once './class/Adocao.php';
 
 $usuario = new Usuario();
 $procurados = new Procurados();
@@ -39,9 +39,9 @@ $adocao = new Adocao();
             // echo'<pre>';
             // var_dump($dadosProcurados);
             // echo'</pre>';
-            foreach($dadosProcurados as $valores){
+    foreach($dadosProcurados as $valores){
 
-                ?>
+   ?>
     <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Procurado</h3>
       <img src="./uploads/<?php echo $valores['foto_capa']; ?>"alt="" >
@@ -70,18 +70,18 @@ $adocao = new Adocao();
             // echo'</pre>';
             foreach($dadosAdocao as $values)
          
-              var_dump($values['foto_capa_adocao']);
-         {?>
+
+         { ?>
           
       <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Adoção</h3>
-     <img src="./uploads/<?php echo $values['foto_capa_adocao'] ?? 'sem_foto.png'; ?>" alt="Foto do animal">
+     <img src="./uploads/<?php echo $values['foto_capa']; ?>"alt="" >
       <div class="cardzin_animal_perfil">
         <h1 class="nome-animal"><?php echo $values['nome_pet']; ?></h1>
       </div>
     
         <div class="botoes_perfil2">
-        <a  href="tela_perfil_adocao_editar.php?id=<?php echo $values['id_adocao']; ?>" type="button" class="btn btn-primary">Editar</a>
+        <a href="tela_perfil_adocao_editar.php?id=<?php echo $values['id_adocao']; ?>" type="button" class="btn btn-primary">Editar</a>
         <a href="cad_perfil_deletar_adocao.php?id_deletar=<?php echo $values['id_adocao']; ?>" type="button" class="btn btn-danger">Deletar</a>
         </div>
     </figure>

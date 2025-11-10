@@ -87,6 +87,7 @@ if (count($pet_ids) > 0) {
 <!-- ===================== MODAL ===================== -->
 <section class="modal-overlay-index">
     <section class="modal-body-index">
+        
         <div class="btn-fechar-index"><i class="bi bi-x"></i></div>
 
         <nav class="itens-modal-index1">

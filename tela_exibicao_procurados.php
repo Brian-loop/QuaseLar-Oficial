@@ -29,179 +29,87 @@ $procurados = new Procurados();
     <!-- // echo "<pre>";
         // print_r($imgAnimais);
         // echo "</pre>"; -->
+<main class="grid_exibicao_procurados">
+<?php
+$dadosProcurados = $procurados->consultarAnimais();
 
-    <main class="grid_exibicao_procurados">
-        <?php
-        $dadosProcurados = $procurados->consultarAnimais();
-        if (empty($dadosProcurados)) {
-            echo '<h1> Nenhum animal Cadastrado... </h1>';
-        } else {
-            // echo'<pre>';
-            // var_dump($dadosProcurados);
-            // echo'</pre>';
-            foreach ($dadosProcurados as $valores) {
+if (empty($dadosProcurados)) {
+    echo '<h1>Nenhum animal cadastrado...</h1>';
+} else {
+    foreach ($dadosProcurados as $valores) {
+        $imagens = $procurados->consultarImgAnimaisById($valores['id_procurados']);
+?>
+    <!-- CARD -->
+    <div class="card-procurados-exibicao">
+        <figure class="card-header-exibicao">
+            <img src="./uploads/<?php echo $valores['foto_capa']; ?>" alt="">
+        </figure>
+        <div class="card-body-procurados-exibicao">
+            <h2 class="pet-nome-procurados"><?php echo $valores['nome_p']; ?></h2>
+            <button class="btn-procurados" data-bs-toggle="modal" data-bs-target="#modal<?php echo $valores['id_procurados']; ?>">
+                Mais Informações!
+            </button>
+            <p class="pet-descricao-procurados"><strong>Última atualização:</strong> <?php echo $valores['data_criacao_cad_p']; ?></p>
+        </div>
+    </div>
 
-        ?>
-
-                <div class="card-procurados-exibicao">
-                    <figure class="card-header-exibicao">
-                        <img src="./uploads/<?php echo $valores['foto_capa']; ?>">
-                        <span class="status-estado">Americana/SP</span>
-                    </figure>
-                    <div class="card-body-procurados-exibicao">
-                        <h2 class="pet-nome-procurados"><?php echo $valores['nome_p']; ?></h2>
-                        <button class="btn-procurados" onclick="abrirModalProcurados(<?php echo $valores['id_procurados']; ?>)">Mais Informações!</button>
-                        <p class="pet-descricao-procurados"><strong>Ultima atualização: </strong><?php echo $valores['data_criacao_cad_p']; ?></p>
-                    </div>
+    <!-- MODAL (UM PARA CADA ANIMAL) -->
+    <div class="modal fade" id="modal<?php echo $valores['id_procurados']; ?>" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" style="max-width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><?php echo htmlspecialchars($valores['nome_p']); ?></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-
-
-
-
-        <?php
-            }
-        }
-        ?>
-    </main>
-</section>
-
-<section class="modal-overlay-exibicao-procurados">
-    <section class="modal-body-exibicao-procurados">
-        <div class="btn-fechar-exibicao-procurados"><i class="bi bi-x"></i></div>
-
-        <nav class="itens-exibicao-procurados">
-            <div class="titulo-modal-exibicao-procurados">
-                <h3>Procurado</h3>
-            </div>
-
-            <div class="carousel-container">
-                <input type="radio" name="slider" id="slide-1" checked class="slide_input_radio">
-                <input type="radio" name="slider" id="slide-2" class="slide_input_radio">
-                <input type="radio" name="slider" id="slide-3" class="slide_input_radio">
-                <input type="radio" name="slider" id="slide-4" class="slide_input_radio">
-                <input type="radio" name="slider" id="slide-5" class="slide_input_radio">
-
-                <div class="carousel-track">
-                    <?php
-
-                    $caminho_base = './uploads/';
-
-                    $num_slides = 5;
-
-                    for ($i = 0; $i < $num_slides; $i++) {
-
-                        $imagem_existe = isset($dadosImgById[$i]['nome_arquivo']);
-
-                        $url_imagem = $imagem_existe
-                            ? $caminho_base . htmlspecialchars($dadosImgById[$i]['nome_arquivo'])
-                            : './img/sem_foto.png';
-
-
-                        $slide_numero = $i + 1;
-                    ?>
-                        <div class="carousel-slide slide-<?php echo $slide_numero; ?>">
-                            <img src="<?php echo $url_imagem; ?>" alt="Slide <?php echo $slide_numero; ?>">
+                <div class="modal-body">
+                    <!-- IMAGENS -->
+                    <div id="carousel<?php echo $valores['id_procurados']; ?>" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php
+                            if (!empty($imagens)) {
+                                $ativo = 'active';
+                                foreach ($imagens as $img) {
+                                    echo '
+                                    <div class="carousel-item ' . $ativo . '">
+                                        <img src="./uploads/' . htmlspecialchars($img['nome_arquivo']) . '" class="d-block w-100" alt="">
+                                    </div>';
+                                    $ativo = ''; // só o primeiro é ativo
+                                }
+                            } else {
+                                echo '<div class="carousel-item active"><img src="./img/sem_foto.png" class="d-block w-100" alt="Sem foto"></div>';
+                            }
+                            ?>
                         </div>
-                    <?php
-                    }
-                    ?>
-                </div>
-
-                <div class="carousel-nav-arrows">
-                </div>
-                <div class="carousel-indicators">
-                </div>
-                <div class="carousel-nav-arrows">
-                    <label for="slide-5" class="prev-arrow prev-slide-1"><span>&#10094;</span></label>
-                    <label for="slide-1" class="prev-arrow prev-slide-2"><span>&#10094;</span></label>
-                    <label for="slide-2" class="prev-arrow prev-slide-3"><span>&#10094;</span></label>
-                    <label for="slide-3" class="prev-arrow prev-slide-4"><span>&#10094;</span></label>
-                    <label for="slide-4" class="prev-arrow prev-slide-5"><span>&#10094;</span></label>
-
-                    <label for="slide-2" class="next-arrow next-slide-1"><span>&#10095;</span></label>
-                    <label for="slide-3" class="next-arrow next-slide-2"><span>&#10095;</span></label>
-                    <label for="slide-4" class="next-arrow next-slide-3"><span>&#10095;</span></label>
-                    <label for="slide-5" class="next-arrow next-slide-4"><span>&#10095;</span></label>
-                    <label for="slide-1" class="next-arrow next-slide-5"><span>&#10095;</span></label>
-                </div>
-
-                <div class="carousel-indicators">
-                    <label for="slide-1" class="ponto ponto-1"></label>
-                    <label for="slide-2" class="ponto ponto-2"></label>
-                    <label for="slide-3" class="ponto ponto-3"></label>
-                    <label for="slide-4" class="ponto ponto-4"></label>
-                    <label for="slide-5" class="ponto ponto-5"></label>
-                </div>
-            </div>
-
-
-
-            <div class="titulo2-modal-exibicao-procurados">
-
-                <h4><?php echo $valores['nome_p']; ?></h4>
-                <p><strong>Ultima atualização:</strong><br><?php echo $valores['data_criacao_cad_p']; ?></p>
-            </div>
-
-        </nav>
-
-        <nav class="itens-exibicao-procurados">
-            <div class="container-modal-index">
-                <!-- info-pet 1 -->
-                <div class="info-pet">
-                    <div class="info-pet-header">
-                        <h3>Informações Do Animal</h3>
-                    </div>
-                    <div class="info-pet-body">
-
-
-                        <div class="group_info_pets">
-                            <p><strong>Nome Do Animal:</strong>
-                            <div> <?php echo $valores['nome_p']; ?></div>
-                            </p>
-                        </div>
-                        <div class="group_info_pets">
-                            <p><strong>Espécie: </strong>
-                            <div><?php echo $valores['especie_p']; ?><div>
-                                    </p>
-                                    <p><strong>Sexo: </strong>
-                                    <div><?php echo $valores['sexo_p']; ?></div>
-                                    </p>
-                                    <p><strong>Idade: </strong>
-                                    <div><?php echo $valores['idade_p']; ?></div>
-                                    </p>
-                                </div>
-                                <div class="group_info_pets">
-                                    <p><strong>Porte:</strong>
-                                    <div><?php echo $valores['porte_p']; ?></div>
-                                    </p>
-                                </div>
-                                <div class="group_info_pets">
-                                    <p><strong>Raça:</strong>
-                                    <div><?php echo $valores['raca_p']; ?></div>
-                                    </p>
-                                </div>
-                                <p><strong>Ultima Informação do animal:</strong></p>
-                                <div class="motivo"><?php echo $valores['ultima_vez_visto']; ?></div>
-                            </div>
-                        </div>
-
-
-
-                        <!-- info-pet 2 -->
-                        <div class="info-pet">
-                            
-                            <div class="info-pet-header2">
-                                <h3>Conversar com Responsável</h3>
-                            </div>
-                            <div class="info-pet-body">
-                                <p><strong>Nome: </strong> <?= $valores['nome'] ?></p>
-                                <p><strong>Telefone: </strong> <?= $valores['telefone'] ?></p>
-                                <p><strong>Email: </strong> <?= $valores['email'] ?></p>
-                            </div>
-                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel<?php echo $valores['id_procurados']; ?>" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel<?php echo $valores['id_procurados']; ?>" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
                     </div>
 
-        </nav>
-    </section>
-</section>
+                    <!-- INFORMAÇÕES DO ANIMAL -->
+                    <h6>Informações do Animal</h6>
+                    <p><strong>Espécie:</strong> <?php echo htmlspecialchars($valores['especie_p']); ?></p>
+                    <p><strong>Raça:</strong> <?php echo htmlspecialchars($valores['raca_p']); ?></p>
+                    <p><strong>Sexo:</strong> <?php echo htmlspecialchars($valores['sexo_p']); ?></p>
+                    <p><strong>Idade:</strong> <?php echo htmlspecialchars($valores['idade_p']); ?> <?php echo htmlspecialchars($valores['semanas_meses_anos_p']); ?></p>
+                    <p><strong>Porte:</strong> <?php echo htmlspecialchars($valores['porte_p']); ?></p>
+                    <p><strong>Última vez visto:</strong> <?php echo nl2br(htmlspecialchars($valores['ultima_vez_visto'])); ?></p>
+
+                    <!-- USUÁRIO -->
+                    <hr>
+                    <h6>Responsável</h6>
+                    <p><strong>Nome:</strong> <?php echo htmlspecialchars($valores['nome']); ?></p>
+                    <p><strong>Telefone:</strong> <?php echo htmlspecialchars($valores['telefone']); ?></p>
+                    <p><strong>Email:</strong> <?php echo htmlspecialchars($valores['email']); ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+    } // fim foreach
+}
+?>
+</main>

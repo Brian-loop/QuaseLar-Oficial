@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
     <!-- <link rel="stylesheet" href="./style1.css"> -->
     <!-- <link rel="stylesheet" href="./style2.css"> -->
 
-    
+
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -25,30 +26,38 @@
     <!-- bootstrap js-->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <!-- arquivos JS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script defer src="./js/script.js"></script>
     <script defer src="./js/validacoes.js"></script>
     <script defer src="./js/validacoes-animal.js"></script>
     <!-- <script defer src="./js/scriptDoIndex.js"></script> -->
-    
+
 </head>
+
 <body class="body">
     <header class="header_html">
         <nav class="group_itens">
             <div class="itens1">
-            <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
+                <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
             </div>
 
-            <?php if(isset($_SESSION['usuario_nome'])): ?>
+            <?php if (isset($_SESSION['usuario_nome'])): ?>
                 <div class="itens3">
-                   <a href="" onclick="document.getElementById('card_pets').scrollIntoView({behavior:'smooth'}); return false;"><i class="bi bi-arrow-down-circle"></i>Ver Pets</a>
-                   <a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Veja os Desaparecidos</a>
+                    <a href="" onclick="document.getElementById('card_pets').scrollIntoView({behavior:'smooth'}); return false;"><i class="bi bi-arrow-down-circle"></i>Ver Pets</a>
+                    <a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Veja os Desaparecidos</a>
                 </div>
-                <p>Olá, <b><?= htmlspecialchars($_SESSION['usuario_nome']) ?></b>!</p>
+                <p class="mar text-start ms-3">
+                    Olá, <b><?= htmlspecialchars($_SESSION['usuario_nome']) ?></b>!
+                </p>
+                </p>
             <?php else: ?>
-            <div class="itens2">
-       
-                <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Quero adotar !</a>
-            </div>
+                <div class="itens2">
+
+                    <a href="./tela_cad_entrar_usuarios.php" class="cadastrar" id="esquerda">Quero adotar !</a>
+                </div>
             <?php endif; ?>
         </nav>
         <button id="hamburger" class="hamburger" aria-label="Abrir Menu">
@@ -62,17 +71,17 @@
                 <li class="cadastrar-menu"><a href="" class="cadastrar-menu"><i class="bi bi-person-add"></i>Cadastrar-se</a></li>
                 <li><a href="tela_perfil.php"><i class="bi bi-person-circle"></i>Meu Perfil</a></li>
                 <!-- <li><a href="template/admin/admin_index.php"><i class="bi bi-box2-heart"></i>Colocar para adoção</a></li> -->
-                 <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
+                <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
 
-                
-            <?php if (isset($_SESSION['usuario_nome'])): ?>    
-                <li><a href="logoff.php?acao=logout"><i class="bi bi-gear-fill"></i>SAIR</a></li>
-            <?php else: ?>
-            <?php endif; ?>
+
+                <?php if (isset($_SESSION['usuario_nome'])): ?>
+                    <li><a href="logoff.php?acao=logout"><i class="bi bi-gear-fill"></i>SAIR</a></li>
+                <?php else: ?>
+                <?php endif; ?>
             </ul>
         </nav>
-    </header> 
+    </header>
     <!-- tela "Quem somos?"  -->
     <div id="meuModal" class="modal">
         <div class="modal-conteudo">
