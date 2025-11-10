@@ -43,12 +43,12 @@
             <div class="itens1">
                 <a href="./index.php" class="logo"><img src="./img/Cat-logo.png">QuaseLar</a>
             </div>
-
+            
+            <div class="itens3">
+                <a href="" onclick="document.getElementById('card_pets').scrollIntoView({behavior:'smooth'}); return false;"><i class="bi bi-arrow-down-circle"></i>Ver Pets</a>
+                <a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Veja os Desaparecidos</a>
+            </div>
             <?php if (isset($_SESSION['usuario_nome'])): ?>
-                <div class="itens3">
-                    <a href="" onclick="document.getElementById('card_pets').scrollIntoView({behavior:'smooth'}); return false;"><i class="bi bi-arrow-down-circle"></i>Ver Pets</a>
-                    <a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Veja os Desaparecidos</a>
-                </div>
                 <p class="mar text-start ms-3">
                     Olá, <b><?= htmlspecialchars($_SESSION['usuario_nome']) ?></b>!
                 </p>
