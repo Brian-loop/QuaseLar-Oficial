@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+    echo '<script>alert("Precisa estar logado para acessar")</script>';
+    header("Location: ./tela_cad_entrar_usuarios.php");
+    exit;
+}
 include('./template/header.php');
 require './class/Usuario.php';
 require './class/Procurados.php';
@@ -58,7 +64,7 @@ if (empty($dadosProcurados)) {
         <div class="modal-dialog modal-sm modal-dialog-centered" style="max-width: 500px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><?php echo htmlspecialchars($valores['nome_p']); ?></h5>
+                    <h5 class="modal-title"><?php echo ($valores['nome_p']); ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
@@ -72,7 +78,7 @@ if (empty($dadosProcurados)) {
                                 foreach ($imagens as $img) {
                                     echo '
                                     <div class="carousel-item ' . $ativo . '">
-                                        <img src="./uploads/' . htmlspecialchars($img['nome_arquivo']) . '" class="d-block w-100" alt="">
+                                        <img src="./uploads/' . ($img['nome_arquivo']) . '" class="d-block w-100" alt="">
                                     </div>';
                                     $ativo = ''; // só o primeiro é ativo
                                 }
@@ -91,19 +97,19 @@ if (empty($dadosProcurados)) {
 
                     <!-- INFORMAÇÕES DO ANIMAL -->
                     <h6>Informações do Animal</h6>
-                    <p><strong>Espécie:</strong> <?php echo htmlspecialchars($valores['especie_p']); ?></p>
-                    <p><strong>Raça:</strong> <?php echo htmlspecialchars($valores['raca_p']); ?></p>
-                    <p><strong>Sexo:</strong> <?php echo htmlspecialchars($valores['sexo_p']); ?></p>
-                    <p><strong>Idade:</strong> <?php echo htmlspecialchars($valores['idade_p']); ?> <?php echo htmlspecialchars($valores['semanas_meses_anos_p']); ?></p>
-                    <p><strong>Porte:</strong> <?php echo htmlspecialchars($valores['porte_p']); ?></p>
-                    <p><strong>Última vez visto:</strong> <?php echo nl2br(htmlspecialchars($valores['ultima_vez_visto'])); ?></p>
+                    <p><strong>Espécie:</strong> <?php echo ($valores['especie_p']); ?></p>
+                    <p><strong>Raça:</strong> <?php echo($valores['raca_p']); ?></p>
+                    <p><strong>Sexo:</strong> <?php echo ($valores['sexo_p']); ?></p>
+                    <p><strong>Idade:</strong> <?php echo ($valores['idade_p']); ?> <?php echo ($valores['semanas_meses_anos_p']); ?></p>
+                    <p><strong>Porte:</strong> <?php echo ($valores['porte_p']); ?></p>
+                    <p><strong>Última vez visto:</strong> <?php echo (($valores['ultima_vez_visto'])); ?></p>
 
                     <!-- USUÁRIO -->
                     <hr>
                     <h6>Responsável</h6>
-                    <p><strong>Nome:</strong> <?php echo htmlspecialchars($valores['nome']); ?></p>
-                    <p><strong>Telefone:</strong> <?php echo htmlspecialchars($valores['telefone']); ?></p>
-                    <p><strong>Email:</strong> <?php echo htmlspecialchars($valores['email']); ?></p>
+                    <p><strong>Nome:</strong> <?php echo ($valores['nome']); ?></p>
+                    <p><strong>Telefone:</strong> <?php echo ($valores['telefone']); ?></p>
+                    <p><strong>Email:</strong> <?php echo ($valores['email']); ?></p>
                 </div>
             </div>
         </div>

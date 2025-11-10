@@ -26,7 +26,12 @@
 │   ├──📄🐘footer.php                       # final do site 
 │   └──📂🧑‍💼admin
 │       ├──📄🐘admin_index.php              # painel de controle do administrador   
-│       ├──📄🐘adm_cad_usuario.php          # 
+│       ├──📄🐘adm_cad_usuario.php          # conexao com o banco para fazer o cadastro do usuario como admin
+│       ├──📄🐘adm_deletar_procurados.php   # conexao com o banco para deletar o animal desaparecido como admin
+│       ├──📄🐘adm_deletar_usuario.php      # conexao com o banco para deletar o cadastro do usuario como admin
+│       ├──📄🐘adm_edit_procurados.php      # conexao com o banco para Editar o cadastro do animal desaparecido como admin
+│       ├──📄🐘adm_cad_procurados.php       # conexao com o banco para faz o cadastro do animal desaparecido como admin
+│       ├──📄🐘adm_edit_usuario.php         # conexao com o banco para Editar o cadastro do usuario como admin
 │       ├──📄✏️style.css🎨                  # estilo para o painel do administrador
 │       └──📄🟡script.js                    
 │    
@@ -82,9 +87,12 @@
 │    
 ├──📄🐘 tela_exibicao_procurados.php        # Tela de exibição dos cards dos animais que estão sendo procurados e o modal com as infomações
 │  
-├──📄🐘 tela_perfil.php                     # Tela onde tem os botões de cadastro, edição e exclusão dos animais e os cards exibindo as imagens
-├──📄🐘 tela_perfil_procurados_editar.php   # Tela do Formulario para edição do cadastro do animal procurado
-├──📄🐘 cad_editar_perfil_procurado.php     # Conexão com a classe para fazer o update das infomações do formulario da edição do animal procurado
-└──📄🐘 cad_perfil_deletar.php              # Conexão com a classe para fazer a exclusão dos dados cadastrados 
+├──📄🐘 tela_perfil.php        # Tela onde tem os botões de cadastro, edição e exclusão dos animais e os cards exibindo as imagens
+├──📄🐘 tela_perfil_adocao_editar            #Tela do Formulario para edição do cadastro do animal para doacao
+├──📄🐘 cad_editar_perfil_adocao.php         # Conexão com a classe para fazer o update das infomações do formulario doacao
+├──📄🐘 cad_perfil_deletar_adocao.php    # Conexão com a classe para fazer a exclusão dos dados cadastrados do animal para doacao
+├──📄🐘 tela_perfil_procurados_editar.php   #Tela do Formulario para edição do cadastro do animal procurado
+├──📄🐘 cad_editar_perfil_procurado.php     # Conexão com a classe para fazer o update das infomações do formulario de procurados
+└──📄🐘 cad_perfil_deletar_procurado.php     # Conexão com a classe para fazer a exclusão dos dados cadastrados do animal procurado
 
 ```

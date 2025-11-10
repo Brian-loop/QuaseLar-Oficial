@@ -41,7 +41,7 @@ class Procurados
     {
 
         $cmd = $this->conn->query(
-      "
+            "
         SELECT 
             p.*, 
             (SELECT nome_arquivo 
@@ -53,7 +53,8 @@ class Procurados
             u.email AS email
         FROM tb_procurados p
         LEFT JOIN tb_usuario u ON p.id_usuario = u.id_usuario
-    ");
+    "
+        );
 
         if ($cmd->rowCount() > 0) {
             $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
@@ -63,19 +64,32 @@ class Procurados
         return $dados;
     }
 
-    public function consultarAnimaisById($id)
+    public function consultarAnimaisById($idUsuario)
     {
 
+        $cmd = $this->conn->prepare("
+        SELECT 
+            p.*, 
+            (SELECT nome_arquivo 
+             FROM tb_img_procurados 
+             WHERE id_procurados = p.id_procurados 
+             LIMIT 1) AS foto_capa,
+            u.nome AS nome,
+            u.telefone AS telefone,
+            u.email AS email
+        FROM tb_procurados p
+        LEFT JOIN tb_usuario u ON p.id_usuario = u.id_usuario
+ WHERE p.id_usuario = :id_usuario
+    ");
 
-        $cmd = $this->conn->prepare("SELECT * FROM tb_procurados WHERE id_procurados = :id_procurados");
-        $cmd->bindValue(':id_procurados', $id);
+        $cmd->bindParam(':id_usuario', $idUsuario, PDO::PARAM_INT);
         $cmd->execute();
+
         if ($cmd->rowCount() > 0) {
-            $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
+            return $cmd->fetchAll   (PDO::FETCH_ASSOC); // retorna só 1 registro
         } else {
-            $dados = array();
+            return null; // nenhum resultado
         }
-        return $dados;
     }
 
     public function consultarImgAnimais()
@@ -121,7 +135,7 @@ class Procurados
         $script->bindValue(':especie_p', $dadosUpdate['especie_p']);
 
 
-       
+
         return $script->execute();
     }
 
@@ -131,6 +145,5 @@ class Procurados
         $script = $this->conn->prepare($delete);
         $script->bindValue(':id_procurados', $id);
         return $script->execute();
-
     }
 }

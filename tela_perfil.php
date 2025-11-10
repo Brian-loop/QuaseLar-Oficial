@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idUsuario = $_SESSION['usuario_id'];
 if (!isset($_SESSION['usuario_nome'])) {
     echo '<script>alert("Precisa estar logado para acessar")</script>';
     header("Location: ./tela_cad_entrar_usuarios.php");
@@ -7,10 +8,8 @@ if (!isset($_SESSION['usuario_nome'])) {
 }
 include './template/header.php';
 require_once './class/Procurados.php';
-require_once './class/Usuario.php';
 require_once './class/Adocao.php';
 
-$usuario = new Usuario();
 $procurados = new Procurados();
 $adocao = new Adocao();
 
@@ -33,7 +32,8 @@ $adocao = new Adocao();
 
 <main class="grid_anuncio">
     <?php
-        $dadosProcurados = $procurados->consultarAnimais();
+    
+        $dadosProcurados = $procurados-> consultarAnimaisById($idUsuario);
         if (empty($dadosProcurados)) {
             echo ' Nenhum animal Cadastrado... ';
         } else { 
@@ -62,9 +62,10 @@ $adocao = new Adocao();
 
 
   <?php
-        $dadosAdocao = $adocao->consultarAnimaisAdocao();
+
+        $dadosAdocao = $adocao->consultarAnimaisAdocaoByUsuario($idUsuario);
         if (empty($dadosAdocao)) {
-            echo '<h1> Nenhum animal para doação cadastrado... </h1>';
+            echo ' Nenhum animal para doação cadastrado...';
         } else { 
             // echo'<pre>';
             // var_dump($dadosProcurados);

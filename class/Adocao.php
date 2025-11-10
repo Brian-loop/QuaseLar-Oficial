@@ -14,33 +14,61 @@ class Adocao
         $this->conn = $db->getConexao();
     }
 
-    public function cadastro($nome, $especie, $raca, $sexo, $porte, $castrado, $idade_valor, $idade_tipo, $motivo_da_doacao, $vacinado)
-    {
-        $script = "INSERT INTO tb_adocao (nome_pet, raca, sexo, porte, castrado, idade, semanas_meses_anos, motivo_da_doacao, especie, vacinado) VALUES (:nome_pet, :raca, :sexo, :porte, :castrado, :idade, :semanas_meses_anos, :motivo_da_doacao, :especie, :vacinado)";
-        $insert = $this->conn->prepare($script);
+    public function cadastro($idUsuario, $nome, $especie, $raca, $sexo, $porte, $castrado, $idade_valor, $idade_tipo, $motivo_da_doacao, $vacinado)
+{
+    $cmd = $this->conn->prepare("
+        INSERT INTO tb_adocao (
+            id_usuario,
+            nome_pet,
+            especie,
+            raca,
+            sexo,
+            porte,
+            castrado,
+            idade,
+            semanas_meses_anos,
+            motivo_da_doacao,
+            vacinado,
+            data_criacao_cad_pet,
+            status_cad_pet
+        ) VALUES (
+            :id_usuario,
+            :nome_pet,
+            :especie,
+            :raca,
+            :sexo,
+            :porte,
+            :castrado,
+            :idade,
+            :semanas_meses_anos,
+            :motivo_da_doacao,
+            :vacinado,
+            NOW(),
+            'ativo'
+        )
+    ");
 
-        $insert->execute([
-            ":nome_pet" => $nome,
-            ":raca" => $raca,
-            ":sexo" => $sexo,
-            ":porte" => $porte,
-            ":castrado" => $castrado,
-            ":idade" => $idade_valor,
-            ":semanas_meses_anos" => $idade_tipo,
-            ":motivo_da_doacao" => $motivo_da_doacao,
-            ":especie" => $especie,
-            ":vacinado" => $vacinado
+    $cmd->bindParam(':id_usuario', $idUsuario, PDO::PARAM_INT);
+    $cmd->bindParam(':nome_pet', $nome);
+    $cmd->bindParam(':especie', $especie);
+    $cmd->bindParam(':raca', $raca);
+    $cmd->bindParam(':sexo', $sexo);
+    $cmd->bindParam(':porte', $porte);
+    $cmd->bindParam(':castrado', $castrado);
+    $cmd->bindParam(':idade', $idade_valor);
+    $cmd->bindParam(':semanas_meses_anos', $idade_tipo);
+    $cmd->bindParam(':motivo_da_doacao', $motivo_da_doacao);
+    $cmd->bindParam(':vacinado', $vacinado);
 
-        ]);
+    $cmd->execute();
 
-        return $this->conn->lastInsertId();
-    }
-
+    return $this->conn->lastInsertId();
+}
     public function consultarAnimaisAdocao()
     {
 
         $cmd = $this->conn->query(
-      "
+            "
         SELECT 
             p.*, 
             (SELECT nome_arquivo 
@@ -52,29 +80,43 @@ class Adocao
             u.email AS email
         FROM tb_adocao p
         LEFT JOIN tb_usuario u ON p.id_usuario = u.id_usuario
+    "
+        );
+
+        if ($cmd->rowCount() > 0) {
+            $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            $dados = array();
+        }
+        return $dados;
+    }
+
+   public function consultarAnimaisAdocaoByUsuario($idUsuario)
+{
+    $cmd = $this->conn->prepare("
+        SELECT 
+            p.*, 
+            (SELECT nome_arquivo 
+             FROM tb_img_animal
+             WHERE id_adocao = p.id_adocao 
+             LIMIT 1) AS foto_capa,
+            u.nome AS nome,
+            u.telefone AS telefone,
+            u.email AS email
+        FROM tb_adocao p
+        LEFT JOIN tb_usuario u ON p.id_usuario = u.id_usuario
+        WHERE p.id_usuario = :id_usuario
     ");
 
-        if ($cmd->rowCount() > 0) {
-            $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            $dados = array();
-        }
-        return $dados;
-    }
+    $cmd->bindParam(':id_usuario', $idUsuario, PDO::PARAM_INT);
+    $cmd->execute();
 
-    public function consultarAnimaisAdocaoById($id)
-    {
-
-        $cmd = $this->conn->prepare("SELECT * FROM tb_adocao WHERE id_adocao = :id_adocao");
-        $cmd->bindValue(':id_adocao', $id);
-        $cmd->execute();
-        if ($cmd->rowCount() > 0) {
-            $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            $dados = array();
-        }
-        return $dados;
+    if ($cmd->rowCount() > 0) {
+        return $cmd->fetchAll(PDO::FETCH_ASSOC); 
+    } else {
+        return []; 
     }
+}
 
     public function consultarImgAnimaisAdocaoById($id)
     {
