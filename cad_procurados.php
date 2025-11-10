@@ -1,6 +1,7 @@
 <?php
 include './class/Procurados.php';
-
+session_start();
+$id_usuario = $_SESSION['usuario_id'];
 
 $conexao = new BancoDeDados_conexao();
 $resultado = $conexao->getConexao();

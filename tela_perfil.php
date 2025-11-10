@@ -1,9 +1,10 @@
 <?php
-// if (!isset($_SESSION['usuario_nome'])) {
-//     echo '<script>alert("Precisa estar logado para acessar")</script>';
-//     header("Location: ./tela_cad_entrar_usuarios.php");
-//     exit;
-// }
+session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+    echo '<script>alert("Precisa estar logado para acessar")</script>';
+    header("Location: ./tela_cad_entrar_usuarios.php");
+    exit;
+}
 include './template/header.php';
 require_once './class/Procurados.php';
 require_once './class/Usuario.php';
