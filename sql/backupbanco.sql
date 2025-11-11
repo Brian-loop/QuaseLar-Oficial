@@ -56,6 +56,7 @@ CREATE TABLE tb_procurados (
     semanas_meses_anos_p ENUM('Semanas', 'Meses', 'Anos'),
     porte_p ENUM('Pequeno', 'Medio', 'Grande'),
     raca_p VARCHAR(100),
+    especie_P VARCHAR(100),
     ultima_vez_visto VARCHAR(255),
     data_criacao_cad_p TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status_p ENUM('Procura-se', 'Encontrado'),
