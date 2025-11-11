@@ -8,11 +8,11 @@ $id = $_GET['id'];
 if (!$id) {
     die("ID do animal não informado");
 }
-
-$dadosProcuradoById = $procurados->consultarAnimaisById($id);
+$dadosProcuradoById = $procurados-> consultarAnimais($id);
 if (!$dadosProcuradoById) {
     die("Animal não encontrado!");
 }
+
 
 $dadosProcuradoById = $dadosProcuradoById[0];
 

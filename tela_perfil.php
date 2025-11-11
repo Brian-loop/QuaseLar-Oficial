@@ -35,13 +35,13 @@ $adocao = new Adocao();
     
         $dadosProcurados = $procurados-> consultarAnimaisById($idUsuario);
         if (empty($dadosProcurados)) {
-            echo ' Nenhum animal Cadastrado... ';
+          echo ' <p> Não tem cadastro<br> de animal desaparecido!</p>';
         } else { 
             // echo'<pre>';
             // var_dump($dadosProcurados);
             // echo'</pre>';
     foreach($dadosProcurados as $valores){
-
+    
    ?>
     <figure class="card_animal_perfil">
       <h3 class="titulo-anuncio">Procurado</h3>
@@ -65,7 +65,7 @@ $adocao = new Adocao();
 
         $dadosAdocao = $adocao->consultarAnimaisAdocaoByUsuario($idUsuario);
         if (empty($dadosAdocao)) {
-            echo ' Nenhum animal para doação cadastrado...';
+            echo '<p>Você não tem cadastrou nenhum animal para adoção!</p>';
         } else { 
             // echo'<pre>';
             // var_dump($dadosProcurados);
