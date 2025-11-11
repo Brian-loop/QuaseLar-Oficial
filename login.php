@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+$idAmin =
 require_once './class/BancoDeDados_conexao.php';
 require_once './class/Usuario.php';
 
