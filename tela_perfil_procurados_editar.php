@@ -1,14 +1,11 @@
 <?php
-
+session_start();
+$idUsuario = $_SESSION['usuario_id'];
 include './template/header.php';
 require './class/Procurados.php';
 $procurados = new Procurados();
 
-$id = $_GET['id'];
-if (!$id) {
-    die("ID do animal não informado");
-}
-$dadosProcuradoById = $procurados-> consultarAnimais($id);
+$dadosProcuradoById = $procurados-> consultarAnimaisById($idUsuario);
 if (!$dadosProcuradoById) {
     die("Animal não encontrado!");
 }
@@ -16,7 +13,7 @@ if (!$dadosProcuradoById) {
 
 $dadosProcuradoById = $dadosProcuradoById[0];
 
-$dadosImgById = $procurados->consultarImgAnimaisById($id);
+$dadosImgById = $procurados->consultarImgAnimaisById($idUsuario);
 
 
 //tela de edição de pet desaparecidos
@@ -186,29 +183,23 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
 <script>
     // A função principal que configura o contador
     function inicializarContador() {
-        // 1. Pega os elementos do DOM
         const textarea = document.getElementById('informacao');
         const contador = document.getElementById('contador-caracteres');
 
-        // 2. Garante que os elementos existem e que há um maxlength
-        if (!textarea || !contador) {<?php echo ($dadosProcuradoById['sexo_p'] == 'Macho') ? 'selected' : ''; ?>
+        // Correção: REMOVIDO PHP QUE QUEBRAVA O JS
+        if (!textarea || !contador) {
             console.error("Elementos Textarea ou Contador não encontrados!");
             return;
         }
 
         const maxLength = textarea.getAttribute('maxlength');
-        if (!maxLength) {
-            console.warn("O Textarea não tem o atributo 'maxlength'. O contador funcionará, mas sem limite.");
-        }
-        // 3. Define a função de atualização do contador
+
         function atualizarContador() {
             const currentLength = textarea.value.length;
 
-            // Se tiver maxlength, mostra a contagem / limite. Senão, mostra só a contagem.
             if (maxLength) {
                 contador.textContent = `${currentLength} / ${maxLength}`;
 
-                // Aplica o estilo de limite
                 if (currentLength >= parseInt(maxLength)) {
                     contador.classList.add('limite-atingido');
                 } else {
@@ -218,43 +209,35 @@ $dadosImgById = $procurados->consultarImgAnimaisById($id);
                 contador.textContent = `${currentLength} caracteres`;
             }
         }
-        // 4. Inicializa o contador com o valor atual (caso haja texto preenchido)
+
         atualizarContador();
-        // 5. Adiciona o listener para atualizar a cada entrada de texto
         textarea.addEventListener('input', atualizarContador);
     }
-    // Chama a função principal quando o conteúdo da página estiver carregado
+
     document.addEventListener('DOMContentLoaded', inicializarContador);
 
+    // ===========================
+    // PREVIEW DAS IMAGENS (SEM ALTERAÇÕES EXTRAS)
+    // ===========================
     function previewImagens() {
         const input = document.getElementById('file');
         const arquivos = input.files;
 
-        // Seleciona todas as imagens dos slides
         const slides = document.querySelectorAll('.carousel-slide img');
 
-
-        // Limita a 5 imagens (uma para cada slide)
         const maxImagens = 5;
         const total = Math.min(arquivos.length, maxImagens);
 
-        // Limpa as imagens anteriores
-        slides.forEach(slide => {
-            slide.src = "";
-        });
-
-        // Mostra as novas imagens nos quadrados
         for (let i = 0; i < total; i++) {
             const leitor = new FileReader();
 
             leitor.onload = function(e) {
-                slides[i].src = e.target.result; // coloca a imagem no slide correspondente
+                slides[i].src = e.target.result;
             };
 
-            leitor.readAsDataURL(arquivos[i]); // lê o arquivo como base64
+            leitor.readAsDataURL(arquivos[i]);
         }
 
-        // Se tiver menos de 5 imagens, as outras ficam vazias
         for (let j = total; j < slides.length; j++) {
             slides[j].src = "./img/sem_foto.png";
         }

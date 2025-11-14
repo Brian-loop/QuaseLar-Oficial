@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+$idUsuario = $_SESSION['usuario_id'];
 include './template/header.php';
 require_once './class/Adocao.php';
 
@@ -11,14 +12,15 @@ if (!$id) {
 }
 
 
-$dadosadocaoById = $adocao->consultarAnimaisAdocao($id);
+$dadosadocaoById = $adocao->consultarAnimaisAdocaoByUsuario($idUsuario);
+
 if (!$dadosadocaoById) {
     die("Animal não encontrado!");
 }
 
 $dadosadocaoById = $dadosadocaoById[0];
 
-$dadosImgById = $adocao->consultarImgAnimaisAdocaoById($id);
+$dadosImgById = $adocao->consultarImgAnimaisAdocaoById($idUsuario);
 
 
 ?>

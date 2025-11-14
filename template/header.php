@@ -48,6 +48,7 @@
                 <a href="" onclick="document.getElementById('card_pets').scrollIntoView({behavior:'smooth'}); return false;"><i class="bi bi-arrow-down-circle"></i>Ver Pets</a>
                 <a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Veja os Desaparecidos</a>
             </div>
+            
             <?php if (isset($_SESSION['usuario_nome'])): ?>
                 <p class="mar text-start ms-3">
                     Olá, <b><?= htmlspecialchars($_SESSION['usuario_nome']) ?></b>!
@@ -70,11 +71,16 @@
                 <li class="entrar-menu"><a href="" class="entrar-menu"><i class="bi bi-box-arrow-in-right"></i>Quero adotar !</a></li>
                 <li class="cadastrar-menu"><a href="" class="cadastrar-menu"><i class="bi bi-person-add"></i>Cadastrar-se</a></li>
                 <li><a href="tela_perfil.php"><i class="bi bi-person-circle"></i>Meu Perfil</a></li>
-                <li><a href="template/admin/admin_index.php"><i class="bi bi-filter-square-fill"></i>Admin</a></li>
+       
                 <li><a href="tela_exibicao_procurados.php"><i class="bi bi-search-heart"></i>Procura-se</a></li>
                 <li><a href="#" onclick="exibirModal()"><i class="bi bi-person-raised-hand"></i>Quem somos?</a></li>
 
+                <?php if (!empty($_SESSION['is_admin']) && $_SESSION['is_admin'] === true): ?>
+                    <li><a href="template/admin/admin_index.php"><i class="bi bi-filter-square-fill"></i>Admin</a></li>
+                <?php else: ?>
+                <?php endif; ?>
 
+                
                 <?php if (isset($_SESSION['usuario_nome'])): ?>
                     <li><a href="logoff.php?acao=logout"><i class="bi bi-gear-fill"></i>SAIR</a></li>
                 <?php else: ?>
