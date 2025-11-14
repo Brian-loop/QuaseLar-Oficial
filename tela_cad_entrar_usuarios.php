@@ -19,7 +19,7 @@ include './template/header.php';
                 <label for="senha">Senha</label>
             </div>
             <!-- <button type="submit" class="btn-cadastrar">Entrar</button> -->
-            <button type="submit" id="btn_login" name="login">Entrar</button>
+            <button type="submit" id="btn_login" name="login" class="btn_Login">Entrar</button>
         </form>
         <!-- tela divisoria -->
          

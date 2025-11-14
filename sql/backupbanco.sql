@@ -13,6 +13,7 @@ CREATE TABLE tb_usuario (
     senha VARCHAR(255),
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status ENUM('HABILITADO', 'DESABILITADO'),
+    tipo_usuario ENUM('admin','usuario') DEFAULT 'usuario',
     PRIMARY KEY (id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -91,7 +92,7 @@ MODIFY status_cad_pet ENUM('ATIVO', 'DESATIVADO') NOT NULL DEFAULT 'ATIVO';
 
 
 
-ALTER TABLE tb_usuario ADD COLUMN tipo_usuario ENUM('admin','usuario') DEFAULT 'usuario';
+-- ALTER TABLE tb_usuario ADD COLUMN tipo_usuario ENUM('admin','usuario') DEFAULT 'usuario';
 INSERT INTO tb_usuario (nome, email, senha, tipo_usuario)
 VALUES ('Administrador', 'admin@site.com', 
         '$2y$10$M6I7gnw6YovWlYj0rf3X6uK2H8l.YVnXr8xK8IahRu.CtVxZ0VgQa', 
